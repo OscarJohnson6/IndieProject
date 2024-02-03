@@ -2,9 +2,9 @@
   <configuration default="false" name="Tomcat 8.5.98" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.98" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="firstmavenwebapp:war">
+      <artifact name="IndieProject:war">
         <settings>
-          <option name="CONTEXT_PATH" value="/firstmavenwebapp_war" />
+          <option name="CONTEXT_PATH" value="/IndieProject_war" />
         </settings>
       </artifact>
     </deployment>
@@ -84,6 +84,7 @@
       <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="install" />
       <option name="BuildArtifacts" enabled="true">
         <artifact name="firstmavenwebapp:war" />
+        <artifact name="IndieProject:war" />
       </option>
     </method>
   </configuration>
