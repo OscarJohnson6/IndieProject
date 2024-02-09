@@ -1,5 +1,8 @@
 package controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,11 +22,13 @@ import java.io.IOException;
         urlPatterns = {"/healthNumbers"}
 )
 
-public class CalculateHealthNumbers extends HttpServlet {
+public class HealthNumbersServlet extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        logger.info("?");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/healthCalculations.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);
     }
 }
