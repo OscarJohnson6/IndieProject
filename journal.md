@@ -18,7 +18,17 @@ from [RapidAPI](https://rapidapi.com/search/fitness) for calculating the health 
 Looked into which HTTP client to use for connecting to APIs. Decided to go with OkHttpClient after reading a stack overflow [post](https://stackoverflow.com/questions/42392778/okhttp-or-httpclient-which-offers-better-functionality-and-more-efficiency) & [article](https://www.wiremock.io/post/java-http-client-comparison) by WireMock.
 While creating my JSP pages I looked at this [site](https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/) to help set up my footer CSS.
 Overall for this week I created the basic display JSPs and layouts for other files to be easily added as well as all the dependencies to the `pom.xml`.
-    <br><br>
+I also searched which package to use for json files I decided to go with `org.json` because
+[geeksforgeeks](https://www.geeksforgeeks.org/parse-json-java/)
+& [tutorialspoint](https://www.tutorialspoint.com/how-can-we-read-a-json-file-in-java)
+& [baeldung](https://www.baeldung.com/java-org-json)
+all had tutorials going over how to use it.
+
+My biggest trouble was getting the json files from the API into a map, I used a Stack Overflow
+[article](https://stackoverflow.com/questions/1568762/accessing-members-of-items-in-a-jsonarray-with-java)
+for help.
+
+<br><br>
 ### Journal 4, 2/13-20/2024
 Pending...
     <br><br>
