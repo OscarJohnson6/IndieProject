@@ -13,13 +13,21 @@ As well as thinking about what to have the project be about and all do.
 
 I have a pretty decent idea of what I plan to make as well as some APIs I might use. 
 I added a sketch of quick wireframe I made for the website. 
-Two APIs I was thinking about using are <a href="">FitCalculator</a> & <a href="">FitCalculator</a> 
-from <a href="">FitCalculator</a> for calculating the health totals as well as creating the exercises.
+Three APIs I was thinking about using are 
+                     <a href="https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/">ExerciseDB</a> 
+& <a href="https://rapidapi.com/malaaddincelik/api/fitness-calculator/">Fitness Calculator</a>
+& <a href="https://rapidapi.com/apininjas/api/exercises-by-api-ninjas/">Exercises API-Ninjas</a>
+from <a href="https://rapidapi.com/search/fitness">RapidAPI</a> for calculating the health totals as well as creating the exercises.
 
 <br>
 <h3>Journal 3, 2/5-12/2024</h3>
 
-Pending...
+Looked into which http client to use for connecting to APIs. Decided to go with OkHttpClient after reading a stack overflow
+<a href="https://stackoverflow.com/questions/42392778/okhttp-or-httpclient-which-offers-better-functionality-and-more-efficiency">post</a>
+& <a href="https://www.wiremock.io/post/java-http-client-comparison">article</a>
+by WireMock. 
+While creating my jsp pages I looked at this <a href="https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/">site</a> to help set up my footer css.
+Overall for this week I created the basic display JSPs and layouts for other files to be easily added as well as all the dependencies to the pom.xml.
 
 <br>
 <h3>Journal 4, 2/13-20/2024</h3>
