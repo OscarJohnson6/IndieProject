@@ -35,6 +35,66 @@
             </select>
 
             <input type="submit" value="Submit" id="exerciseFormSubmit">
+        </form><br>
+
+        <h3>API-Ninja Exercises</h3>
+        <small></small>
+        <form action="${pageContext.request.contextPath}/API-NinjasExercises" method="GET">
+            <label for="exerciseName">Exercise Name:</label>
+            <input type="text" id="exerciseName" name="exerciseName" placeholder="Search by name ex: press">
+
+            <label for="type">Type:</label>
+            <select id="type" name="type">
+                <option value="empty" selected>N/a</option>
+                <option value="cardio">cardio</option>
+                <option value="olympic_weightlifting">olympic_weightlifting</option>
+                <option value="plyometrics">plyometrics</option>
+                <option value="powerlifting">powerlifting</option>
+                <option value="strength">strength</option>
+                <option value="stretching">stretching</option>
+                <option value="strongman">strongman</option>
+            </select>
+
+            <label for="muscle">Muscle:</label>
+            <select id="muscle" name="muscle">
+                <option value="empty" selected>N/a</option>
+                <option value="abductors">abductors</option>
+                <option value="adductors">adductors</option>
+                <option value="biceps">biceps</option>
+                <option value="calves">calves</option>
+                <option value="chest">chest</option>
+                <option value="forearms">forearms</option>
+                <option value="glutes">glutes</option>
+                <option value="hamstrings">hamstrings</option>
+                <option value="lats">lats</option>
+                <option value="lower_back">lower_back</option>
+                <option value="middle_back">middle_back</option>
+                <option value="neck">neck</option>
+                <option value="quadriceps">quadriceps</option>
+                <option value="traps">traps</option>
+                <option value="triceps">triceps</option>
+            </select>
+
+            <fieldset>
+                <legend>Difficulty</legend>
+                <input type="radio" id="empty" name="difficulty" value="empty" checked>
+                <label for="empty">N/a</label><br>
+
+                <input type="radio" id="beginner" name="difficulty" value="beginner">
+                <label for="beginner">beginner</label><br>
+
+                <input type="radio" id="intermediate" name="difficulty" value="intermediate">
+                <label for="intermediate">intermediate</label><br>
+
+                <input type="radio" id="expert" name="difficulty" value="expert">
+                <label for="expert">expert</label><br>
+            </fieldset><br>
+
+            <label for="offset">Offset: (10 - offset = total sets)</label>
+            <input type="number" id="offset"  value="0" min="0" max="10" name="offset"><br>
+
+            <input type="submit" value="Submit" id="ninjaApiFormSubmit">
+            <input type="reset" value="Clear" id="ninjaApiResetSubmit">
         </form>
     </div>
 
