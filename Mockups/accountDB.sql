@@ -10,7 +10,9 @@ drop table if exists HeightEntries;
 drop table if exists NeckLengthEntries;
 drop table if exists WaistLengthEntries;
 
-
+#
+# TABLEs
+#
 CREATE TABLE Users (
                        userId INT AUTO_INCREMENT PRIMARY KEY,
                        userEmail VARCHAR(50) NOT NULL,
@@ -22,28 +24,28 @@ CREATE TABLE Users (
 CREATE TABLE WeightEntries (
                                entryId INT AUTO_INCREMENT PRIMARY KEY,
                                userId INT NOT NULL,
-                               weight FLOAT NOT NULL,
+                               weight FLOAT NOT NULL COMMENT 'As pounds',
                                entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE HeightEntries (
                                entryId INT AUTO_INCREMENT PRIMARY KEY,
                                userId INT NOT NULL,
-                               height INTEGER,
+                               height INTEGER COMMENT 'As inches',
                                entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE NeckLengthEntries (
                                    entryId INT AUTO_INCREMENT PRIMARY KEY,
                                    userId INT NOT NULL,
-                                   neck_length INTEGER,
+                                   neck_length INTEGER COMMENT 'As inches',
                                    entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE WaistLengthEntries (
                                     entryId INT AUTO_INCREMENT PRIMARY KEY,
                                     userId INT NOT NULL,
-                                    waist_length INTEGER,
+                                    waist_length INTEGER COMMENT 'As inches',
                                     entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -63,9 +65,8 @@ ALTER TABLE WaistLengthEntries
     ADD CONSTRAINT Userwaist_fk FOREIGN KEY (userId)
         REFERENCES Users (userId);
 
-
 #
-# Indexes
+# INDEXEs
 #
 create index UserFirstName_ix
     on Users(firstName);
