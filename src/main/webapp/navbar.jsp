@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 </head>
 <body>
+<a href="login.jsp"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
 <h2>FitApp</h2>
 <div class="navBar">
     <a href="healthNumbers">Health Calculations</a>
