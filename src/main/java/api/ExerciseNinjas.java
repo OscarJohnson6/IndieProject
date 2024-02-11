@@ -1,5 +1,6 @@
 package api;
 
+import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,12 +10,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.*;
 
 /**
  * The type Exercise ninjas.
+ *
+ * @author OscarJohnson6
  */
 public class ExerciseNinjas {
     /**
@@ -28,7 +33,7 @@ public class ExerciseNinjas {
     /**
      * The Json map.
      */
-    private Map<Integer, TreeMap<String, String>> jsonMap = new TreeMap<>();
+    private List<TreeMap<String, String>> jsonMap = new ArrayList<>();
 
     /**
      * Create api response map.
@@ -40,13 +45,13 @@ public class ExerciseNinjas {
      * @param offset     the offset
      * @return the map
      */
-    public Map<Integer, TreeMap<String, String>> createApiResponse(String name,
+    public List<TreeMap<String, String>> createApiResponse(String name,
                                                           String type,
                                                           String muscle,
                                                           String difficulty,
                                                           int offset) {
         String url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?";
-        if (name.isEmpty()) {
+        if (!name.isEmpty()) {
             url += "name=" + name;
         }
         if (!type.equals("empty")) {
@@ -71,7 +76,7 @@ public class ExerciseNinjas {
      * @param url the url
      * @return the map
      */
-    private Map<Integer, TreeMap<String, String>> generateResponse(String url) {
+    private List<TreeMap<String, String>> generateResponse(String url) {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -98,24 +103,35 @@ public class ExerciseNinjas {
      * @param response the response
      * @return the json format
      */
-    private Map<Integer, TreeMap<String, String>> setJsonFormat(Response response) {
-        JSONParser parser = new JSONParser();
+    private List<TreeMap<String, String>> setJsonFormat(Response response) {
+        // 1
+        Gson gson = new Gson();
 
         try {
             assert response.body() != null;
-            JSONArray jsonArray = (JSONArray) (parser.parse(response.body().string()));
-            int loop = 0;
-
-            for (Object entry : jsonArray) {
-                JSONObject json = (JSONObject) entry;
-                jsonMap.put(loop, loopJsonKeys(json));
-                loop++;
-            }
+            Type jsonType = new TypeToken<List<TreeMap<String, String>>>() {}.getType();
+            jsonMap = gson.fromJson(response.body().string(), jsonType);
         } catch (IOException ioException) {
             logger.error("Problem reading JSON in setJsonFormat() ", ioException);
-        } catch (ParseException nullPointerException) {
-            logger.error("Json file null ", nullPointerException);
         }
+
+
+        // 2
+//        JSONParser parser = new JSONParser();
+//
+//        try {
+//            assert response.body() != null;
+//            JSONArray jsonArray = (JSONArray) (parser.parse(response.body().string()));
+//
+//            for (Object entry : jsonArray) {
+//                JSONObject json = (JSONObject) entry;
+//                jsonMap.add(loopJsonKeys(json));
+//            }
+//        } catch (IOException ioException) {
+//            logger.error("Problem reading JSON in setJsonFormat() ", ioException);
+//        } catch (ParseException nullPointerException) {
+//            logger.error("Json file null ", nullPointerException);
+//        }
 
         return jsonMap;
     }
