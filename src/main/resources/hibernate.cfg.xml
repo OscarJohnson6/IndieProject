@@ -1,3 +1,4 @@
+
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/sample</property>
@@ -11,6 +12,11 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
         <mapping class="dao.User"/>
+        <mapping class="dao.WeightRecord"/>
+        <mapping class="dao.HeightRecord"/>
+        <mapping class="dao.NeckLengthRecord"/>
+        <mapping class="dao.WaistLengthRecord"/>
+        <mapping class="dao.EntryDate"/>
 
     </session-factory>
 </hibernate-configuration>
