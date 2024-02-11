@@ -30,6 +30,10 @@ public class NeckLengthRecord {
     public NeckLengthRecord() {
     }
 
+    public NeckLengthRecord(int neckLength) {
+        this.neckLength = neckLength;
+    }
+
     /**
      * Instantiates a new Neck length record.
      *

@@ -30,6 +30,10 @@ public class WeightRecord {
     public WeightRecord() {
     }
 
+    public WeightRecord(int weight) {
+        this.weight = weight;
+    }
+
     /**
      * Instantiates a new Weight record.
      *

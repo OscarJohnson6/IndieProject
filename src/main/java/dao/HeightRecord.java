@@ -30,6 +30,10 @@ public class HeightRecord {
     public HeightRecord() {
     }
 
+    public HeightRecord(int height) {
+        this.height = height;
+    }
+
     /**
      * Instantiates a new Height record.
      *

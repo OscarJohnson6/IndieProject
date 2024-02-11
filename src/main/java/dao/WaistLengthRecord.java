@@ -31,6 +31,10 @@ public class WaistLengthRecord {
     public WaistLengthRecord() {
     }
 
+    public WaistLengthRecord(int waistLength) {
+        this.waistLength = waistLength;
+    }
+
     /**
      * Instantiates a new Waist length record.
      *
