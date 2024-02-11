@@ -14,10 +14,10 @@
 <c:choose>
     <c:when test="${results ne null and not empty results}">
         <div class="tableResults">
-            <c:forEach var="result" items="${results}">
-                <h3>Exercise ${result.key+1}</h3>
+            <c:forEach var="result" varStatus="loop" items="${results}">
+                <h3>Exercise ${loop.index + 1}</h3>
                 <table class="ninjaResults">
-                <c:forEach var="mapEntry" items="${result.value}">
+                <c:forEach var="mapEntry" items="${result}">
                     <tr>
                         <th>${mapEntry.key}</th>
                         <td>${mapEntry.value}</td>
