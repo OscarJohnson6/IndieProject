@@ -12,11 +12,26 @@ import javax.validation.constraints.Null;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * The type Fitness calculator.
+ *
+ * @author OscarJohnson6
+ */
 public class FitnessCalculator {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     private Properties properties;
 
+    /**
+     * Create response map.
+     *
+     * @param age      the age
+     * @param gender   the gender
+     * @param height   the height
+     * @param weight   the weight
+     * @param activity the activity
+     * @return the map
+     */
     public Map<Integer, ArrayList<String>> createResponse(int age,
                                                           String gender,
                                                           int height,
