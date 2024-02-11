@@ -28,6 +28,15 @@ My biggest trouble was getting the json files from the API into a map, I used a 
 [article](https://stackoverflow.com/questions/1568762/accessing-members-of-items-in-a-jsonarray-with-java)
 for help.
 
+I ended up finding a different Stack Overflow
+[article](https://stackoverflow.com/questions/443499/convert-json-to-map)
+& a Baeldung [article](https://www.baeldung.com/java-json-maps-comparison)
+which made putting the json in a map a lot easier, put I couldn't figure out how to still reverse the map order while in the list.
+
+A problem I have been having it that when I change my CSS style sheet it doesn't update in the war, so it does not change for a while.
+
+Using hibernate with foreign keys I used this [article](https://www.baeldung.com/hibernate-one-to-many) by Baeldung.
+
 <br><br>
 ### Journal 4, 2/13-20/2024
 Pending...
