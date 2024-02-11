@@ -10,15 +10,20 @@
 <c:import url="head.jsp"/>
     <title>Health Numbers</title>
 <c:import url="navbar.jsp"/>
+    <div id="cardHolder">
+        <article class="card">
+            <h3>BMI</h3>
+            <p>0.0</p>
+        </article>
 
-    <div class="box1">
-        <h3>BMI</h3>
-        <p>0.0</p>
+        <article class="card">
+            <h3>Body Fat Percent</h3>
+            <p>0.0%</p>
+        </article>
+
+        <article class="card">
+            <h3>BMI</h3>
+            <p>0.0</p>
+        </article>
     </div>
-
-    <div class="box1">
-        <h3>Body Fat Percent</h3>
-        <p>0.0%</p>
-    </div>
-
 <c:import url="footer.jsp"/>
