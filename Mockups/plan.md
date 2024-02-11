@@ -14,7 +14,7 @@
 - [x] Create problem statement
 - [x] Update journal 3
 ### Week 3
-- [ ] Add other java beans needed
+- [ ] Add other java dao's needed
 - [ ] Create classes for APIs
 - [ ] Create Servlets for JSPs
 - [ ] Update journal 4
