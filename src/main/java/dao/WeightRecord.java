@@ -1,6 +1,7 @@
 package dao;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * The type Weight record.
@@ -21,8 +22,8 @@ public class WeightRecord {
     @Column(name = "weight")
     private int weight;
 
-    @Embedded
-    private EntryDate entryDate;
+    @Column(name = "entry_date")
+    private Date entryDate;
 
     /**
      * Instantiates a new Weight record.
@@ -42,7 +43,7 @@ public class WeightRecord {
      * @param weight    the weight
      * @param entryDate the entry date
      */
-    public WeightRecord(int id, User user, int weight, EntryDate entryDate) {
+    public WeightRecord(int id, User user, int weight, Date entryDate) {
         this.id = id;
         this.user = user;
         this.weight = weight;
@@ -108,7 +109,7 @@ public class WeightRecord {
      *
      * @return the entry date
      */
-    public EntryDate getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
@@ -117,7 +118,7 @@ public class WeightRecord {
      *
      * @param entryDate the entry date
      */
-    public void setEntryDate(EntryDate entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 

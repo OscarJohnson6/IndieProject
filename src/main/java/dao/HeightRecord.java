@@ -1,6 +1,7 @@
 package dao;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * The type Height record.
@@ -21,8 +22,8 @@ public class HeightRecord {
     @Column(name = "height")
     private int height;
 
-    @Embedded
-    private EntryDate entryDate;
+    @Column(name = "entry_date")
+    private Date entryDate;
 
     /**
      * Instantiates a new Height record.
@@ -42,7 +43,7 @@ public class HeightRecord {
      * @param height    the height
      * @param entryDate the entry date
      */
-    public HeightRecord(int id, User user, int height, EntryDate entryDate) {
+    public HeightRecord(int id, User user, int height, Date entryDate) {
         this.id = id;
         this.user = user;
         this.height = height;
@@ -108,7 +109,7 @@ public class HeightRecord {
      *
      * @return the entry date
      */
-    public EntryDate getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
@@ -117,7 +118,7 @@ public class HeightRecord {
      *
      * @param entryDate the entry date
      */
-    public void setEntryDate(EntryDate entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 

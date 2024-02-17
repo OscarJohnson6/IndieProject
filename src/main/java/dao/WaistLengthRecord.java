@@ -1,6 +1,7 @@
 package dao;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * The type Waist length record.
@@ -21,9 +22,8 @@ public class WaistLengthRecord {
     @Column(name = "waist_length")
     private int waistLength;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "entry_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private EntryDate entryDate;
+    @Column(name = "entry_date")
+    private Date entryDate;
 
     /**
      * Instantiates a new Waist length record.
@@ -43,7 +43,7 @@ public class WaistLengthRecord {
      * @param waistLength the waist length
      * @param entryDate   the entry date
      */
-    public WaistLengthRecord(int id, User user, int waistLength, EntryDate entryDate) {
+    public WaistLengthRecord(int id, User user, int waistLength, Date entryDate) {
         this.id = id;
         this.user = user;
         this.waistLength = waistLength;
@@ -109,7 +109,7 @@ public class WaistLengthRecord {
      *
      * @return the entry date
      */
-    public EntryDate getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
@@ -118,7 +118,7 @@ public class WaistLengthRecord {
      *
      * @param entryDate the entry date
      */
-    public void setEntryDate(EntryDate entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 

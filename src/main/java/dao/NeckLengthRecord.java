@@ -1,6 +1,7 @@
 package dao;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * The type Neck length record.
@@ -21,8 +22,8 @@ public class NeckLengthRecord {
     @Column(name = "neck_length")
     private int neckLength;
 
-    @Embedded
-    private EntryDate entryDate;
+    @Column(name = "entry_date")
+    private Date entryDate;
 
     /**
      * Instantiates a new Neck length record.
@@ -42,7 +43,7 @@ public class NeckLengthRecord {
      * @param neckLength the neck length
      * @param entryDate  the entry date
      */
-    public NeckLengthRecord(int id, User user, int neckLength, EntryDate entryDate) {
+    public NeckLengthRecord(int id, User user, int neckLength, Date entryDate) {
         this.id = id;
         this.user = user;
         this.neckLength = neckLength;
@@ -108,7 +109,7 @@ public class NeckLengthRecord {
      *
      * @return the entry date
      */
-    public EntryDate getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
@@ -117,7 +118,7 @@ public class NeckLengthRecord {
      *
      * @param entryDate the entry date
      */
-    public void setEntryDate(EntryDate entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 
