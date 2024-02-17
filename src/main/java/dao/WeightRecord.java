@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author OscarJohnson6
  */
-@Entity
+@Entity(name = "WeightRecord")
 @Table(name = "weight_records")
 public class WeightRecord {
     @Id
