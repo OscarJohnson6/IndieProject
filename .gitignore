@@ -26,6 +26,10 @@
 ## File-based project format:
 *.iws
 
+# Resource folder having files with passwords:
+src/main/resources
+src/test/resources
+
 ## Plugin-specific files:
 
 # IntelliJ
