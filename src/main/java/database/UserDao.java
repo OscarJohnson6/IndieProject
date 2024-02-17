@@ -1,4 +1,4 @@
-package Database;
+package database;
 
 import dao.User;
 import jakarta.persistence.criteria.CriteriaQuery;
