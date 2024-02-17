@@ -10,7 +10,7 @@ import javax.persistence.*;
  *
  * @author OscarJohnson6
  */
-@Entity
+@Entity(name = "User")
 @Table(name = "user_profiles")
 public class User {
 
@@ -19,14 +19,17 @@ public class User {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+    @Column(name = "userEmail")
+    private String userEmail;
+
     @Column(name = "firstName")
     private String firstName;
 
     @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "userEmail")
-    private String userEmail;
+    @Column(name = "gender")
+    private String gender;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WeightRecord> weightRecords = new ArrayList<>();
@@ -49,33 +52,86 @@ public class User {
     /**
      * Instantiates a new User.
      *
+     * @param userEmail the user email
+     * @param firstName the first name
+     * @param lastName  the last name
+     * @param gender    the gender
+     */
+    public User(String userEmail, String firstName, String lastName, String gender) {
+        this.userEmail = userEmail;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+    }
+
+    /**
+     * Instantiates a new User.
+     *
+     * @param id                the id
+     * @param userEmail         the user email
      * @param firstName         the first name
      * @param lastName          the last name
-     * @param userEmail         the user email
+     * @param gender            the gender
      * @param weightRecords     the weight records
      * @param heightRecord      the height record
      * @param neckLengthRecord  the neck length record
      * @param waistLengthRecord the waist length record
-     * @param id                the id
      */
-    public User(String firstName,
-                String lastName,
+    public User(int id,
                 String userEmail,
+                String firstName,
+                String lastName,
+                String gender,
                 List<WeightRecord> weightRecords,
                 List<HeightRecord> heightRecord,
                 List<NeckLengthRecord> neckLengthRecord,
-                List<WaistLengthRecord> waistLengthRecord,
-                int id) {
+                List<WaistLengthRecord> waistLengthRecord) {
+        this.id = id;
+        this.userEmail = userEmail;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userEmail = userEmail;
+        this.gender = gender;
         this.weightRecords = weightRecords;
         this.heightRecord = heightRecord;
         this.neckLengthRecord = neckLengthRecord;
         this.waistLengthRecord = waistLengthRecord;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Gets user email.
+     *
+     * @return the user email
+     */
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    /**
+     * Sets user email.
+     *
+     * @param userEmail the user email
+     */
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 
     /**
      * Gets first name.
@@ -114,39 +170,21 @@ public class User {
     }
 
     /**
-     * Gets user email.
+     * Gets gender.
      *
-     * @return the user email
+     * @return the gender
      */
-    public String getUserEmail() {
-        return userEmail;
+    public String getGender() {
+        return gender;
     }
 
     /**
-     * Sets user email.
+     * Sets gender.
      *
-     * @param userEmail the user email
+     * @param gender the gender
      */
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     /**
@@ -224,13 +262,15 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "id=" + id +
                 ", userEmail='" + userEmail + '\'' +
-                ", weight='" + weightRecords + '\'' +
-                ", height='" + heightRecord + '\'' +
-                ", neckLength='" + neckLengthRecord + '\'' +
-                ", waistLength='" + waistLengthRecord + '\'' +
-                ", id=" + id + '}';
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", weightRecords=" + weightRecords +
+                ", heightRecord=" + heightRecord +
+                ", neckLengthRecord=" + neckLengthRecord +
+                ", waistLengthRecord=" + waistLengthRecord +
+                '}';
     }
 }
