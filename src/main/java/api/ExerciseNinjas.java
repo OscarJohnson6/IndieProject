@@ -6,10 +6,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -104,7 +100,6 @@ public class ExerciseNinjas {
      * @return the json format
      */
     private List<TreeMap<String, String>> setJsonFormat(Response response) {
-        // 1
         Gson gson = new Gson();
 
         try {
@@ -115,43 +110,6 @@ public class ExerciseNinjas {
             logger.error("Problem reading JSON in setJsonFormat() ", ioException);
         }
 
-
-        // 2
-//        JSONParser parser = new JSONParser();
-//
-//        try {
-//            assert response.body() != null;
-//            JSONArray jsonArray = (JSONArray) (parser.parse(response.body().string()));
-//
-//            for (Object entry : jsonArray) {
-//                JSONObject json = (JSONObject) entry;
-//                jsonMap.add(loopJsonKeys(json));
-//            }
-//        } catch (IOException ioException) {
-//            logger.error("Problem reading JSON in setJsonFormat() ", ioException);
-//        } catch (ParseException nullPointerException) {
-//            logger.error("Json file null ", nullPointerException);
-//        }
-
         return jsonMap;
-    }
-
-    /**
-     * Load a json object formatted like Map<String, String> and puts it in
-     * a reverse tree map adding everything from the json to map, to then return it.
-     *
-     * @param jsonArray a Map<String, String> of the need api results
-     * @return a reverse String map of the api json results
-     */
-    @SuppressWarnings("unchecked")
-    private TreeMap<String, String> loopJsonKeys(JSONObject jsonArray) {
-        TreeMap<String, String> apiJsonResults = new TreeMap<>(Comparator.reverseOrder());
-        Set<String> keys = jsonArray.keySet();
-
-        for (String key : keys) {
-            apiJsonResults.put(key, (String) jsonArray.get(key));
-        }
-
-        return apiJsonResults;
     }
 }
