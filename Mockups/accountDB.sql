@@ -15,9 +15,10 @@ drop table if exists waist_length_records;
 #
 CREATE TABLE user_profiles (
                        userId INT AUTO_INCREMENT PRIMARY KEY,
-                       userEmail VARCHAR(50) NOT NULL,
+                       userEmail VARCHAR(75) NOT NULL,
                        firstName VARCHAR(25) NOT NULL,
                        lastName VARCHAR(25) NOT NULL,
+                       gender VARCHAR(8) NOT NULL,
                        entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
