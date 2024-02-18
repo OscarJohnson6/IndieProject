@@ -14,11 +14,28 @@
 - [x] Create problem statement
 - [x] Update journal 3
 ### Week 3
-- [ ] Add other java dao's needed
+- [x] Add other java dao's needed
 - [ ] Create classes for APIs
 - [ ] Create Servlets for JSPs
+- [x] Update user stories to be more specific
+- [ ] Update code from project checkpoint feedback
+- [ ] Add variables for a users gender for API calculations
 - [ ] Update journal 4
-
+### Week 4
+- [ ] Task
+- [ ] Task
+- [ ] Task
+- [ ] Task
+### Week 5
+- [ ] Task
+- [ ] Task
+- [ ] Task
+- [ ] Task
+### Week 6
+- [ ] Task
+- [ ] Task
+- [ ] Task
+- [ ] Task
 ### Week 7
 - [ ] Fully implement database design
 - [ ] Add at least one DAO with create, read, update, delete
