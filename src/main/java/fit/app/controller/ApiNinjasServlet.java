@@ -1,6 +1,6 @@
-package controller;
+package fit.app.controller;
 
-import api.ExerciseNinjas;
+import fit.app.api.ExerciseNinjas;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

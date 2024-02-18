@@ -1,6 +1,7 @@
-package api;
+package fit.app.api;
 
 import com.google.gson.reflect.TypeToken;
+import fit.app.utilities.PropertiesLoader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -17,19 +18,25 @@ import java.util.*;
  *
  * @author OscarJohnson6
  */
-public class ExerciseNinjas {
+public class ExerciseNinjas implements PropertiesLoader {
     /**
      * The Logger.
      */
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     /**
      * The Properties.
      */
-    private Properties properties;
+    private final Properties properties;
+
     /**
      * The Json map.
      */
     private List<TreeMap<String, String>> jsonMap = new ArrayList<>();
+
+    public ExerciseNinjas() {
+        properties = loadProperties("/api.properties");
+    }
 
     /**
      * Create api response map.
@@ -46,7 +53,8 @@ public class ExerciseNinjas {
                                                           String muscle,
                                                           String difficulty,
                                                           int offset) {
-        String url = "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?";
+        String url = properties.getProperty("api.ninjas.url");
+
         if (!name.isEmpty()) {
             url += "name=" + name;
         }
@@ -78,12 +86,12 @@ public class ExerciseNinjas {
         Request request = new Request.Builder()
                 .url(url)
                 .get()
-                .addHeader("X-RapidAPI-Key", "dd8d7eca29mshd8c424bdc365491p176675jsne646d4c979eb")
-                .addHeader("X-RapidAPI-Host", "exercises-by-api-ninjas.p.rapidapi.com")
+                .addHeader("X-RapidAPI-Key", properties.getProperty("api.ninjas.key"))
+                .addHeader("X-RapidAPI-Host", properties.getProperty("api.ninjas.host"))
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            jsonMap = setJsonFormat(response);
+            setJsonFormat(response);
         } catch (IOException ioException) {
             logger.error("Problem reading JSON in generateResponse() ", ioException);
         }
@@ -97,9 +105,8 @@ public class ExerciseNinjas {
      * Sets json format.
      *
      * @param response the response
-     * @return the json format
      */
-    private List<TreeMap<String, String>> setJsonFormat(Response response) {
+    private void setJsonFormat(Response response) {
         Gson gson = new Gson();
 
         try {
@@ -109,7 +116,5 @@ public class ExerciseNinjas {
         } catch (IOException ioException) {
             logger.error("Problem reading JSON in setJsonFormat() ", ioException);
         }
-
-        return jsonMap;
     }
 }

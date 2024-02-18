@@ -1,4 +1,4 @@
-package database;
+package fit.app.database;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

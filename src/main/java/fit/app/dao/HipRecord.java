@@ -1,4 +1,4 @@
-package dao;
+package fit.app.dao;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,9 +8,9 @@ import java.util.Date;
  *
  * @author OscarJohnson6
  */
-@Entity(name = "NeckLengthRecord")
-@Table(name = "neck_length_records")
-public class NeckLengthRecord {
+@Entity(name = "hipRecord")
+@Table(name = "hip_records")
+public class HipRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -19,8 +19,8 @@ public class NeckLengthRecord {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "neck_length")
-    private int neckLength;
+    @Column(name = "hip")
+    private int hip;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -28,11 +28,11 @@ public class NeckLengthRecord {
     /**
      * Instantiates a new Neck length record.
      */
-    public NeckLengthRecord() {
+    public HipRecord() {
     }
 
-    public NeckLengthRecord(int neckLength) {
-        this.neckLength = neckLength;
+    public HipRecord(int hip) {
+        this.hip = hip;
     }
 
     /**
@@ -40,13 +40,13 @@ public class NeckLengthRecord {
      *
      * @param id         the id
      * @param user       the user
-     * @param neckLength the neck length
+     * @param hip the neck length
      * @param entryDate  the entry date
      */
-    public NeckLengthRecord(int id, User user, int neckLength, Date entryDate) {
+    public HipRecord(int id, User user, int hip, Date entryDate) {
         this.id = id;
         this.user = user;
-        this.neckLength = neckLength;
+        this.hip = hip;
         this.entryDate = entryDate;
     }
 
@@ -91,17 +91,17 @@ public class NeckLengthRecord {
      *
      * @return the neck length
      */
-    public int getNeckLength() {
-        return neckLength;
+    public int gethip() {
+        return hip;
     }
 
     /**
      * Sets neck length.
      *
-     * @param neckLength the neck length
+     * @param hip the neck length
      */
-    public void setNeckLength(int neckLength) {
-        this.neckLength = neckLength;
+    public void sethip(int hip) {
+        this.hip = hip;
     }
 
     /**
@@ -124,10 +124,10 @@ public class NeckLengthRecord {
 
     @Override
     public String toString() {
-        return "NeckLengthRecord{" +
+        return "hipRecord{" +
                 "id=" + id +
                 ", user=" + user +
-                ", neckLength=" + neckLength +
+                ", hip=" + hip +
                 ", entryDate=" + entryDate +
                 '}';
     }

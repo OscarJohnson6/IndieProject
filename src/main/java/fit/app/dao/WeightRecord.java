@@ -1,4 +1,4 @@
-package dao;
+package fit.app.dao;
 
 import javax.persistence.*;
 import java.util.Date;

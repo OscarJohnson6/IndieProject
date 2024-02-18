@@ -1,16 +1,16 @@
-package dao;
+package fit.app.dao;
 
 import javax.persistence.*;
 import java.util.Date;
 
 /**
- * The type Waist length record.
+ * The type Height record.
  *
  * @author OscarJohnson6
  */
-@Entity(name = "WaistLengthRecord")
-@Table(name = "waist_length_records")
-public class WaistLengthRecord {
+@Entity(name = "HeightRecord")
+@Table(name = "height_records")
+public class HeightRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -19,34 +19,34 @@ public class WaistLengthRecord {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "waist_length")
-    private int waistLength;
+    @Column(name = "height")
+    private int height;
 
     @Column(name = "entry_date")
     private Date entryDate;
 
     /**
-     * Instantiates a new Waist length record.
+     * Instantiates a new Height record.
      */
-    public WaistLengthRecord() {
+    public HeightRecord() {
     }
 
-    public WaistLengthRecord(int waistLength) {
-        this.waistLength = waistLength;
+    public HeightRecord(int height) {
+        this.height = height;
     }
 
     /**
-     * Instantiates a new Waist length record.
+     * Instantiates a new Height record.
      *
-     * @param id          the id
-     * @param user        the user
-     * @param waistLength the waist length
-     * @param entryDate   the entry date
+     * @param id        the id
+     * @param user      the user
+     * @param height    the height
+     * @param entryDate the entry date
      */
-    public WaistLengthRecord(int id, User user, int waistLength, Date entryDate) {
+    public HeightRecord(int id, User user, int height, Date entryDate) {
         this.id = id;
         this.user = user;
-        this.waistLength = waistLength;
+        this.height = height;
         this.entryDate = entryDate;
     }
 
@@ -87,21 +87,21 @@ public class WaistLengthRecord {
     }
 
     /**
-     * Gets waist length.
+     * Gets height.
      *
-     * @return the waist length
+     * @return the height
      */
-    public int getWaistLength() {
-        return waistLength;
+    public int getHeight() {
+        return height;
     }
 
     /**
-     * Sets waist length.
+     * Sets height.
      *
-     * @param waistLength the waist length
+     * @param height the height
      */
-    public void setWaistLength(int waistLength) {
-        this.waistLength = waistLength;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     /**
@@ -124,10 +124,10 @@ public class WaistLengthRecord {
 
     @Override
     public String toString() {
-        return "WaistLengthRecord{" +
+        return "HeightRecord{" +
                 "id=" + id +
                 ", user=" + user +
-                ", waistLength=" + waistLength +
+                ", height=" + height +
                 ", entryDate=" + entryDate +
                 '}';
     }

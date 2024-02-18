@@ -1,4 +1,4 @@
-package dao;
+package fit.app.dao;
 
 import org.hibernate.annotations.GenericGenerator;
 import java.util.*;
@@ -31,6 +31,15 @@ public class User {
     @Column(name = "gender")
     private String gender;
 
+    @Column(name = "date_of_birth")
+    private Date age;
+
+    @Column(name = "activity_level")
+    private String activityLevel;
+
+    @Column(name = "entry_date")
+    private String entry_date;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<WeightRecord> weightRecords = new ArrayList<>();
 
@@ -38,15 +47,19 @@ public class User {
     private List<HeightRecord> heightRecord = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<NeckLengthRecord> neckLengthRecord = new ArrayList<>();
+    private List<HipRecord> hipRecord = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<WaistLengthRecord> waistLengthRecord = new ArrayList<>();
+    private List<WaistRecord> waistRecord = new ArrayList<>();
 
     /**
      * Instantiates a new User.
      */
     public User() {
+    }
+
+    public User(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     /**
@@ -56,45 +69,86 @@ public class User {
      * @param firstName the first name
      * @param lastName  the last name
      * @param gender    the gender
+     * @param age       the age
      */
-    public User(String userEmail, String firstName, String lastName, String gender) {
+    public User(String userEmail, String firstName, String lastName, String gender, Date age) {
         this.userEmail = userEmail;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+        this.age = age;
     }
 
     /**
      * Instantiates a new User.
      *
-     * @param id                the id
-     * @param userEmail         the user email
-     * @param firstName         the first name
-     * @param lastName          the last name
-     * @param gender            the gender
-     * @param weightRecords     the weight records
-     * @param heightRecord      the height record
-     * @param neckLengthRecord  the neck length record
-     * @param waistLengthRecord the waist length record
+     * @param id            the id
+     * @param userEmail     the user email
+     * @param firstName     the first name
+     * @param lastName      the last name
+     * @param gender        the gender
+     * @param age           the age
+     * @param activityLevel the activity level
+     * @param entry_date    the entry date
      */
     public User(int id,
                 String userEmail,
                 String firstName,
                 String lastName,
                 String gender,
-                List<WeightRecord> weightRecords,
-                List<HeightRecord> heightRecord,
-                List<NeckLengthRecord> neckLengthRecord,
-                List<WaistLengthRecord> waistLengthRecord) {
+                Date age,
+                String activityLevel,
+                String entry_date) {
         this.id = id;
         this.userEmail = userEmail;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+        this.age = age;
+        this.activityLevel = activityLevel;
+        this.entry_date = entry_date;
+    }
+
+    /**
+     * Instantiates a new User.
+     *
+     * @param id            the id
+     * @param userEmail     the user email
+     * @param firstName     the first name
+     * @param lastName      the last name
+     * @param gender        the gender
+     * @param age           the age
+     * @param activityLevel the activity level
+     * @param entry_date    the entry date
+     * @param weightRecords the weight records
+     * @param heightRecord  the height record
+     * @param hipRecord     the hip record
+     * @param waistRecord   the waist record
+     */
+    public User(int id,
+                String userEmail,
+                String firstName,
+                String lastName,
+                String gender,
+                Date age,
+                String activityLevel,
+                String entry_date,
+                List<WeightRecord> weightRecords,
+                List<HeightRecord> heightRecord,
+                List<HipRecord> hipRecord,
+                List<WaistRecord> waistRecord) {
+        this.id = id;
+        this.userEmail = userEmail;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+        this.activityLevel = activityLevel;
+        this.entry_date = entry_date;
         this.weightRecords = weightRecords;
         this.heightRecord = heightRecord;
-        this.neckLengthRecord = neckLengthRecord;
-        this.waistLengthRecord = waistLengthRecord;
+        this.hipRecord = hipRecord;
+        this.waistRecord = waistRecord;
     }
 
     /**
@@ -188,6 +242,60 @@ public class User {
     }
 
     /**
+     * Gets age.
+     *
+     * @return the age
+     */
+    public Date getAge() {
+        return age;
+    }
+
+    /**
+     * Sets age.
+     *
+     * @param age the age
+     */
+    public void setAge(Date age) {
+        this.age = age;
+    }
+
+    /**
+     * Gets activity level.
+     *
+     * @return the activity level
+     */
+    public String getActivityLevel() {
+        return activityLevel;
+    }
+
+    /**
+     * Sets activity level.
+     *
+     * @param activityLevel the activity level
+     */
+    public void setActivityLevel(String activityLevel) {
+        this.activityLevel = activityLevel;
+    }
+
+    /**
+     * Gets entry date.
+     *
+     * @return the entry date
+     */
+    public String getEntry_date() {
+        return entry_date;
+    }
+
+    /**
+     * Sets entry date.
+     *
+     * @param entry_date the entry date
+     */
+    public void setEntry_date(String entry_date) {
+        this.entry_date = entry_date;
+    }
+
+    /**
      * Gets weight records.
      *
      * @return the weight records
@@ -228,17 +336,17 @@ public class User {
      *
      * @return the neck length record
      */
-    public List<NeckLengthRecord> getNeckLengthRecord() {
-        return neckLengthRecord;
+    public List<HipRecord> getNeckLengthRecord() {
+        return hipRecord;
     }
 
     /**
      * Sets neck length record.
      *
-     * @param neckLengthRecord the neck length record
+     * @param hipRecord the neck length record
      */
-    public void setNeckLengthRecord(List<NeckLengthRecord> neckLengthRecord) {
-        this.neckLengthRecord = neckLengthRecord;
+    public void setNeckLengthRecord(List<HipRecord> hipRecord) {
+        this.hipRecord = hipRecord;
     }
 
     /**
@@ -246,17 +354,17 @@ public class User {
      *
      * @return the waist length record
      */
-    public List<WaistLengthRecord> getWaistLengthRecord() {
-        return waistLengthRecord;
+    public List<WaistRecord> getWaistLengthRecord() {
+        return waistRecord;
     }
 
     /**
      * Sets waist length record.
      *
-     * @param waistLengthRecord the waist length record
+     * @param waistRecord the waist length record
      */
-    public void setWaistLengthRecord(List<WaistLengthRecord> waistLengthRecord) {
-        this.waistLengthRecord = waistLengthRecord;
+    public void setWaistLengthRecord(List<WaistRecord> waistRecord) {
+        this.waistRecord = waistRecord;
     }
 
     @Override
@@ -267,10 +375,13 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", activityLevel='" + activityLevel + '\'' +
+                ", entry_date='" + entry_date + '\'' +
                 ", weightRecords=" + weightRecords +
                 ", heightRecord=" + heightRecord +
-                ", neckLengthRecord=" + neckLengthRecord +
-                ", waistLengthRecord=" + waistLengthRecord +
+                ", hipRecord=" + hipRecord +
+                ", waistRecord=" + waistRecord +
                 '}';
     }
 }
