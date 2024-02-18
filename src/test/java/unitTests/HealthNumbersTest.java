@@ -1,12 +1,11 @@
 package unitTests;
 
-import database.UserDao;
-import api.ExerciseNinjas;
-import dao.*;
+import fit.app.dao.User;
+import fit.app.database.UserDao;
+import fit.app.api.ExerciseNinjas;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -81,7 +80,7 @@ public class HealthNumbersTest {
     }
 
     /**
-     * Determine the sum for your puzzle input, which is passed in as a file location
+     *
      * CAUTION: This is connected to a limited (500 uses) API.
      */
 //    @Test

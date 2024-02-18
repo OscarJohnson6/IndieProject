@@ -2,7 +2,7 @@ package util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utilities.PropertiesLoader;
+import fit.app.utilities.PropertiesLoader;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
