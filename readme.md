@@ -15,17 +15,19 @@ allowing you to create a randomized exercise set based on what you selected
 like doing just upper body or arms.
     <br><br>
 ### Specs & Versions
-| Category        | Type         | Version    |
-|-----------------|--------------|------------|
-| Database        | MySql        | 8.3.0      |
-| Server          | Apache       | 8.5.98     |    
-| Development     | JDK          | 8.0        |
-| API Http Client | OkHttpClient | 4.12.0     |
-| Logging         | Log4j        | 2.17.1     |
-| Unit Testing    | jUnit        | 4.12       |
-| Reading JSONs   | json-simple  | 1.1.1      |
+| Category        | Type         | Version     |
+|-----------------|--------------|-------------|
+| Database        | MySql        | 8.3.0       |
+| Server          | Apache       | 8.5.98      |    
+| Development     | JDK          | 8.0         |
+| API Http Client | OkHttpClient | 4.12.0      |
+| Logging         | Log4j        | 2.17.1      |
+| Unit Testing    | jUnit        | 4.12        |
+| Reading JSONs   | Gson         | 2.8.8       |
+| Web Service     | Hibernate    | 6.4.3.Final |
 
 ### Links
 - [Journal](journal.md)
 - [User Stories](Mockups/UserStories.md)
+- [Screen Design](Mockups/FitApp-Screen-Design.md)
 - [Project Plan](Mockups/plan.md)
