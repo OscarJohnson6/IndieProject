@@ -38,16 +38,17 @@ A problem I have been having it that when I change my CSS style sheet it doesn't
 Using hibernate with foreign keys I used this [article](https://www.baeldung.com/hibernate-one-to-many) by Baeldung.
 
 <br><br>
-### Journal 4, 2/13-20/2024
+### Journal 4, 2/12-18/2024
+I plan on using a different API for health calculations as it offers 7 different kinds and seems less complicated for storing. 
+[Mega Fitness Calculator](https://rapidapi.com/bejjaothmane/api/mega-fitness-calculator1/)
+    <br><br>
+### Journal 5, 2/19-25/2024
 Pending...
     <br><br>
-### Journal 5, 2/21-28/2024
+### Journal 6, 2/26/2024 - 3/3/2024
 Pending...
     <br><br>
-### Journal 6, 2/29/2024 - 3/4/2024
-Pending...
-    <br><br>
-### Journal 7, 3/5-12/2024
+### Journal 7, 3/3-12/2024
 Pending...
     <br><br>
 ### Journal 8, 3/13-20/2024
