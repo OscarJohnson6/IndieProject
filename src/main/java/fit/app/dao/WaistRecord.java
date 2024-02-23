@@ -1,6 +1,8 @@
 package fit.app.dao;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Date;
 
 /**
@@ -10,13 +12,14 @@ import java.util.Date;
  */
 @Entity(name = "WaistRecord")
 @Table(name = "waist_records")
-public class WaistRecord {
+public class WaistRecord implements Identity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "entryId")
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     @Column(name = "waist")
@@ -126,7 +129,6 @@ public class WaistRecord {
     public String toString() {
         return "waistRecord{" +
                 "id=" + id +
-                ", user=" + user +
                 ", waist=" + waist +
                 ", entryDate=" + entryDate +
                 '}';

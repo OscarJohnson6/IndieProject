@@ -1,6 +1,6 @@
 package fit.app.dao;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**
@@ -10,13 +10,14 @@ import java.util.Date;
  */
 @Entity(name = "hipRecord")
 @Table(name = "hip_records")
-public class HipRecord {
+public class HipRecord implements Identity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "entryId")
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     @Column(name = "hip")
@@ -126,7 +127,6 @@ public class HipRecord {
     public String toString() {
         return "hipRecord{" +
                 "id=" + id +
-                ", user=" + user +
                 ", hip=" + hip +
                 ", entryDate=" + entryDate +
                 '}';

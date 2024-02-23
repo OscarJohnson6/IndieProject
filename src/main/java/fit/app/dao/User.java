@@ -1,9 +1,8 @@
 package fit.app.dao;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import java.util.*;
-
-import javax.persistence.*;
 
 /**
  * The type User.
@@ -12,11 +11,12 @@ import javax.persistence.*;
  */
 @Entity(name = "User")
 @Table(name = "user_profiles")
-public class User {
+public class User implements Identity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "userId")
     private int id;
 
     @Column(name = "userEmail")
@@ -40,16 +40,16 @@ public class User {
     @Column(name = "entry_date")
     private String entry_date;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<WeightRecord> weightRecords = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<HeightRecord> heightRecord = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<HipRecord> hipRecord = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<WaistRecord> waistRecord = new ArrayList<>();
 
     /**
@@ -58,7 +58,16 @@ public class User {
     public User() {
     }
 
+    public User(int id) {
+        this.id = id;
+    }
+
     public User(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public User(int id, String userEmail) {
+        this.id = id;
         this.userEmail = userEmail;
     }
 
@@ -77,78 +86,6 @@ public class User {
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
-    }
-
-    /**
-     * Instantiates a new User.
-     *
-     * @param id            the id
-     * @param userEmail     the user email
-     * @param firstName     the first name
-     * @param lastName      the last name
-     * @param gender        the gender
-     * @param age           the age
-     * @param activityLevel the activity level
-     * @param entry_date    the entry date
-     */
-    public User(int id,
-                String userEmail,
-                String firstName,
-                String lastName,
-                String gender,
-                Date age,
-                String activityLevel,
-                String entry_date) {
-        this.id = id;
-        this.userEmail = userEmail;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.age = age;
-        this.activityLevel = activityLevel;
-        this.entry_date = entry_date;
-    }
-
-    /**
-     * Instantiates a new User.
-     *
-     * @param id            the id
-     * @param userEmail     the user email
-     * @param firstName     the first name
-     * @param lastName      the last name
-     * @param gender        the gender
-     * @param age           the age
-     * @param activityLevel the activity level
-     * @param entry_date    the entry date
-     * @param weightRecords the weight records
-     * @param heightRecord  the height record
-     * @param hipRecord     the hip record
-     * @param waistRecord   the waist record
-     */
-    public User(int id,
-                String userEmail,
-                String firstName,
-                String lastName,
-                String gender,
-                Date age,
-                String activityLevel,
-                String entry_date,
-                List<WeightRecord> weightRecords,
-                List<HeightRecord> heightRecord,
-                List<HipRecord> hipRecord,
-                List<WaistRecord> waistRecord) {
-        this.id = id;
-        this.userEmail = userEmail;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.age = age;
-        this.activityLevel = activityLevel;
-        this.entry_date = entry_date;
-        this.weightRecords = weightRecords;
-        this.heightRecord = heightRecord;
-        this.hipRecord = hipRecord;
-        this.waistRecord = waistRecord;
     }
 
     /**

@@ -1,6 +1,6 @@
 package fit.app.dao;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**
@@ -10,13 +10,14 @@ import java.util.Date;
  */
 @Entity(name = "WeightRecord")
 @Table(name = "weight_records")
-public class WeightRecord {
+public class WeightRecord implements Identity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "entryId")
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     @Column(name = "weight")
@@ -126,7 +127,6 @@ public class WeightRecord {
     public String toString() {
         return "WeightRecord{" +
                 "id=" + id +
-                ", user=" + user +
                 ", weight=" + weight +
                 ", entryDate=" + entryDate +
                 '}';
