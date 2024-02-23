@@ -28,7 +28,6 @@ public class ApiNinjasServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ExerciseNinjas exercise = new ExerciseNinjas();
-        logger.info("before?");
 
         req.setAttribute("results", exercise.createApiResponse(
                                                 req.getParameter("exerciseName"),
@@ -36,7 +35,6 @@ public class ApiNinjasServlet extends HttpServlet {
                                                 req.getParameter("muscle"),
                                                 req.getParameter("difficulty"),
                                                 Integer.parseInt(req.getParameter("offset"))));
-        logger.info("after method?");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/apiNinjaResults.jsp");
         dispatcher.forward(req, resp);

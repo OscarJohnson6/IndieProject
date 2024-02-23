@@ -27,16 +27,12 @@ public class ExerciseNinjas implements PropertiesLoader {
     /**
      * The Properties.
      */
-    private final Properties properties;
+    private final Properties properties = loadProperties("/api.properties");
 
     /**
      * The Json map.
      */
     private List<TreeMap<String, String>> jsonMap = new ArrayList<>();
-
-    public ExerciseNinjas() {
-        properties = loadProperties("/api.properties");
-    }
 
     /**
      * Create api response map.
@@ -96,7 +92,6 @@ public class ExerciseNinjas implements PropertiesLoader {
             logger.error("Problem reading JSON in generateResponse() ", ioException);
         }
 
-        logger.info("done?" + url);
         return jsonMap;
     }
 
