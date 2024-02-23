@@ -26,8 +26,6 @@ public class HealthNumbersServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("?");
-
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);
     }
