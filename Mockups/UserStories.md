@@ -26,6 +26,9 @@ name I can change it.
 ### Delete Account Information*
 As a user I would like to be able to delete past information, so I can remove any mis-inputs or mistakes.
 
+### Optional Account Creation Information
+As a user I would like to have some of the initial account inputs be optional, so I don't have to put in my weight right away when creating an account.
+
 ---
 ## Features Possibly For Version 2
 ### Exercise History
