@@ -72,8 +72,8 @@ ALTER TABLE waist_records
 #
 # INDEXEs
 #
-create index userId_ix
-    on user_profiles(userId);
+create index useEmail_ix
+    on user_profiles(userEmail);
 create index userFirstName_ix
     on user_profiles(firstName);
 create index userLastName_ix
