@@ -40,10 +40,17 @@ Using hibernate with foreign keys I used this [article](https://www.baeldung.com
 <br><br>
 ### Journal 4, 2/12-18/2024
 I plan on using a different API for health calculations as it offers 7 different kinds and seems less complicated for storing. 
-[Mega Fitness Calculator](https://rapidapi.com/bejjaothmane/api/mega-fitness-calculator1/)
+[Mega Fitness Calculator.](https://rapidapi.com/bejjaothmane/api/mega-fitness-calculator1/) 
+But because of switching I had to rewrite my SQL table creation scripts and DAOs a little.
+
+I made the screen design as a storyboard, flowchart, and screen design so that it would cover 
+the aspects of what a user would do. I also made the user stories more clear. 
+I did get as much done as I was having a few problems I couldn't figure out.
     <br><br>
 ### Journal 5, 2/19-25/2024
-Pending...
+I figured out most of the problems I was having. 
+By changing the import I was using for hibernate annotation too `Jakarda`.
+I also got most of my unit test to pass with the user profiles, record tables, and an API result.
     <br><br>
 ### Journal 6, 2/26/2024 - 3/3/2024
 Pending...
