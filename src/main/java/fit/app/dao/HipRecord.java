@@ -32,6 +32,11 @@ public class HipRecord implements Identity {
     public HipRecord() {
     }
 
+    /**
+     * Instantiates a new Hip record.
+     *
+     * @param hip the hip
+     */
     public HipRecord(int hip) {
         this.hip = hip;
     }
@@ -39,10 +44,10 @@ public class HipRecord implements Identity {
     /**
      * Instantiates a new Neck length record.
      *
-     * @param id         the id
-     * @param user       the user
-     * @param hip the neck length
-     * @param entryDate  the entry date
+     * @param id        the id
+     * @param user      the user
+     * @param hip       the neck length
+     * @param entryDate the entry date
      */
     public HipRecord(int id, User user, int hip, Date entryDate) {
         this.id = id;

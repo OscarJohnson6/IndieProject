@@ -23,7 +23,6 @@ public class ApiResultsTest {
     }
 
     /**
-     *
      * CAUTION: This is connected to a limited (500 uses) API.
      */
 //    @Test

@@ -32,6 +32,9 @@ public class UserAccountsTest {
         userDao = new UserDao();
     }
 
+    /**
+     * Test database.
+     */
     @Test
     void testDatabase() {
         user = new User(
@@ -42,6 +45,9 @@ public class UserAccountsTest {
                 new Date());
     }
 
+    /**
+     * Test database insert.
+     */
     @Test
     void testDatabaseInsert() {
         user = new User("Oscar@email");
@@ -56,12 +62,18 @@ public class UserAccountsTest {
 //        assertSame(user, userReturn);
     }
 
+    /**
+     * Test database update.
+     */
     @Test
     void testDatabaseUpdate() {
         user = new User("Oscar@email");
         userDao.update(user);
     }
 
+    /**
+     * Test database all.
+     */
     @Test
     void testDatabaseAll() {
         assertNotNull(userDao.getAll());

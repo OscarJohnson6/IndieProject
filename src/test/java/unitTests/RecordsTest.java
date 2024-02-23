@@ -9,11 +9,13 @@ import util.Database;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Records test.
+ */
 public class RecordsTest {
 
     private HeightRecord heightRecord;
     private GenericDao<HeightRecord> heightDao;
-
     private User user;
 
 
@@ -27,11 +29,17 @@ public class RecordsTest {
         heightDao = new GenericDao<>(HeightRecord.class);
     }
 
+    /**
+     * Test database.
+     */
     @Test
     void testDatabase() {
         heightRecord = new HeightRecord(123);
     }
 
+    /**
+     * Test database insert.
+     */
     @Test
     void testDatabaseInsert() {
         user = new User(4);
@@ -44,6 +52,9 @@ public class RecordsTest {
         assertEquals(88, heightRecord.getHeight());
     }
 
+    /**
+     * Test database update.
+     */
     @Test
     void testDatabaseUpdate() {
         user = new User(1);
@@ -56,11 +67,18 @@ public class RecordsTest {
         assertEquals(112, heightRecord.getHeight());
     }
 
+    /**
+     * Test database all.
+     */
     @Test
     void testDatabaseAll() {
         assertNotNull(heightDao.getAll());
+        assertEquals(3, heightDao.getAll().size());
     }
 
+    /**
+     * Test database delete.
+     */
     @Test
     void testDatabaseDelete() {
         user = new User(1);
@@ -70,6 +88,9 @@ public class RecordsTest {
         assertNull(heightDao.getById(2));
     }
 
+    /**
+     * Test database delete again.
+     */
     @Test
     void testDatabaseDeleteAgain() {
         heightRecord = heightDao.getById(3);

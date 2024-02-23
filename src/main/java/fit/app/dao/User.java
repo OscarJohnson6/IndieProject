@@ -58,14 +58,30 @@ public class User implements Identity {
     public User() {
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param id the id
+     */
     public User(int id) {
         this.id = id;
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param userEmail the user email
+     */
     public User(String userEmail) {
         this.userEmail = userEmail;
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param id        the id
+     * @param userEmail the user email
+     */
     public User(int id, String userEmail) {
         this.id = id;
         this.userEmail = userEmail;

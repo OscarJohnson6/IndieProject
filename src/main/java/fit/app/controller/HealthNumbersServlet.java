@@ -17,13 +17,12 @@ import java.io.IOException;
  *
  * @author OscarJohnson6
  */
-
 @WebServlet(
         urlPatterns = {"/healthNumbers"}
 )
-
 public class HealthNumbersServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");

@@ -13,6 +13,11 @@ import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 import java.util.List;
 
+/**
+ * The type Generic dao.
+ *
+ * @param <T> the type parameter
+ */
 public class GenericDao<T extends Identity> {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -24,6 +29,11 @@ public class GenericDao<T extends Identity> {
      */
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
+    /**
+     * Instantiates a new Generic dao.
+     *
+     * @param paramClass the param class
+     */
     public GenericDao(Class<T> paramClass) {
         this.paramClass = paramClass;
     }

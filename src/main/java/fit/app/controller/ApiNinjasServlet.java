@@ -18,13 +18,12 @@ import java.io.IOException;
  *
  * @author OscarJohnson6
  */
-
 @WebServlet(
         urlPatterns = {"/API-NinjasExercises"}
 )
-
 public class ApiNinjasServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ExerciseNinjas exercise = new ExerciseNinjas();

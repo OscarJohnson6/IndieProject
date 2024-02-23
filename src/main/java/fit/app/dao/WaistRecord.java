@@ -34,6 +34,11 @@ public class WaistRecord implements Identity {
     public WaistRecord() {
     }
 
+    /**
+     * Instantiates a new Waist record.
+     *
+     * @param waist the waist
+     */
     public WaistRecord(int waist) {
         this.waist = waist;
     }
@@ -41,10 +46,10 @@ public class WaistRecord implements Identity {
     /**
      * Instantiates a new Waist length record.
      *
-     * @param id          the id
-     * @param user        the user
-     * @param waist the waist length
-     * @param entryDate   the entry date
+     * @param id        the id
+     * @param user      the user
+     * @param waist     the waist length
+     * @param entryDate the entry date
      */
     public WaistRecord(int id, User user, int waist, Date entryDate) {
         this.id = id;
