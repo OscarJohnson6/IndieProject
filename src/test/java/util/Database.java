@@ -74,8 +74,6 @@ public class Database implements PropertiesLoader {
      * Attempt to connect to the database.
      */
     public void connect() {
-        Connection connection = null;
-
         try {
             Class.forName(properties.getProperty("driver"));
             connection = DriverManager.getConnection(
