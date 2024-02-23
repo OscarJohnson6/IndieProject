@@ -28,6 +28,6 @@ like doing just upper body or arms.
 
 ### Links
 - [Journal](journal.md)
-- [User Stories](Mockups/UserStories.md)
-- [Screen Design](Mockups/FitApp-Screen-Design.md)
 - [Project Plan](Mockups/plan.md)
+- [Screen Design](Mockups/FitApp-Screen-Design.png)
+- [User Stories](Mockups/UserStories.md)
