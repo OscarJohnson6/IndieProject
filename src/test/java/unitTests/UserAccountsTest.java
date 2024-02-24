@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import util.Database;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -56,10 +57,6 @@ public class UserAccountsTest {
 
         assertEquals(id, userReturn.getId());
         assertEquals("Oscar@email", userReturn.getUserEmail());
-
-        // Weird failing test but has same result
-//        user.setId(id);
-//        assertSame(user, userReturn);
     }
 
     /**
@@ -67,8 +64,15 @@ public class UserAccountsTest {
      */
     @Test
     void testDatabaseUpdate() {
-        user = new User("Oscar@email");
+        user = userDao.getById(1);
+        user.setFirstName("Test");
+        user.setLastName("Update");
+
         userDao.update(user);
+
+        User userUpdated = userDao.getById(1);
+        assertEquals("Test", userUpdated.getFirstName());
+        assertEquals("Update", userUpdated.getLastName());
     }
 
     /**
@@ -76,6 +80,9 @@ public class UserAccountsTest {
      */
     @Test
     void testDatabaseAll() {
-        assertNotNull(userDao.getAll());
+        List<User> userList = userDao.getAll();
+
+        assertNotNull(userList);
+        assertEquals(9, userList.size());
     }
 }
