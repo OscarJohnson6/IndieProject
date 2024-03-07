@@ -53,10 +53,14 @@ By changing the import I was using for hibernate annotation too `Jakarda`.
 I also got most of my unit test to pass with the user profiles, record tables, and an API result.
     <br><br>
 ### Journal 6, 2/26/2024 - 3/3/2024
-Pending...
+I didn't get much done for the week I felt pretty sick.
     <br><br>
-### Journal 7, 3/3-12/2024
-Pending...
+### Journal 7, 3/4-10/2024
+I made a servlet page to and jsp page to test displaying all the users. 
+I also uploaded the war file to an AWS environment successfully.
+
+I tried thinking of a way to combine by unit tests for the record classes, 
+but I thought it was just simpler to have the 4 classes for unit testing the records.
     <br><br>
 ### Journal 8, 3/13-20/2024
 Pending...
