@@ -1,5 +1,7 @@
 package fit.app.controller;
 
+import fit.app.api.HealthCalculations;
+import fit.app.dao.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,7 +27,9 @@ public class HealthNumbersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO get the current user, then set their calculations as an attribute
+        // TODO get the current user, not a new one
+        HealthCalculations calculations = new HealthCalculations(new User());
+        req.setAttribute("userCalculations", calculations);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);
