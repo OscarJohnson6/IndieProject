@@ -292,7 +292,7 @@ public class User implements Identity {
      *
      * @return the neck length record
      */
-    public List<HipRecord> getNeckLengthRecord() {
+    public List<HipRecord> getHipRecord() {
         return hipRecord;
     }
 
@@ -310,7 +310,7 @@ public class User implements Identity {
      *
      * @return the waist length record
      */
-    public List<WaistRecord> getWaistLengthRecord() {
+    public List<WaistRecord> getWaistRecord() {
         return waistRecord;
     }
 
