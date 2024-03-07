@@ -1,7 +1,5 @@
 package fit.app.api;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import fit.app.utilities.PropertiesLoader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.*;
 
 /**

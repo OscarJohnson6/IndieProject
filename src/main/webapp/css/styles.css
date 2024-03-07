@@ -16,10 +16,6 @@ p {
     color: #666;
 }
 
-th {
-    float: left;
-}
-
 a {
     color: #70edff;
 }
@@ -35,6 +31,10 @@ a:visited {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+}
+
+.leftFloat {
+    float: left;
 }
 
 .profilePicture {

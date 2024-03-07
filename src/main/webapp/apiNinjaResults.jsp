@@ -19,7 +19,7 @@
                 <table class="ninjaResults">
                 <c:forEach var="mapEntry" items="${result}">
                     <tr>
-                        <th>${mapEntry.key}</th>
+                        <th class="leftFloat">${mapEntry.key}</th>
                         <td>${mapEntry.value}</td>
                     </tr>
                 </c:forEach>
