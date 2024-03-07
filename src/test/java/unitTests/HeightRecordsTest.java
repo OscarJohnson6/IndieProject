@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * The type Records test.
  */
-public class RecordsTest {
+public class HeightRecordsTest {
 
     private HeightRecord heightRecord;
     private GenericDao<HeightRecord> heightDao;
