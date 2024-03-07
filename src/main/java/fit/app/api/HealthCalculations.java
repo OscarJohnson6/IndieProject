@@ -74,30 +74,50 @@ public class HealthCalculations {
      *
      * @return the whr
      */
-    public int getWHR() {
-        return 0;
+    public double getWHR() {
+        return (double) waist / hip;
     }
 
     /**
      * Gets bfp.
-     * For men: BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)
-     * For women: BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)
+     * men, the formula is (1.20 x BMI) + (0.23 x Age) – 16.2
+     * women, it is (1.20 x BMI) + (0.23 x Age) – 5.4
      *
      * @return the bfp
      */
-    public int getBFP() {
+    public double getBFP() {
+        double BFP = 0;
+        BFP = (1.20 * getBMI()) + (0.23 * user.getAgeNumber());
 
-        return 0;
+        switch (user.getGender()) {
+            case "male":
+                BFP -= 16.2;
+                break;
+            case "female":
+                BFP -= 5.4;
+                break;
+        }
+        return BFP;
     }
 
     /**
      * Gets bmr.
+     * For men: BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)
+     * For women: BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)
      *
      * @return the bmr
      */
-    public int getBMR() {
-        // Locate
-        return 0;
+    public double getBMR() {
+        double BMR = 0;
+        switch (user.getGender()) {
+            case "male":
+                BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * user.getAgeNumber());
+                break;
+            case "female":
+                BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * user.getAgeNumber());
+                break;
+        }
+        return BMR;
     }
 
     /**
@@ -108,7 +128,6 @@ public class HealthCalculations {
      */
     public double getTDEE() {
         double effort = 0;
-
         switch (user.getActivityLevel()) {
             case "low":
                 effort = .5;
@@ -120,7 +139,6 @@ public class HealthCalculations {
                 effort = 1.5;
                 break;
         }
-
         return getBMR() * effort;
     }
 
@@ -133,7 +151,7 @@ public class HealthCalculations {
      */
     public double getIBW() {
         double IBW = 0;
-        double heightInches = height;
+        double heightInches = height * 0.393701;
 
         switch (user.getGender()) {
             case "male":
@@ -143,7 +161,6 @@ public class HealthCalculations {
                 IBW = 45.5 + 2.3 * (heightInches - 60);
                 break;
         }
-
         return IBW;
     }
 
@@ -156,8 +173,6 @@ public class HealthCalculations {
      */
     public double getLBM() {
         double LBM = 0;
-        double heightInches = height;
-
         switch (user.getGender()) {
             case "male":
                 LBM = (0.407 * weight) + (0.267 * height) - 19.2;
@@ -166,7 +181,6 @@ public class HealthCalculations {
                 LBM = (0.252 * weight) + (0.473 * height) - 48.3;
                 break;
         }
-
         return LBM;
     }
 
