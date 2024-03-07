@@ -25,6 +25,8 @@ public class HealthNumbersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // TODO get the current user, then set their calculations as an attribute
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);
     }
