@@ -1,7 +1,7 @@
 package unitTests;
 
 import fit.app.dao.User;
-import fit.app.database.UserDao;
+import fit.app.database.GenericDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
@@ -20,7 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UserAccountsTest {
 
     private User user;
-    private UserDao userDao;
+    private GenericDao<User> userDao;
+
 
 
     /**
@@ -30,7 +31,7 @@ public class UserAccountsTest {
     void setUp() {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
-        userDao = new UserDao();
+        userDao = new GenericDao<>(User.class);
     }
 
     /**
