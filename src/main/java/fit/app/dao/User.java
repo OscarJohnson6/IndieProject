@@ -2,6 +2,9 @@ package fit.app.dao;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /**
@@ -32,7 +35,7 @@ public class User implements Identity {
     private String gender;
 
     @Column(name = "date_of_birth")
-    private Date age;
+    private LocalDate age;
 
     @Column(name = "activity_level")
     private String activityLevel;
@@ -96,7 +99,7 @@ public class User implements Identity {
      * @param gender    the gender
      * @param age       the age
      */
-    public User(String userEmail, String firstName, String lastName, String gender, Date age) {
+    public User(String userEmail, String firstName, String lastName, String gender, LocalDate age) {
         this.userEmail = userEmail;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -199,7 +202,7 @@ public class User implements Identity {
      *
      * @return the age
      */
-    public Date getAge() {
+    public LocalDate getAge() {
         return age;
     }
 
@@ -208,7 +211,7 @@ public class User implements Identity {
      *
      * @param age the age
      */
-    public void setAge(Date age) {
+    public void setAge(LocalDate age) {
         this.age = age;
     }
 
@@ -318,6 +321,10 @@ public class User implements Identity {
      */
     public void setWaistLengthRecord(List<WaistRecord> waistRecord) {
         this.waistRecord = waistRecord;
+    }
+
+    public int getAgeNumber() {
+        return (int) ChronoUnit.YEARS.between(age, LocalDate.now());
     }
 
     @Override

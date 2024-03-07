@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,7 +44,23 @@ public class UserAccountsTest {
                 "Oscar",
                 "Johnson",
                 "male",
-                new Date());
+                null);
+    }
+
+    /**
+     * Test database update.
+     */
+    @Test
+    void testUserAge() {
+        user = userDao.getById(1);
+        LocalDate age = LocalDate.of(2004, 1, 26);
+
+        assertEquals(1, user.getId());
+        assertEquals("Oscar", user.getFirstName());
+        assertEquals("Johnson", user.getLastName());
+        assertEquals("male", user.getGender());
+        assertEquals(age, user.getAge());
+        assertEquals(20, user.getAgeNumber());
     }
 
     /**
