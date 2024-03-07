@@ -17,7 +17,7 @@
 
 ### Week 3
 - [x] Add other java dao's needed
-- [ ] Create classes for APIs
+- [x] Create classes for APIs
 - [ ] Create Servlets for JSPs
 - [x] Update user stories to be more specific
 - [x] Update code from project checkpoint feedback
@@ -31,21 +31,28 @@
 - [x] Update journal 5
 
 ### Week 5
-- [ ] Update journal 6
+- [ ] Create a class health calculations
+- [ ] Create methods for health calculations
+- [x] Update journal 6
 
 ### Week 6
-- [ ] Update journal 7
+- [ ] Finish incomplete tasks
+- [ ] Create design for index page
+- [x] Create properties file for API connections
+- [x] Update journal 7
 
 ### Week 7
 - [x] Fully implement database design
-- [ ] Add at least one DAO with create, read, update, delete
+- [x] Add at least one DAO with create, read, update, delete
 - [x] Implement Log4j
 - [x] Use Hibernate
 - [x] Unit test DAO
 - [ ] Update journal 8
 
 ### Week 8
-- [ ] Task
+- [ ] Improve CSS on API forms
+- [ ] Improve CSS on index page
+- [ ] Review/improve API ninja method
 - [ ] Update journal 9
 
 ### Week 9
@@ -53,3 +60,7 @@
 - [ ] Have JSP display database results
 - [ ] Implement authentication
 - [ ] Update journal 10
+
+### Week 10
+- [ ] Finish incomplete tasks
+- [ ] Update journal 11
