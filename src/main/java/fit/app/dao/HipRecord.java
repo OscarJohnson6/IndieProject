@@ -41,6 +41,17 @@ public class HipRecord implements Identity {
         this.hip = hip;
     }
 
+    public HipRecord(User user, int hip) {
+        this.user = user;
+        this.hip = hip;
+    }
+
+    public HipRecord(int id, User user, int hip) {
+        this.id = id;
+        this.user = user;
+        this.hip = hip;
+    }
+
     /**
      * Instantiates a new Neck length record.
      *
@@ -97,7 +108,7 @@ public class HipRecord implements Identity {
      *
      * @return the neck length
      */
-    public int gethip() {
+    public int getHip() {
         return hip;
     }
 
@@ -106,7 +117,7 @@ public class HipRecord implements Identity {
      *
      * @param hip the neck length
      */
-    public void sethip(int hip) {
+    public void setHip(int hip) {
         this.hip = hip;
     }
 
