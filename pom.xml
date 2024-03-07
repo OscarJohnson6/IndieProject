@@ -15,7 +15,6 @@
     <mysql-version>8.0.16</mysql-version>
     <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
 
-    <!-- Previous XML -->
     <junit-vintage-version>4.12.0</junit-vintage-version>
     <jstl-version>1.2</jstl-version>
     <jupiter-version>5.0.0</jupiter-version>

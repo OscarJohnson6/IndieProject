@@ -1,5 +1,5 @@
 ## Fitness App Project
-*This is an Indie Java project created to log health information and generate exercises.*
+*This is an Indie Java project created to log health information and generate random exercises.*
 
 ### Description
 Tracking fitness and health can be difficult. 
