@@ -17,13 +17,87 @@
         </article>
 
         <article class="card">
-            <h3>Body Fat Percent</h3>
-            <p>0.0%</p>
+            <h3>WHR</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.WHR}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
         </article>
 
         <article class="card">
-            <h3>BMI</h3>
-            <p>0.0</p>
+            <h3>Body Fat Percent</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.BFP}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
+        </article>
+
+        <article class="card">
+            <h3>BMR</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.BMR}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
+        </article>
+
+        <article class="card">
+            <h3>TDEE</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.TDEE}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
+        </article>
+
+        <article class="card">
+            <h3>IBW</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.IBW}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
+        </article>
+
+        <article class="card">
+            <h3>LBM</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.LBM}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
+        </article>
+
+        <article class="card">
+            <h3>WHTR</h3>
+            <c:choose>
+                <c:when test="${userCalculations ne null and not empty userCalculations}">
+                    <p>${userCalculations.WHTR}%</p>
+                </c:when>
+                <c:otherwise>
+                    <p>Missing Inputs for Calculations</p>
+                </c:otherwise>
+            </c:choose>
         </article>
     </div>
 <c:import url="footer.jsp"/>
