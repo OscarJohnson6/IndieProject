@@ -39,7 +39,7 @@ public interface PropertiesLoader {
         } catch (IOException ioException) {
             logger.error("Error reading properties file ", ioException);
         }
-        logger.info("properties test");
+
         return properties;
     }
 

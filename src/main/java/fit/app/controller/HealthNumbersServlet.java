@@ -1,7 +1,7 @@
 package fit.app.controller;
 
-import fit.app.api.HealthCalculations;
 import fit.app.dao.User;
+import fit.app.health.formulas.HealthCalculations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

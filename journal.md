@@ -61,7 +61,10 @@ I also uploaded the war file to an AWS environment successfully.
 
 I tried thinking of a way to combine by unit tests for the record classes, 
 but I thought it was just simpler to have the 4 classes for unit testing the records.
-    <br><br>
+
+I asked ChatGPT for a name for a fitness app and one of the recommendations was FitGenie (or GenieFit). 
+Which I liked because creating the exercises is kind of like asking a genie a question.
+   <br><br>
 ### Journal 8, 3/13-20/2024
 Pending...
     <br><br>
