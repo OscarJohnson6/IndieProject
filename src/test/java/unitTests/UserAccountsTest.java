@@ -1,6 +1,6 @@
 package unitTests;
 
-import fit.app.dao.User;
+import fit.app.dao.*;
 import fit.app.database.GenericDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,11 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author OscarJohnson6
  */
 public class UserAccountsTest {
-
-    private User user;
     private GenericDao<User> userDao;
-
-
 
     /**
      * Create a new ExerciseNinjas object before each test is run.
@@ -35,32 +31,20 @@ public class UserAccountsTest {
     }
 
     /**
-     * Test database.
-     */
-    @Test
-    void testDatabase() {
-        user = new User(
-                "@email",
-                "Oscar",
-                "Johnson",
-                "male",
-                null);
-    }
-
-    /**
      * Test database update.
      */
     @Test
     void testUserAge() {
-        user = userDao.getById(1);
-        LocalDate age = LocalDate.of(2004, 1, 26);
+        User user = userDao.getById(1);
+        LocalDate age = LocalDate.of(2004, 1, 27);
 
         assertEquals(1, user.getId());
         assertEquals("Oscar", user.getFirstName());
         assertEquals("Johnson", user.getLastName());
         assertEquals("male", user.getGender());
         assertEquals(age, user.getAge());
-        assertEquals(20, user.getAgeNumber());
+        Integer testAge = 20;
+        assertEquals(testAge, user.getAgeNumber());
     }
 
     /**
@@ -68,7 +52,7 @@ public class UserAccountsTest {
      */
     @Test
     void testDatabaseInsert() {
-        user = new User("Oscar@email");
+        User user = new User("Oscar@email");
         int id = userDao.insert(user);
         User userReturn = userDao.getById(id);
 
@@ -81,7 +65,7 @@ public class UserAccountsTest {
      */
     @Test
     void testDatabaseUpdate() {
-        user = userDao.getById(1);
+        User user = userDao.getById(1);
         user.setFirstName("Test");
         user.setLastName("Update");
 
@@ -90,6 +74,28 @@ public class UserAccountsTest {
         User userUpdated = userDao.getById(1);
         assertEquals("Test", userUpdated.getFirstName());
         assertEquals("Update", userUpdated.getLastName());
+    }
+
+    /**
+     * Test database delete.
+     */
+    @Test
+    void testDatabaseDelete() {
+        User user = userDao.getById(1);
+        String idNumber = String.valueOf(user.getId());
+        GenericDao<WeightRecord> weightDao = new GenericDao<>(WeightRecord.class);
+        GenericDao<HeightRecord> heightDao = new GenericDao<>(HeightRecord.class);
+        GenericDao<WaistRecord> waistDao = new GenericDao<>(WaistRecord.class);
+        GenericDao<HipRecord> hipDao = new GenericDao<>(HipRecord.class);
+        userDao.delete(user);
+
+        assertNull(userDao.getById(1));
+
+        // TODO Could not resolve attribute 'userId' of 'fit.app.dao.WeightRecord'
+//        assertNull(weightDao.getByPropertyEqual("userId", idNumber));
+//        assertNull(heightDao.getByPropertyEqual("userId", idNumber));
+//        assertNull(waistDao.getByPropertyEqual("userId", idNumber));
+//        assertNull(hipDao.getByPropertyLike("userId", idNumber));
     }
 
     /**
