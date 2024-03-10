@@ -53,6 +53,7 @@
 - [ ] Improve CSS on API forms
 - [ ] Improve CSS on index page
 - [ ] Review/improve API ninja method
+- [ ] Select option between exercise forms
 - [ ] Update journal 9
 
 ### Week 9
@@ -63,4 +64,10 @@
 
 ### Week 10
 - [ ] Finish incomplete tasks
+- [ ] Allow kg or lb input for weight
+- [ ] Allow ft or cm input for height, waist, hip
 - [ ] Update journal 11
+
+### Week 10
+- [ ] Add nutrition calculations like recommended grams of protein, fat, or sugar, also water, or calories.
+- [ ] Update journal 12
