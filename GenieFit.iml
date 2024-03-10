@@ -6,6 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="GenieFit" value="7985429c-39cf-4981-a161-38784c91e477" />
           <factory-entry name="IndieProject" value="7985429c-39cf-4981-a161-38784c91e477" />
         </datasource-mapping>
         <naming-strategy-map />

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IndieProject.iml" filepath="$PROJECT_DIR$/IndieProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenieFit.iml" filepath="$PROJECT_DIR$/GenieFit.iml" />
     </modules>
   </component>
 </project>

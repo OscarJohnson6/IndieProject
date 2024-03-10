@@ -274,7 +274,7 @@ public class User implements Identity {
      *
      * @return the height record
      */
-    public List<HeightRecord> getHeightRecord() {
+    public List<HeightRecord> getHeightRecords() {
         return heightRecord;
     }
 
@@ -283,7 +283,7 @@ public class User implements Identity {
      *
      * @param heightRecord the height record
      */
-    public void setHeightRecord(List<HeightRecord> heightRecord) {
+    public void setHeightRecords(List<HeightRecord> heightRecord) {
         this.heightRecord = heightRecord;
     }
 
@@ -292,7 +292,7 @@ public class User implements Identity {
      *
      * @return the neck length record
      */
-    public List<HipRecord> getHipRecord() {
+    public List<HipRecord> getHipRecords() {
         return hipRecord;
     }
 
@@ -301,7 +301,7 @@ public class User implements Identity {
      *
      * @param hipRecord the neck length record
      */
-    public void setNeckLengthRecord(List<HipRecord> hipRecord) {
+    public void setNeckLengthRecords(List<HipRecord> hipRecord) {
         this.hipRecord = hipRecord;
     }
 
@@ -310,7 +310,7 @@ public class User implements Identity {
      *
      * @return the waist length record
      */
-    public List<WaistRecord> getWaistRecord() {
+    public List<WaistRecord> getWaistRecords() {
         return waistRecord;
     }
 
@@ -319,12 +319,16 @@ public class User implements Identity {
      *
      * @param waistRecord the waist length record
      */
-    public void setWaistLengthRecord(List<WaistRecord> waistRecord) {
+    public void setWaistLengthRecords(List<WaistRecord> waistRecord) {
         this.waistRecord = waistRecord;
     }
 
-    public int getAgeNumber() {
-        return (int) ChronoUnit.YEARS.between(age, LocalDate.now());
+    public Integer  getAgeNumber() {
+        if (age != null) {
+            return (int) ChronoUnit.YEARS.between(age, LocalDate.now());
+        } else {
+            return null;
+        }
     }
 
     @Override
