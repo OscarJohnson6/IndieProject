@@ -12,7 +12,6 @@
             <a href="https://github.com/OscarJohnson6/IndieProject">GitHub</a>
             <br><a href="mailto:ojohnson6@madisoncollege.edu">Email Contact</a>
         </div>
-        <p><a href="">link</a></p>
     </footer>
 </div>
 </body>
