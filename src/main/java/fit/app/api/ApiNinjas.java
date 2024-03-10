@@ -18,7 +18,7 @@ import java.util.*;
  *
  * @author OscarJohnson6
  */
-public class ExerciseNinjas implements PropertiesLoader {
+public class ApiNinjas implements PropertiesLoader {
     /**
      * The Logger.
      */
