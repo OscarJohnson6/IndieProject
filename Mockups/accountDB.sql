@@ -1,9 +1,9 @@
-# MySQL table schema for indie project FitApp
-DROP SCHEMA IF EXISTS fit_app;
+# MySQL table schema for indie project GenieFit
+DROP SCHEMA IF EXISTS geniefit_aws;
 
-create schema if not exists fit_app;
+create schema if not exists geniefit_aws;
 
-use fit_app;
+use geniefit_aws;
 
 drop table if exists user_profiles;
 drop table if exists weight_records;
