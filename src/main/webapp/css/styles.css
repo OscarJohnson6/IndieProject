@@ -24,24 +24,24 @@ a:visited {
     color: #1790ff;
 }
 
+#accountHolder {
+    align-items: end;
+    justify-content: end;
+}
+
 /*
     Classes
 */
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.leftFloat {
-    float: left;
+.slabo-27px-regular {
+    font-family: "Slabo 27px", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .profilePicture {
     padding: 5px;
     border-radius: 35px;
     background-color: aliceblue;
-    float: right;
     max-width: 55px;
     height: auto;
     margin-top: -8px;
@@ -56,29 +56,6 @@ a:visited {
 
 .goBackLink:visited {
     color: #282828;
-}
-
-.formFlexContainer {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.signInForm {
-    text-align: left;
-}
-
-.signUpMessage {
-    margin: 10px auto 0;
-    text-align: left;
-    align-items: end;
-}
-
-.messageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /*
@@ -111,6 +88,24 @@ a:visited {
     margin-right: 25px;
 }
 
+.accountInfoRight {
+    float: right;
+}
+
+.pageTop {
+    display: flex; /* Use Flexbox for layout */
+    text-align: right;
+    flex-direction: row;
+}
+
+.pageTopFlewCol {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: center; /* Center items horizontally */
+    text-align: center; /* Center the text inside the paragraph */
+    flex-direction: column;
+}
+
 /*
     NavBar
 */
@@ -131,41 +126,6 @@ a:visited {
 .navBar a:hover {
     color: #ffffff;
     text-shadow: 0 0 6px rgb(0, 0, 0);
-}
-
-/*
-    Healths Boxes
-*/
-#cardHolder {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.card {
-    background-color: rgba(184, 204, 238, 0.8);
-    padding: 0 1.3em;
-    border-radius: 15px;
-    margin: 1em;
-}
-
-/*
-    Table Results
-*/
-.ninjaResults {
-    border-collapse: collapse;
-}
-.ninjaResults th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #cccbcb;
-}
-
-.tableResults {
-    margin: 0 auto 30px;
-    width: 80%;
 }
 
 /*

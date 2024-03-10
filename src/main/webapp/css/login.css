@@ -1,0 +1,30 @@
+/*
+    Main CSS Body
+*/
+
+
+/*
+    Classes
+*/
+.formFlexContainer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signInForm {
+    text-align: left;
+}
+
+.signUpMessage {
+    margin: 10px auto 0;
+    text-align: left;
+    align-items: end;
+}
+
+.messageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

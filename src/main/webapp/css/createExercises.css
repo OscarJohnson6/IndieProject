@@ -1,0 +1,17 @@
+/*
+    Main CSS Body
+*/
+
+
+#formSelector {
+    margin: 0 auto;
+}
+
+/*
+    Classes
+*/
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}

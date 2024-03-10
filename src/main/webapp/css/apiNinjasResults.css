@@ -1,0 +1,28 @@
+/*
+    Main CSS Body
+*/
+
+
+/*
+    Classes
+*/
+.leftFloat {
+    float: left;
+}
+
+/*
+    Table Results
+*/
+.ninjaResults {
+    border-collapse: collapse;
+}
+.ninjaResults th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #cccbcb;
+}
+
+.tableResults {
+    margin: 0 auto 30px;
+    width: 80%;
+}
