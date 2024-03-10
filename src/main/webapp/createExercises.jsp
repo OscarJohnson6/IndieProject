@@ -8,38 +8,31 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="head.jsp"/>
+<link rel="stylesheet" href="css/createExercises.css">
+<script src="js/script.js" charset="UTF-8"></script>
     <title>Exercise Creation</title>
 <c:import url="navbar.jsp"/>
     <div class="container">
-        <form action="#" method="post">
-            <fieldset>
-                <legend>Intensity</legend>
-                <input type="radio" id="low" name="low" value="1">
-                <label for="low">Low</label><br>
+        <h3>Exercise Generator Selector</h3>
+        <select id="formSelector">
+            <option value="ExerciseDB">ExerciseDB</option>
+            <option value="API-Ninja">API-Ninja</option>
+        </select>
+        <form id="ExerciseDB" action="${pageContext.request.contextPath}/ExerciseDB" method="GET">
+            <h3>ExerciseDB Exercises</h3>
 
-                <input type="radio" id="medium" name="medium" value="2">
-                <label for="medium">Medium</label><br>
+            <label for="limitExerciseDb">Limit (10 max):</label>
+            <input type="number" id="limitExerciseDb" value="10" min="0" max="10" name="limitExerciseDb"><br>
 
-                <input type="radio" id="high" name="high" value="3">
-                <label for="high">High</label><br>
-            </fieldset><br>
+            <label for="offsetExerciseDb">Offset:</label>
+            <input type="number" id="offsetExerciseDb" value="0" min="0" max="100" name="offsetExerciseDb"><br>
 
-            <label for="exerciseType">What Type of Exercise:</label>
-            <select id="exerciseType" name="exerciseType">
-                <option value="UpperBody">UpperBody</option>
-                <option value="LowerBody">LowerBody</option>
-                <option value="green">green</option>
-                <option value="yellow">yellow</option>
-                <option value="orange">orange</option>
-                <option value="purple">purple</option>
-            </select>
-
-            <input type="submit" value="Submit" id="exerciseFormSubmit">
+            <input type="submit" value="Submit" id="exerciseDbFormSubmit">
         </form><br>
 
-        <h3>API-Ninja Exercises</h3>
-        <small></small>
-        <form action="${pageContext.request.contextPath}/API-NinjasExercises" method="GET">
+        <form id="API-Ninja" action="${pageContext.request.contextPath}/API-NinjasExercises" method="GET">
+            <h3>API-Ninja Exercises</h3>
+
             <label for="exerciseName">Exercise Name:</label>
             <input type="text" id="exerciseName" name="exerciseName" placeholder="Search by name ex: press">
 
@@ -91,7 +84,7 @@
             </fieldset><br>
 
             <label for="offset">Offset: (10 - offset = total sets)</label>
-            <input type="number" id="offset"  value="0" min="0" max="10" name="offset"><br>
+            <input type="number" id="offset" value="0" min="0" max="10" name="offset"><br>
 
             <input type="submit" value="Submit" id="ninjaApiFormSubmit">
             <input type="reset" value="Clear" id="ninjaApiResetSubmit">
@@ -99,5 +92,7 @@
     </div>
 
     <h2>Description</h2>
-    <p>Generate random exercises with the click of a button. Through the use of the APIs <a href=""></a> and <a href=""></a>.</p>
+    <p>Generate random exercises with the click of a button. Through the use of the APIs
+        <a href="https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/">ExerciseDB</a>
+        and <a href="https://rapidapi.com/apininjas/api/exercises-by-api-ninjas/">API-Ninjas</a>.</p>
 <c:import url="footer.jsp"/>
