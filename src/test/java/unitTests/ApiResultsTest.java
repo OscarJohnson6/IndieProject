@@ -44,12 +44,13 @@ public class ApiResultsTest {
     }
 
     /**
-     * CAUTION: This is connected to a limited (500 uses) API.
+     * Tests values that will be used from ExerciseDB's Json response .
+     * CAUTION: This is connected to a limited (500 monthly uses) API.
      */
 //    @Test
     void testExerciseDb() {
         ExerciseDb exerciseDb = new ExerciseDb();
-        ArrayList<ExerciseDbJson> exerciseArray = exerciseDb.createApiResponse(0, 0);
+        ArrayList<ExerciseDbJson> exerciseArray = exerciseDb.createApiResponse("0", "0");
 
         assertNotNull(exerciseArray);
         assertEquals(10, exerciseArray.size());
@@ -60,7 +61,6 @@ public class ApiResultsTest {
         assertEquals("3/4 sit-up", exercise0.getName());
         assertEquals("abs", exercise0.getTarget());
         assertEquals(testInstructions(), exercise0.getInstructions());
-
     }
 
     private List<String> testInstructions() {

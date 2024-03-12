@@ -12,7 +12,6 @@ public class HealthCalculations {
 
     private String gender;
 
-
     // KG
     private int weight;
 

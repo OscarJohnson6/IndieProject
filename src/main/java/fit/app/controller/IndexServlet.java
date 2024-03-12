@@ -31,9 +31,9 @@ public class IndexServlet extends HttpServlet {
         // TODO delete user below
         GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(1);
-        logger.info(user);
+
         req.setAttribute("user", user);
-        logger.info(req.getAttribute("user"));
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
     }

@@ -1,6 +1,7 @@
 package fit.app.controller;
 
 import fit.app.dao.User;
+import fit.app.database.GenericDao;
 import fit.app.health.formulas.HealthCalculations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,7 +29,10 @@ public class HealthNumbersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO get the current user, not a new one
-        HealthCalculations calculations = new HealthCalculations(new User());
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+        User user = userDao.getById(1);
+        HealthCalculations calculations = new HealthCalculations(user);
+
         req.setAttribute("userCalculations", calculations);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
