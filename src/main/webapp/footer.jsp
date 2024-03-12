@@ -9,8 +9,13 @@
 </div>
     <footer class="footer">
         <div class="footerLinks">
-            <a href="https://github.com/OscarJohnson6/IndieProject">GitHub</a>
-            <br><a href="mailto:ojohnson6@madisoncollege.edu">Email Contact</a>
+            <div class="columDisplay">
+                <a class="flexBoxRow" href="https://github.com/OscarJohnson6/IndieProject">
+                    <img src="img/github.png" alt="" class="iconPicture"><small>GitHub</small></a>
+                <br>
+                <a class="flexBoxRow" href="mailto:ojohnson6@madisoncollege.edu">
+                    <img src="img/mail.png" alt="" class="iconPicture"><small>Email Contact</small></a>
+            </div>
         </div>
     </footer>
 </div>
