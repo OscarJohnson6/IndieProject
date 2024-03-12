@@ -36,18 +36,20 @@
                                 <td>${exerciseDbItem.bodyPart}</td>
                             </tr>
                             <tr>
-                                <th>Target</th>
+                                <th>Target Muscle</th>
                                 <td>${exerciseDbItem.target}</td>
+                            </tr>
+                            <tr>
+                                <th>Other Muscles</th>
+                                <td>
+                                    <c:forEach var="secondaryMuscles" items="${exerciseDbItem.secondaryMuscles}">
+                                        ${secondaryMuscles}
+                                    </c:forEach>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Equipment</th>
                                 <td>${exerciseDbItem.equipment}</td>
-                            </tr>
-                            <tr>
-                                <th>Secondary Muscles</th>
-                                <c:forEach var="secondaryMuscles" items="${exerciseDbItem.secondaryMuscles}">
-                                    <td>${secondaryMuscles}</td>
-                                </c:forEach>
                             </tr>
                         </table><br><br>
                     </div>

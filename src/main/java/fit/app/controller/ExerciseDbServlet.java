@@ -28,10 +28,9 @@ public class ExerciseDbServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ExerciseDb exercise = new ExerciseDb();
 
-
         req.setAttribute("exerciseDbJson", exercise.createApiResponse(
-                Integer.parseInt(req.getParameter("limitExerciseDb")),
-                Integer.parseInt(req.getParameter("offsetExerciseDb"))));
+                req.getParameter("limitExerciseDb"),
+                req.getParameter("offsetExerciseDb")));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/exerciseDbResults.jsp");
         dispatcher.forward(req, resp);

@@ -1,5 +1,6 @@
 package fit.app.api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fit.app.pojo.ExerciseDbJson;
@@ -31,13 +32,13 @@ public class ExerciseDb implements PropertiesLoader {
      * @param limit       the limit
      * @param offset     the offset
      */
-    public ArrayList<ExerciseDbJson> createApiResponse(int limit, int offset) {
+    public ArrayList<ExerciseDbJson> createApiResponse(String limit, String offset) {
         String url = properties.getProperty("exercise.db.url");
 
-        if (limit != 0) {
+        if (!limit.isEmpty()) {
             url += "&limit=" + limit;
         }
-        if (offset != 0) {
+        if (!offset.isEmpty()) {
             url += "&offset=" + offset;
         }
 
@@ -66,6 +67,8 @@ public class ExerciseDb implements PropertiesLoader {
                 ObjectMapper mapper = new ObjectMapper();
                 list = mapper.readValue(stringResponse, new TypeReference<>() {});
             }
+        } catch (JsonProcessingException processingException) {
+            logger.error("Problem parsing JSON in generateResponse() ", processingException);
         } catch (IOException ioException) {
             logger.error("Problem reading JSON in generateResponse() ", ioException);
         }
