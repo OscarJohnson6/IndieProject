@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -18,6 +20,8 @@ public class HeightRecordsTest {
     private GenericDao<HeightRecord> heightDao;
     private User user;
 
+    private GenericDao<User> userDao;
+
 
     /**
      * Create a new ExerciseNinjas object before each test is run.
@@ -27,6 +31,7 @@ public class HeightRecordsTest {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
         heightDao = new GenericDao<>(HeightRecord.class);
+        userDao = new GenericDao<>(User.class);
     }
 
     /**
@@ -42,7 +47,7 @@ public class HeightRecordsTest {
      */
     @Test
     void testDatabaseInsert() {
-        user = new User(4);
+        user = userDao.getById(4);
         heightRecord = new HeightRecord(user, 88);
         int id = heightDao.insert(heightRecord);
         heightRecord = heightDao.getById(id);
@@ -57,14 +62,14 @@ public class HeightRecordsTest {
      */
     @Test
     void testDatabaseUpdate() {
-        user = new User(1);
-        heightRecord = new HeightRecord(1, user, 112);
+        user = userDao.getById(1);
+        heightRecord = new HeightRecord(1, user, 101);
         heightDao.update(heightRecord);
         heightRecord = heightDao.getById(1);
 
         assertEquals(1, heightRecord.getId());
         assertEquals(1, heightRecord.getUser().getId());
-        assertEquals(112, heightRecord.getHeight());
+        assertEquals(101, heightRecord.getHeight());
     }
 
     /**
@@ -81,11 +86,22 @@ public class HeightRecordsTest {
      */
     @Test
     void testDatabaseDelete() {
-        user = new User(1);
-        heightRecord = new HeightRecord(2, user, 123);
+        user = userDao.getById(1);
+        heightRecord = heightDao.getById(2);
+        List<HeightRecord> heightListBefore = user.getHeightRecords();
+
         heightDao.delete(heightRecord);
+        user = userDao.getById(1);
+        List<HeightRecord> heightListAfter = user.getHeightRecords();
 
         assertNull(heightDao.getById(2));
+        assertNotSame(heightListBefore.size(), heightListAfter.size());
+        assertEquals(heightListBefore.size() - 1, heightListAfter.size());
+        assertEquals(2, heightListBefore.get(1).getId());
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+                    heightListAfter.get(1);
+                });
+        assertSame(heightListBefore.get(0).getId(), heightListAfter.get(0).getId());
     }
 
     /**
