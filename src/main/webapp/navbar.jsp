@@ -15,16 +15,19 @@
         <h1>GenieFit</h1>
     </div>
 
-    <div id="accountHolder" class="pageTopFlewCol">
-        <c:choose>
-            <c:when test="${user ne null}">
-                <p class="accountMessage"><a href="#">Sign Out</a> | Hello, ${user.firstName}</p>
-            </c:when>
-            <c:otherwise>
-                <p class="accountMessage"><a href="signup.jsp">signup</a> | <a href="login.jsp">login</a></p>
-            </c:otherwise>
-        </c:choose>
-        <a href="login.jsp"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
+    <div class="reverseRow">
+        <div class="pageTopFlewCol">
+            <c:choose>
+                <c:when test="${user ne null}">
+                    <p class="accountMessage"><a href="#">Sign Out</a> | Hello, ${user.firstName}</p>
+                    <a href="${pageContext.request.contextPath}/settings"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
+                </c:when>
+                <c:otherwise>
+                    <p class="accountMessage"><a href="signup.jsp">Sign Up</a> | <a href="login.jsp">Login</a></p>
+                    <a href="login.jsp"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
+                </c:otherwise>
+            </c:choose>
+        </div>
     </div>
 </div>
 <div class="navBar">
