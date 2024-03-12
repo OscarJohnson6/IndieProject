@@ -3,8 +3,40 @@
 */
 
 
+#divExportForm {
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 203px;
+}
+
 /*
     Classes
 */
-.indexAccountInfo {
+.indexAccountInfo table {
+    background-color: rgba(219, 237, 243, 0.85);
+    border-radius: 35px;
+    padding: 10px 20px;
+}
+
+.indexAccountInfo th, td {
+    text-align: left;
+}
+
+.flexBox {
+    margin: 45px 5vw 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flexBoxImportExport {
+    display: flex;
+    flex-direction: row;
+}
+
+.boxImportExport form {
+    margin-bottom: 0;
+    background-color: rgba(182, 238, 255, 0.45);
+    border-radius: 35px;
+    padding: 1px 15px 15px 15px;
 }
