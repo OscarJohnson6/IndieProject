@@ -21,11 +21,11 @@
         <form id="ExerciseDB" action="${pageContext.request.contextPath}/ExerciseDB" method="GET">
             <h3>ExerciseDB Exercises</h3>
 
-            <label for="limitExerciseDb">Limit (10 max):</label>
-            <input type="number" id="limitExerciseDb" value="10" min="0" max="10" name="limitExerciseDb"><br>
+            <label for="limitExerciseDb">Limit (10 default):</label>
+            <input type="number" id="limitExerciseDb" min="0" max="100" name="limitExerciseDb"><br>
 
             <label for="offsetExerciseDb">Offset:</label>
-            <input type="number" id="offsetExerciseDb" value="0" min="0" max="100" name="offsetExerciseDb"><br>
+            <input type="number" id="offsetExerciseDb" min="0" max="100" name="offsetExerciseDb"><br>
 
             <input type="submit" value="Submit" id="exerciseDbFormSubmit">
         </form><br>
