@@ -2,6 +2,8 @@ package unitTests;
 
 import fit.app.api.ApiNinjas;
 import fit.app.api.ExerciseDb;
+import fit.app.pojo.ApiNinjaResult;
+import fit.app.pojo.ApiNinjaResultItem;
 import fit.app.pojo.ExerciseDbJson;
 import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
@@ -26,21 +28,44 @@ public class ApiResultsTest {
     }
 
     /**
-     * CAUTION: This is connected to a limited (500 uses) API.
+     * CAUTION: This is connected to a limited (3,000 uses) API.
      */
-//    @Test
+    @Test
     void testAPIResultsAll() {
         ApiNinjas ninjasExercise = new ApiNinjas();
-        List<TreeMap<String, String>> result = ninjasExercise.createApiResponse(
+        ApiNinjaResult results = ninjasExercise.createApiResponse(
                 "",
                 "",
                 "",
                 "",
                 5);
 
-        assertNotNull(result);
-        assertFalse(result.isEmpty());
-        assertEquals(10, result.size());
+        assertNotNull(results);
+        List<ApiNinjaResultItem> resultItems = results.getApiNinjaResult();
+
+        // Exercise list tests
+        assertNotNull(resultItems);
+        assertFalse(resultItems.isEmpty());
+        assertEquals(10, resultItems.size());
+
+        // Exercise values/object test
+        ApiNinjaResultItem exercise0 = resultItems.get(0);
+        assertEquals("Incline Hammer Curls", exercise0.getName());
+        assertEquals("strength", exercise0.getType());
+        assertEquals("biceps", exercise0.getMuscle());
+        assertEquals("dumbbell", exercise0.getEquipment());
+        assertEquals("beginner", exercise0.getDifficulty());
+
+        String instructions = "Seat yourself on an incline bench with a "
+                        + "dumbbell in each hand. You should pressed firmly "
+                        + "against he back with your feet together. Allow the "
+                        + "dumbbells to hang straight down at your side, "
+                        + "holding them with a neutral grip. This will be your "
+                        + "starting position. Initiate the movement by flexing "
+                        + "at the elbow, attempting to keep the upper arm "
+                        + "stationary. Continue to the top of the movement "
+                        + "and pause, then slowly return to the start position.";
+        assertEquals(instructions, exercise0.getInstructions());
     }
 
     /**

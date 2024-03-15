@@ -1,6 +1,11 @@
 package fit.app.api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.reflect.TypeToken;
+import fit.app.pojo.ApiNinjaResult;
+import fit.app.pojo.ExerciseDbJson;
 import fit.app.utilities.PropertiesLoader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -19,6 +24,7 @@ import java.util.*;
  * @author OscarJohnson6
  */
 public class ApiNinjas implements PropertiesLoader {
+
     /**
      * The Logger.
      */
@@ -30,11 +36,6 @@ public class ApiNinjas implements PropertiesLoader {
     private final Properties properties = loadProperties("/api.properties");
 
     /**
-     * The Json map.
-     */
-    private List<TreeMap<String, String>> jsonMap = new ArrayList<>();
-
-    /**
      * Create api response map.
      *
      * @param name       the name
@@ -44,11 +45,11 @@ public class ApiNinjas implements PropertiesLoader {
      * @param offset     the offset
      * @return the map
      */
-    public List<TreeMap<String, String>> createApiResponse(String name,
-                                                          String type,
-                                                          String muscle,
-                                                          String difficulty,
-                                                          int offset) {
+    public ApiNinjaResult createApiResponse(String name,
+                                            String type,
+                                            String muscle,
+                                            String difficulty,
+                                            int offset) {
         String url = properties.getProperty("api.ninjas.url");
 
         if (!name.isEmpty()) {
@@ -73,11 +74,12 @@ public class ApiNinjas implements PropertiesLoader {
     /**
      * Generate response map.
      *
-     * @param url the url
-     * @return the map
+     * @param url the api request url
+     * @return the result object to ApiNinjaResult
      */
-    private List<TreeMap<String, String>> generateResponse(String url) {
+    private ApiNinjaResult generateResponse(String url) {
         OkHttpClient client = new OkHttpClient();
+        ApiNinjaResult result = null;
 
         Request request = new Request.Builder()
                 .url(url)
@@ -87,29 +89,17 @@ public class ApiNinjas implements PropertiesLoader {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            setJsonFormat(response);
+            if (response.body() != null) {
+                String stringResponse = response.body().string();
+                ObjectMapper mapper = new ObjectMapper();
+                result = mapper.readValue(stringResponse, ApiNinjaResult.class);
+            }
+        } catch (JsonProcessingException processingException) {
+            logger.error("Problem parsing JSON in generateResponse() ", processingException);
         } catch (IOException ioException) {
             logger.error("Problem reading JSON in generateResponse() ", ioException);
         }
 
-        return jsonMap;
-    }
-
-
-    /**
-     * Sets json format.
-     *
-     * @param response the response
-     */
-    private void setJsonFormat(Response response) {
-        Gson gson = new Gson();
-
-        try {
-            assert response.body() != null;
-            Type jsonType = new TypeToken<List<TreeMap<String, String>>>() {}.getType();
-            jsonMap = gson.fromJson(response.body().string(), jsonType);
-        } catch (IOException ioException) {
-            logger.error("Problem reading JSON in setJsonFormat() ", ioException);
-        }
+        return result;
     }
 }
