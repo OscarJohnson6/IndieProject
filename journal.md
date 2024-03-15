@@ -36,8 +36,7 @@ which made putting the json in a map a lot easier, put I couldn't figure out how
 A problem I have been having it that when I change my CSS style sheet it doesn't update in the war, so it does not change for a while.
 
 Using hibernate with foreign keys I used this [article](https://www.baeldung.com/hibernate-one-to-many) by Baeldung.
-
-<br><br>
+    <br><br>
 ### Journal 4, 2/12-18/2024
 I plan on using a different API for health calculations as it offers 7 different kinds and seems less complicated for storing. 
 [Mega Fitness Calculator.](https://rapidapi.com/bejjaothmane/api/mega-fitness-calculator1/) 
@@ -64,9 +63,21 @@ but I thought it was just simpler to have the 4 classes for unit testing the rec
 
 I asked ChatGPT for a name for a fitness app and one of the recommendations was FitGenie (or GenieFit). 
 Which I liked because creating the exercises is kind of like asking a genie a question.
+
+I spent most of my time making the class and jsp page for the health calculations and allowing them to be null/empty.
    <br><br>
-### Journal 8, 3/13-20/2024
+### Journal 8, 3/11-17/2024
+I found this API from API-Ninjas which could be useful for tracking nutrition values
+[Nutrition API-Ninjas](https://rapidapi.com/apininjas/api/nutrition-by-api-ninjas).
+
+pending
+    <br><br>
+### Journal 9, 3/18-24/2024
 Pending...
     <br><br>
-### Journal 9, 3/21-28/2024
+### Journal 10, 3/25-31/2024
 Pending...
+    <br><br>
+### Journal 11, 4/1-7/2024
+Pending...
+    <br><br>
