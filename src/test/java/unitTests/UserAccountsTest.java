@@ -82,7 +82,6 @@ public class UserAccountsTest {
     @Test
     void testDatabaseDelete() {
         User user = userDao.getById(1);
-        String idNumber = String.valueOf(user.getId());
         GenericDao<WeightRecord> weightDao = new GenericDao<>(WeightRecord.class);
         GenericDao<HeightRecord> heightDao = new GenericDao<>(HeightRecord.class);
         GenericDao<WaistRecord> waistDao = new GenericDao<>(WaistRecord.class);
@@ -91,11 +90,17 @@ public class UserAccountsTest {
 
         assertNull(userDao.getById(1));
 
-        // TODO Could not resolve attribute 'userId' of 'fit.app.dao.WeightRecord'
-//        assertNull(weightDao.getByPropertyEqual("userId", idNumber));
-//        assertNull(heightDao.getByPropertyEqual("userId", idNumber));
-//        assertNull(waistDao.getByPropertyEqual("userId", idNumber));
-//        assertNull(hipDao.getByPropertyLike("userId", idNumber));
+        assertNull(weightDao.getById(1));
+        assertNull(weightDao.getById(2));
+
+        assertNull(heightDao.getById(1));
+        assertNull(heightDao.getById(2));
+
+        assertNull(waistDao.getById(1));
+        assertNull(waistDao.getById(2));
+
+        assertNull(hipDao.getById(1));
+        assertNull(hipDao.getById(2));
     }
 
     /**
