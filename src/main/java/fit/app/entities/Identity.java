@@ -1,4 +1,4 @@
-package fit.app.dao;
+package fit.app.entities;
 
 /**
  * The interface Identity.

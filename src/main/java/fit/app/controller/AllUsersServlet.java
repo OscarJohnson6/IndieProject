@@ -1,6 +1,6 @@
 package fit.app.controller;
 
-import fit.app.dao.User;
+import fit.app.entities.User;
 import fit.app.database.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import java.util.List;
 
 /**
  * A simple servlet.

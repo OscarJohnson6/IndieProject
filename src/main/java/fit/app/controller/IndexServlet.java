@@ -1,6 +1,6 @@
 package fit.app.controller;
 
-import fit.app.dao.*;
+import fit.app.entities.*;
 import fit.app.database.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

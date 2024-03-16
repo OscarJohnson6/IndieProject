@@ -1,16 +1,16 @@
-package fit.app.dao;
+package fit.app.entities;
 
 import jakarta.persistence.*;
 import java.util.Date;
 
 /**
- * The type Weight record.
+ * The type Height record.
  *
  * @author OscarJohnson6
  */
-@Entity(name = "WeightRecord")
-@Table(name = "weight_records")
-public class WeightRecord implements Identity {
+@Entity(name = "HeightRecord")
+@Table(name = "height_records")
+public class HeightRecord implements Identity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "entryId")
@@ -20,50 +20,63 @@ public class WeightRecord implements Identity {
     @JoinColumn(name = "userId")
     private User user;
 
-    @Column(name = "weight")
-    private int weight;
+    @Column(name = "height")
+    private int height;
 
     @Column(name = "entry_date")
     private Date entryDate;
 
     /**
-     * Instantiates a new Weight record.
+     * Instantiates a new Height record.
      */
-    public WeightRecord() {
+    public HeightRecord() {
     }
 
     /**
-     * Instantiates a new Weight record.
+     * Instantiates a new Height record.
      *
-     * @param weight the weight
+     * @param height the height
      */
-    public WeightRecord(int weight) {
-        this.weight = weight;
+    public HeightRecord(int height) {
+        this.height = height;
     }
 
-    public WeightRecord(User user, int weight) {
+    /**
+     * Instantiates a new Height record.
+     *
+     * @param user   the user
+     * @param height the height
+     */
+    public HeightRecord(User user, int height) {
         this.user = user;
-        this.weight = weight;
+        this.height = height;
     }
 
-    public WeightRecord(int id, User user, int weight) {
+    /**
+     * Instantiates a new Height record.
+     *
+     * @param id     the id
+     * @param user   the user
+     * @param height the height
+     */
+    public HeightRecord(int id, User user, int height) {
         this.id = id;
         this.user = user;
-        this.weight = weight;
+        this.height = height;
     }
 
     /**
-     * Instantiates a new Weight record.
+     * Instantiates a new Height record.
      *
      * @param id        the id
      * @param user      the user
-     * @param weight    the weight
+     * @param height    the height
      * @param entryDate the entry date
      */
-    public WeightRecord(int id, User user, int weight, Date entryDate) {
+    public HeightRecord(int id, User user, int height, Date entryDate) {
         this.id = id;
         this.user = user;
-        this.weight = weight;
+        this.height = height;
         this.entryDate = entryDate;
     }
 
@@ -104,21 +117,21 @@ public class WeightRecord implements Identity {
     }
 
     /**
-     * Gets weight.
+     * Gets height.
      *
-     * @return the weight
+     * @return the height
      */
-    public int getWeight() {
-        return weight;
+    public int getHeight() {
+        return height;
     }
 
     /**
-     * Sets weight.
+     * Sets height.
      *
-     * @param weight the weight
+     * @param height the height
      */
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     /**
@@ -141,9 +154,9 @@ public class WeightRecord implements Identity {
 
     @Override
     public String toString() {
-        return "WeightRecord{" +
+        return "HeightRecord{" +
                 "id=" + id +
-                ", weight=" + weight +
+                ", height=" + height +
                 ", entryDate=" + entryDate +
                 '}';
     }

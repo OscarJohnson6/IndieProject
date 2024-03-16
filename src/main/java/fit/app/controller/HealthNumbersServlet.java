@@ -1,6 +1,6 @@
 package fit.app.controller;
 
-import fit.app.dao.User;
+import fit.app.entities.User;
 import fit.app.database.GenericDao;
 import fit.app.health.formulas.HealthCalculations;
 import org.apache.logging.log4j.LogManager;

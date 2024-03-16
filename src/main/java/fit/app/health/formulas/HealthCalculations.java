@@ -1,9 +1,8 @@
 package fit.app.health.formulas;
 
-import fit.app.dao.*;
+import fit.app.entities.*;
 import org.decimal4j.util.DoubleRounder;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 public class HealthCalculations {

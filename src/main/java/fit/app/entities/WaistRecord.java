@@ -1,7 +1,6 @@
-package fit.app.dao;
+package fit.app.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Date;
 

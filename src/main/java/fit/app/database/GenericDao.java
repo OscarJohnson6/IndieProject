@@ -1,6 +1,6 @@
 package fit.app.database;
 
-import fit.app.dao.Identity;
+import fit.app.entities.Identity;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;

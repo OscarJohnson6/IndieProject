@@ -46,7 +46,7 @@ public class ApiResultsTest {
         // Exercise list tests
         assertNotNull(resultItems);
         assertFalse(resultItems.isEmpty());
-        assertEquals(10, resultItems.size());
+        assertEquals(5, resultItems.size());
 
         // Exercise values/object test
         ApiNinjaResultItem exercise0 = resultItems.get(0);

@@ -1,7 +1,7 @@
 package unitTests;
 
-import fit.app.dao.HeightRecord;
-import fit.app.dao.User;
+import fit.app.entities.HeightRecord;
+import fit.app.entities.User;
 import fit.app.database.GenericDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

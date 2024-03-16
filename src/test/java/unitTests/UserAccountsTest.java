@@ -1,6 +1,6 @@
 package unitTests;
 
-import fit.app.dao.*;
+import fit.app.entities.*;
 import fit.app.database.GenericDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
