@@ -25,12 +25,6 @@ public class HealthCalculations {
 
     /**
      * Instantiates a new Health calculations.
-     */
-    public HealthCalculations() {
-    }
-
-    /**
-     * Instantiates a new Health calculations.
      *
      * @param user the user
      */
