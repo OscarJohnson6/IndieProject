@@ -24,7 +24,7 @@
             </form>
         </div>
         <div id="divExportForm" class="boxImportExport">
-            <form id="userExportForm" action="#" method="POST">
+            <form id="userExportForm" action="${pageContext.request.contextPath}/infoExport" method="GET">
                 <h4>Export Health Info</h4>
 
                 <input type="submit" value="Export" id="exportUserFormSubmit">
