@@ -30,7 +30,7 @@ public class ApiResultsTest {
     /**
      * CAUTION: This is connected to a limited (3,000 uses) API.
      */
-    @Test
+//    @Test
     void testAPIResultsAll() {
         ApiNinjas ninjasExercise = new ApiNinjas();
         ApiNinjaResult results = ninjasExercise.createApiResponse(

@@ -70,10 +70,13 @@ I spent most of my time making the class and jsp page for the health calculation
 I found this API from API-Ninjas which could be useful for tracking nutrition values
 [Nutrition API-Ninjas](https://rapidapi.com/apininjas/api/nutrition-by-api-ninjas).
 
-pending
+I fixed the coverage results problem I was having for my unit tests. 
+I also got the unit tests my calculation formulas to be 100%.
     <br><br>
 ### Journal 9, 3/18-24/2024
-Pending...
+I read this [article](https://www.baeldung.com/jackson-object-mapper-tutorial)
+by Baeldung & this [article](https://mkyong.com/java/how-to-download-file-from-website-java-jsp/)
+by Mkyong for using jackson to download a json file. 
     <br><br>
 ### Journal 10, 3/25-31/2024
 Pending...
