@@ -1,6 +1,5 @@
 package fit.app.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import fit.app.database.GenericDao;
 import fit.app.entities.*;
 import org.apache.logging.log4j.LogManager;
@@ -12,13 +11,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/usersHTML")
+@Path("/users/html")
 public class UsersHTML {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    // The Java method will process HTTP GET requests
     @GET
-    // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces("text/html")
     public Response getMessage() {
         GenericDao<User> userDao = new GenericDao<>(User.class);
@@ -35,6 +32,10 @@ public class UsersHTML {
         html.append("<th>Age</th>");
         html.append("<th>Activity Level</th>");
         html.append("<th>Entry Date</th>");
+        html.append("<th>Weights</th>");
+        html.append("<th>Heights</th>");
+        html.append("<th>Hip</th>");
+        html.append("<th>Waists</th>");
         html.append("</tr>");
 
         for (User user : users) {
@@ -47,53 +48,36 @@ public class UsersHTML {
             html.append("<td>").append(user.getAge()).append("</td>");
             html.append("<td>").append(user.getActivityLevel()).append("</td>");
             html.append("<td>").append(user.getEntry_date()).append("</td>");
-            html.append("</tr>");
 
-            html.append("<table>");
-            html.append("<tr>");
-            html.append("<th>Weights</th>");
-            html.append("</tr>");
+            html.append("<td>");
             for (WeightRecord weightRecord : user.getWeightRecords()) {
-                html.append("<tr>");
-                html.append("<td>").append(weightRecord.getWeight()).append("</td>");
-                html.append("</tr>");
+                html.append(weightRecord.getWeight());
+                html.append(" ");
             }
-            html.append("</table>");
+            html.append("</td>");
 
-            html.append("<table>");
-            html.append("<tr>");
-            html.append("<th>Heights</th>");
-            html.append("</tr>");
-            for (HeightRecord weightRecord : user.getHeightRecords()) {
-                html.append("<tr>");
-                html.append("<td>").append(weightRecord.getHeight()).append("</td>");
-                html.append("</tr>");
+            html.append("<td>");
+            for (HeightRecord heightRecord : user.getHeightRecords()) {
+                html.append(heightRecord.getHeight());
+                html.append(" ");
             }
-            html.append("</table>");
+            html.append("</td>");
 
-            html.append("<table>");
-            html.append("<tr>");
-            html.append("<th>Weights</th>");
-            html.append("</tr>");
-            for (HipRecord weightRecord : user.getHipRecords()) {
-                html.append("<tr>");
-                html.append("<td>").append(weightRecord.getHip()).append("</td>");
-                html.append("</tr>");
+            html.append("<td>");
+            for (HipRecord hipRecord : user.getHipRecords()) {
+                html.append(hipRecord.getHip());
+                html.append(" ");
             }
-            html.append("</table>");
+            html.append("</td>");
 
-            html.append("<table>");
-            html.append("<tr>");
-            html.append("<th>Weights</th>");
-            html.append("</tr>");
-            for (WaistRecord weightRecord : user.getWaistRecords()) {
-                html.append("<tr>");
-                html.append("<td>").append(weightRecord.getWaist()).append("</td>");
-                html.append("</tr>");
+            html.append("<td>");
+            for (WaistRecord waistRecord : user.getWaistRecords()) {
+                html.append(waistRecord.getWaist());
+                html.append(" ");
             }
-            html.append("</table>");
+            html.append("</td>");
+            html.append("</tr>");
         }
-
         html.append("</table>");
 
         return Response.status(200).entity(html.toString()).build();

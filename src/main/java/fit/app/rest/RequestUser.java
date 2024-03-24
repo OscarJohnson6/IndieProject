@@ -13,7 +13,11 @@ public class RequestUser extends Application{
     @Override
     public Set<Class<?>> getClasses() {
         HashSet<Class<?>> h = new HashSet<>();
+
         h.add(UsersText.class);
+        h.add(UsersHTML.class);
+        h.add(UsersJSON.class);
+
         return h;
     }
 }

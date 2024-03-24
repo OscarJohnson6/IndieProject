@@ -1,6 +1,5 @@
 package fit.app.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import fit.app.database.GenericDao;
 import fit.app.entities.User;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/usersText")
+@Path("/users/text")
 public class UsersText {
     private final Logger logger = LogManager.getLogger(this.getClass());
 

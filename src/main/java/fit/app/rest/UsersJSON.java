@@ -7,25 +7,20 @@ import fit.app.entities.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.servlet.ServletOutputStream;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-@Path("/usersJSON")
+@Path("/users/json")
 public class UsersJSON {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     // The Java method will process HTTP GET requests
     @GET
     // The Java method will produce content identified by the MIME Media type "text/plain"
-    @Produces("text/plain")
+    @Produces("text/json")
     public Response getMessage() {
         ObjectMapper objectMapper = new ObjectMapper();
         GenericDao<User> userDao = new GenericDao<>(User.class);
