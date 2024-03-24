@@ -109,7 +109,6 @@ public class GenericDao<T extends Identity> {
         Root<T> root = query.from(paramClass);
         List<T> users = session.createSelectionQuery(query).getResultList();
 
-        logger.debug("The list of users " + users);
         session.close();
 
         return users;
