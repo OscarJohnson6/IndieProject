@@ -1,5 +1,6 @@
 package fit.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -17,6 +18,7 @@ public class WaistRecord implements Identity {
     @Column(name = "entryId")
     private int id;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;

@@ -1,5 +1,6 @@
 package fit.app.controller;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fit.app.database.GenericDao;
@@ -23,6 +24,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * A simple servlet.
  *
+ * Code from: <a href="https://mkyong.com/java/how-to-download-file-from-website-java-jsp/">Mkyong article</a>
+ *
  * @author OscarJohnson6
  */
 @WebServlet(
@@ -37,6 +40,9 @@ public class ExportUserServlet extends HttpServlet {
         resp.setHeader("Content-Disposition","attachment;filename=healthInfo.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
+        // TODO replace sample user
         GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(1);
 

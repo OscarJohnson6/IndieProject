@@ -1,5 +1,6 @@
 package fit.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -43,15 +44,19 @@ public class User implements Identity {
     @Column(name = "entry_date")
     private String entry_date;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<WeightRecord> weightRecords = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<HeightRecord> heightRecord = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<HipRecord> hipRecord = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<WaistRecord> waistRecord = new ArrayList<>();
 
