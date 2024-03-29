@@ -26,6 +26,9 @@
     <jackson-version>2.10.0</jackson-version>
     <decimal4j-version>1.0.3</decimal4j-version>
     <jersey-version>2.29.1</jersey-version>
+    <java-jwt>3.4.1</java-jwt>
+    <org-json>20170516</org-json>
+    <commons-io>2.11.0</commons-io>
   </properties>
 
   <dependencies>
@@ -151,6 +154,26 @@
       <artifactId>jersey-hk2</artifactId>
       <version>${jersey-version}</version>
     </dependency>
+
+    <!-- for parsing access token -->
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>${java-jwt}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>${org-json}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io}</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>IndieProject</finalName>
@@ -171,6 +194,24 @@
               <version>${junit-platform-runner-version}</version>
             </dependency>
           </dependencies>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+          <configuration>
+            <webResources>
+              <resource>
+                <directory>src/main/.platform</directory>
+                <targetPath>.platform</targetPath>
+                <filtering>true</filtering>
+              </resource>
+              <resource>
+                <directory>src/main/.ebextensions</directory>
+                <targetPath>.ebextensions</targetPath>
+                <filtering>true</filtering>
+              </resource>
+            </webResources>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

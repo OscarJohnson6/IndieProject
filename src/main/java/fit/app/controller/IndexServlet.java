@@ -20,8 +20,7 @@ import java.io.IOException;
  * @author OscarJohnson6
  */
 @WebServlet(
-        urlPatterns = {"/settings"},
-        loadOnStartup = 1
+        urlPatterns = {"/settings"}
 )
 public class IndexServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
