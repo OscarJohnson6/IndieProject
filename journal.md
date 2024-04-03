@@ -74,13 +74,38 @@ I fixed the coverage results problem I was having for my unit tests.
 I also got the unit tests my calculation formulas to be 100%.
     <br><br>
 ### Journal 9, 3/18-24/2024
+Spring Break
+
+I added a package for REST URLs to be used/available, currently only gets all the users.
+But this helped me with allowing a user to download a json of their account information.
+
 I read this [article](https://www.baeldung.com/jackson-object-mapper-tutorial)
 by Baeldung & this [article](https://mkyong.com/java/how-to-download-file-from-website-java-jsp/)
 by Mkyong for using jackson to download a json file. 
     <br><br>
 ### Journal 10, 3/25-31/2024
-Pending...
+I changed the way jackson mapped the API Ninjas response so that it would return a list of objects.
+
+I set up AWS Cognito and Beanstalk for the project and added the files that go with them. 
+I made a servlet for linking to the sign-up form based off the login servlet.
+I made another servlet for signing out which just removes the current user's attribute.
+
+I generated logo for the site using Copilot.
+
+I didn't get as much done this week because I was having a few problems with AWS.
     <br><br>
 ### Journal 11, 4/1-7/2024
-Pending...
+pending...
+    <br><br>
+
+### Journal 12, 4/8-14/2024
+pending...
+    <br><br>
+
+### Journal 13, 4/15-21/2024
+pending...
+    <br><br>
+
+### Journal 13, 4/22-29/2024
+pending...
     <br><br>
