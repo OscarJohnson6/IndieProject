@@ -18,7 +18,7 @@
         <br><br><br>
         <label for="password">Enter Password:</label><br>
         <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        <br><br>
+        <br><br><br>
         <button type="submit" name="signup_submission">Sign Up</button>
     </form>
 </div>

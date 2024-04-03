@@ -32,32 +32,32 @@
         </div>
     </div>
     <c:choose>
-        <c:when test="${user ne null}">
+        <c:when test="${userAccount ne null}">
             <div class="indexAccountInfo">
                 <table>
                     <tr>
                         <th>Weight</th>
-                        <td>${user.weightRecords[0].weight} kg</td>
+                        <td>${userAccount.weightRecords[0].weight} kg</td>
                     </tr>
                     <tr>
                         <th>Height</th>
-                        <td>${user.heightRecords[0].height} cm</td>
+                        <td>${userAccount.heightRecords[0].height} cm</td>
                     </tr>
                     <tr>
                         <th>Waist</th>
-                        <td>${user.waistRecords[0].waist} cm</td>
+                        <td>${userAccount.waistRecords[0].waist} cm</td>
                     </tr>
                     <tr>
                         <th>Hip</th>
-                        <td>${user.hipRecords[0].hip} cm</td>
+                        <td>${userAccount.hipRecords[0].hip} cm</td>
                     </tr>
                     <tr>
                         <th>Gender</th>
-                        <td>${user.gender}</td>
+                        <td>${userAccount.gender}</td>
                     </tr>
                     <tr>
                         <th>Age</th>
-                        <td>${user.ageNumber}</td>
+                        <td>${userAccount.ageNumber}</td>
                     </tr>
                 </table>
             </div>

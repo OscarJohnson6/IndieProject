@@ -306,7 +306,7 @@ public class User implements Identity {
      *
      * @param hipRecord the neck length record
      */
-    public void setNeckLengthRecords(List<HipRecord> hipRecord) {
+    public void setHipRecords(List<HipRecord> hipRecord) {
         this.hipRecord = hipRecord;
     }
 
@@ -324,7 +324,7 @@ public class User implements Identity {
      *
      * @param waistRecord the waist length record
      */
-    public void setWaistLengthRecords(List<WaistRecord> waistRecord) {
+    public void setWaistRecords(List<WaistRecord> waistRecord) {
         this.waistRecord = waistRecord;
     }
 
