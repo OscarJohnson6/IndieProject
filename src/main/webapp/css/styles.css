@@ -24,6 +24,10 @@ a:visited {
     color: #1790ff;
 }
 
+#logoHolder {
+    max-height: 99px;
+}
+
 /*
     Classes
 */
@@ -191,7 +195,9 @@ input[type="reset"] {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
+input[type="date"],
 input[type="password"] {
     width: 18em;
     padding: 4px;

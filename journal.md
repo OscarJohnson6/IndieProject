@@ -90,7 +90,7 @@ I set up AWS Cognito and Beanstalk for the project and added the files that go w
 I made a servlet for linking to the sign-up form based off the login servlet.
 I made another servlet for signing out which just removes the current user's attribute.
 
-I generated logo for the site using Copilot.
+I generated logo for GenieFit using Copilot.
 
 I didn't get as much done this week because I was having a few problems with AWS.
     <br><br>
@@ -106,6 +106,6 @@ pending...
 pending...
     <br><br>
 
-### Journal 13, 4/22-29/2024
+### Journal 14, 4/22-29/2024
 pending...
     <br><br>
