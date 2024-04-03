@@ -8,9 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="head.jsp"/>
-<link rel="stylesheet" href="css/createExercises.css">
-<script src="js/script.js" charset="UTF-8"></script>
-    <title>Exercise Creation</title>
 <c:import url="navbar.jsp"/>
     <div class="container">
         <h3>Exercise Generator Selector</h3>
@@ -92,7 +89,15 @@
     </div>
 
     <h2>Description</h2>
-    <p>Generate random exercises with the click of a button. Through the use of the APIs
-        <a href="https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/">ExerciseDB</a>
-        and <a href="https://rapidapi.com/apininjas/api/exercises-by-api-ninjas/">API-Ninjas</a>.</p>
+    <p>Welcome to GenieFit's Exercise Generator! With just a click, you can access a wealth of
+        workout options tailored to your preferences. Harnessing the power of APIs from
+        <a href="https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/">ExerciseDB</a> and
+        <a href="https://rapidapi.com/apininjas/api/exercises-by-api-ninjas/">API-Ninjas</a>,
+        our platform provides a seamless experience for generating random exercises.</p>
+    <p>Whether you're looking to diversify your workout routine, target specific muscle groups,
+        or simply try something new, our exercise generator offers endless possibilities.
+        Simply input your preferences and let GenieFit do the rest, delivering a curated selection
+        of exercises to keep your workouts fresh and exciting.</p>
+    <p>Join GenieFit today and discover the convenience and versatility of our exercise generator.
+        Say goodbye to work out boredom and hello to endless fitness inspiration!</p>
 <c:import url="footer.jsp"/>

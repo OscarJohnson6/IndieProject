@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="head.jsp"/>
-<link rel="stylesheet" href="css/healthNumbers.css">
-    <title>Health Numbers</title>
 <c:import url="navbar.jsp"/>
     <ul class="cardInfo">
         <li>BMI = Body Mass Index</li>

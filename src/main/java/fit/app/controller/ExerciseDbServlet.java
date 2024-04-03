@@ -32,6 +32,9 @@ public class ExerciseDbServlet extends HttpServlet {
                 req.getParameter("limitExerciseDb"),
                 req.getParameter("offsetExerciseDb")));
 
+        req.setAttribute("title", "ExerciseDB Exercises");
+        req.setAttribute("styleSheet", "exerciseDbResults");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/exerciseDbResults.jsp");
         dispatcher.forward(req, resp);
     }

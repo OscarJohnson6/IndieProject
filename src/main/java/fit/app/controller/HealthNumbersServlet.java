@@ -37,6 +37,9 @@ public class HealthNumbersServlet extends HttpServlet {
         }
         session.setAttribute("userCalculations", calculations);
 
+        req.setAttribute("title", "Health Numbers");
+        req.setAttribute("styleSheet", "healthNumbers");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);
     }

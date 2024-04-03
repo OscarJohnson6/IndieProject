@@ -25,6 +25,10 @@ public class CreateExercisesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("title", "Exercise Creation");
+        req.setAttribute("styleSheet", "createExercises");
+        req.setAttribute("scriptFile", "script");
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/createExercises.jsp");
         dispatcher.forward(req, resp);
     }

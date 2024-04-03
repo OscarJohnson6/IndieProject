@@ -1,8 +1,6 @@
 package fit.app.controller;
 
 import fit.app.api.ApiNinjas;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,7 +20,6 @@ import java.io.IOException;
         urlPatterns = {"/API-NinjasExercises"}
 )
 public class ApiNinjasServlet extends HttpServlet {
-    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,6 +31,8 @@ public class ApiNinjasServlet extends HttpServlet {
                                                 req.getParameter("muscle"),
                                                 req.getParameter("difficulty"),
                                                 Integer.parseInt(req.getParameter("offset"))));
+        req.setAttribute("title", "API-Ninja Exercises");
+        req.setAttribute("styleSheet", "apiNinjasResults");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/apiNinjaResults.jsp");
         dispatcher.forward(req, resp);

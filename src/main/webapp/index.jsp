@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="head.jsp"/>
-<link rel="stylesheet" href="css/index.css">
-    <title>Index</title>
 <c:import url="navbar.jsp"/>
 <div class="flexBox">
     <div class="flexBoxImportExport">
@@ -60,6 +58,7 @@
                         <td>${userAccount.ageNumber}</td>
                     </tr>
                 </table>
+                <a href="${pageContext.request.contextPath}/updateAccount" id="updateAccountButton">Modify Account</a>
             </div>
         </c:when>
         <c:otherwise>

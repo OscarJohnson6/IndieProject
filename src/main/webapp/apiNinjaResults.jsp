@@ -8,13 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="head.jsp"/>
-<link rel="stylesheet" href="css/apiNinjasResults.css">
-<title>API-Ninja Exercises</title>
 <c:import url="navbar.jsp"/>
     <h4><a href="${pageContext.request.contextPath}/createExercisesServlet" class="goBackLink">&lt; Go Back</a></h4>
-    <form action="${pageContext.request.contextPath}/API-NinjasExercises" method="GET">
-        <input type="submit" value="Generate Again" id="ninjaApiFormSubmit">
-    </form>
 <c:choose>
     <c:when test="${results ne null and not empty results}">
         <div class="tableResults">
