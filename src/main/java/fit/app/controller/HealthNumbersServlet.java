@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -24,16 +25,17 @@ import java.io.IOException;
         urlPatterns = {"/healthNumbers"}
 )
 public class HealthNumbersServlet extends HttpServlet {
-    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO get the current user, not a new one
-        GenericDao<User> userDao = new GenericDao<>(User.class);
-        User user = userDao.getById(1);
-        HealthCalculations calculations = new HealthCalculations(user);
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("userAccount");
+        HealthCalculations calculations = null;
 
-        req.setAttribute("userCalculations", calculations);
+        if (user != null) {
+            calculations = new HealthCalculations(user);
+        }
+        session.setAttribute("userCalculations", calculations);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);

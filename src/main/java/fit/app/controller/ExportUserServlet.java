@@ -41,10 +41,7 @@ public class ExportUserServlet extends HttpServlet {
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-
-        // TODO replace sample user
-        GenericDao<User> userDao = new GenericDao<>(User.class);
-        User user = userDao.getById(1);
+        User user = (User) req.getSession().getAttribute("userAccount");
 
         try {
             String userJsonString = objectMapper.writeValueAsString(user);
