@@ -25,8 +25,12 @@ like doing just upper body or arms.
 | Unit Testing      | jUnit        | 4.12        |
 | Reading JSONs     | Gson         | 2.8.8       |
 | Web Service       | Hibernate    | 6.4.3.Final |
-| Json Formatter    | Jackson      | 2.10.0      |
+| Json Mapper       | Jackson      | 2.10.0      |
 | Decimal Formatter | Decimal4J    | 1.0.3       |
+| REST Framework    | Jersey       | 2.29.1      |
+| Web Tokens        | JWT          | 3.4.1       |
+| Reading JSONs     | org.json     | 20170516    |
+| IO Operations     | Commons IO   | 2.11.0      |
 
 ### Links
 - [Journal](journal.md)
