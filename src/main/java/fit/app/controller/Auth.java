@@ -8,6 +8,7 @@ import fit.app.auth.CognitoJWTParser;
 import fit.app.auth.CognitoTokenHeader;
 import fit.app.auth.Keys;
 import fit.app.auth.TokenResponse;
+import fit.app.database.GenericDao;
 import fit.app.entities.User;
 import fit.app.utilities.PropertiesLoader;
 import org.apache.commons.io.*;
@@ -36,6 +37,7 @@ import java.security.spec.RSAPublicKeySpec;
 import java.time.LocalDate;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -133,7 +135,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userAccount = validate(tokenResponse);
-                req.setAttribute("userAccount", userAccount);
+                req.getSession().setAttribute("userAccount", userAccount);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 url = "error.jsp";
@@ -220,22 +222,17 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
         logger.debug("here are all the available claims: " + jwt.getClaims());
 
-        User user = new User();
-        user.setUserEmail(jwt.getClaim("email").asString());
-        user.setFirstName(jwt.getClaim("first_name").asString());
-        user.setLastName(jwt.getClaim("last_name").asString());
-        user.setGender(jwt.getClaim("gender").asString());
+        String userEmail = jwt.getClaim("email").asString();
+        GenericDao<User> genericDao = new GenericDao<>(User.class);
+        User user;
+        List<User> userList = genericDao.getByPropertyEqual("userEmail", userEmail);
 
-        String birthDate = jwt.getClaim("birth_date").asString();
-        if (birthDate != null) {
-            LocalDate localDate = LocalDate.parse(birthDate);
-            user.setAge(localDate);
+        if (userList.isEmpty()) {
+            user = new User(userEmail);
+            genericDao.insert(user);
+        } else {
+            user = userList.get(0);
         }
-
-//        user.setWeightRecords();
-//        user.setHeightRecords();
-//        user.setWaistRecords();
-//        user.setHipRecords();
 
         return user;
     }
