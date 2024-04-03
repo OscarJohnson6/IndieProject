@@ -18,15 +18,33 @@
 <c:choose>
     <c:when test="${results ne null and not empty results}">
         <div class="tableResults">
-            <c:forEach var="result" varStatus="loop" items="${results}">
+            <c:forEach var="apiNinjaResult" varStatus="loop" items="${results}">
                 <h3>Exercise ${loop.index + 1}</h3>
                 <table class="ninjaResults">
-                <c:forEach var="mapEntry" items="${result}">
                     <tr>
-                        <th class="leftFloat">${mapEntry.key}</th>
-                        <td>${mapEntry.value}</td>
+                        <th class="leftFloat">Difficulty</th>
+                        <td>${apiNinjaResult.difficulty}</td>
                     </tr>
-                </c:forEach>
+                    <tr>
+                        <th class="leftFloat">Instructions</th>
+                        <td>${apiNinjaResult.instructions}</td>
+                    </tr>
+                    <tr>
+                        <th class="leftFloat">Muscle</th>
+                        <td>${apiNinjaResult.muscle}</td>
+                    </tr>
+                    <tr>
+                        <th class="leftFloat">Name</th>
+                        <td>${apiNinjaResult.name}</td>
+                    </tr>
+                    <tr>
+                        <th class="leftFloat">Equipment</th>
+                        <td>${apiNinjaResult.equipment}</td>
+                    </tr>
+                    <tr>
+                        <th class="leftFloat">Type</th>
+                        <td>${apiNinjaResult.type}</td>
+                    </tr>
                 </table><br><br>
             </c:forEach>
         </div>

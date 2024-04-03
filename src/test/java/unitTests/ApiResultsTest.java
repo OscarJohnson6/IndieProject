@@ -3,14 +3,11 @@ package unitTests;
 import fit.app.api.ApiNinjas;
 import fit.app.api.ExerciseDb;
 import fit.app.pojo.ApiNinjaResult;
-import fit.app.pojo.ApiNinjaResultItem;
 import fit.app.pojo.ExerciseDbJson;
 import org.junit.jupiter.api.BeforeEach;
-import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,7 +30,7 @@ public class ApiResultsTest {
 //    @Test
     void testAPIResultsAll() {
         ApiNinjas ninjasExercise = new ApiNinjas();
-        ApiNinjaResult results = ninjasExercise.createApiResponse(
+        ArrayList<ApiNinjaResult> results = ninjasExercise.createApiResponse(
                 "",
                 "",
                 "",
@@ -41,15 +38,11 @@ public class ApiResultsTest {
                 5);
 
         assertNotNull(results);
-        List<ApiNinjaResultItem> resultItems = results.getApiNinjaResult();
-
-        // Exercise list tests
-        assertNotNull(resultItems);
-        assertFalse(resultItems.isEmpty());
-        assertEquals(5, resultItems.size());
+        assertFalse(results.isEmpty());
+        assertEquals(5, results.size());
 
         // Exercise values/object test
-        ApiNinjaResultItem exercise0 = resultItems.get(0);
+        ApiNinjaResult exercise0 = results.get(0);
         assertEquals("Incline Hammer Curls", exercise0.getName());
         assertEquals("strength", exercise0.getType());
         assertEquals("biceps", exercise0.getMuscle());

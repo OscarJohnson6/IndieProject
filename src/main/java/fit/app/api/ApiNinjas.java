@@ -45,7 +45,7 @@ public class ApiNinjas implements PropertiesLoader {
      * @param offset     the offset
      * @return the map
      */
-    public ApiNinjaResult createApiResponse(String name,
+    public ArrayList<ApiNinjaResult> createApiResponse(String name,
                                             String type,
                                             String muscle,
                                             String difficulty,
@@ -77,9 +77,9 @@ public class ApiNinjas implements PropertiesLoader {
      * @param url the api request url
      * @return the result object to ApiNinjaResult
      */
-    private ApiNinjaResult generateResponse(String url) {
+    private ArrayList<ApiNinjaResult> generateResponse(String url) {
         OkHttpClient client = new OkHttpClient();
-        ApiNinjaResult result = null;
+        ArrayList<ApiNinjaResult> list = null;
 
         Request request = new Request.Builder()
                 .url(url)
@@ -92,7 +92,7 @@ public class ApiNinjas implements PropertiesLoader {
             if (response.body() != null) {
                 String stringResponse = response.body().string();
                 ObjectMapper mapper = new ObjectMapper();
-                result = mapper.readValue(stringResponse, ApiNinjaResult.class);
+                list = mapper.readValue(stringResponse, new TypeReference<>() {});
             }
         } catch (JsonProcessingException processingException) {
             logger.error("Problem parsing JSON in generateResponse() ", processingException);
@@ -100,6 +100,6 @@ public class ApiNinjas implements PropertiesLoader {
             logger.error("Problem reading JSON in generateResponse() ", ioException);
         }
 
-        return result;
+        return list;
     }
 }
