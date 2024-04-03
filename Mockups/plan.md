@@ -31,13 +31,13 @@
 - [x] Update journal 5
 
 ### Week 5
-- [ ] Create a class health calculations
-- [ ] Create methods for health calculations
+- [x] Create a class health calculations
+- [x] Create methods for health calculations
 - [x] Update journal 6
 
 ### Week 6
-- [ ] Finish incomplete tasks
-- [ ] Create design for index page
+- [x] Finish incomplete tasks
+- [x] Create design for index page
 - [x] Create properties file for API connections
 - [x] Update journal 7
 
@@ -47,27 +47,37 @@
 - [x] Implement Log4j
 - [x] Use Hibernate
 - [x] Unit test DAO
-- [ ] Update journal 8
+- [x] Update journal 8
 
 ### Week 8
-- [ ] Improve CSS on API forms
-- [ ] Improve CSS on index page
-- [ ] Review/improve API ninja method
+- [x] Improve CSS on API forms
+- [x] Improve CSS on index page
+- [x] Review/improve API ninja method
 - [ ] Select option between exercise forms
-- [ ] Update journal 9
+- [x] Update journal 9
 
 ### Week 9
-- [ ] Deploy to AWS
-- [ ] Have JSP display database results
-- [ ] Implement authentication
-- [ ] Update journal 10
+- [x] Deploy to AWS
+- [x] Have JSP display database results
+- [x] Implement authentication
+- [x] Update journal 10
 
 ### Week 10
 - [ ] Finish incomplete tasks
+- [x] Create a logo
 - [ ] Allow kg or lb input for weight
 - [ ] Allow ft or cm input for height, waist, hip
 - [ ] Update journal 11
 
-### Week 10
+### Week 11
 - [ ] Add nutrition calculations like recommended grams of protein, fat, or sugar, also water, or calories.
+- [ ] Create a display for all weights, heights, waist, hip amounts
 - [ ] Update journal 12
+
+### Week 12
+- [ ] Allow users to edit all weights, heights, waist, hip amounts
+- [ ] Allow users to delete all weights, heights, waist, hip amounts
+- [ ] Allow users to edit their account information like name, gender, or date of birth
+- [ ] Allow users to delete their account information
+- [ ] Allow users to add additional weight, height, waist, hip amounts
+- [ ] Update journal 13
