@@ -22,9 +22,14 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        session.removeAttribute("userAccount");
+        session.invalidate();
 
-        if (session.getAttribute("userAccount") != null) {
-            session.removeAttribute("userAccount");
+        String previousPageUrl = req.getHeader("referer");
+        if (previousPageUrl != null && !previousPageUrl.isEmpty()) {
+            resp.sendRedirect(previousPageUrl);
+        } else {
+            resp.sendRedirect("/settings");
         }
     }
 }
