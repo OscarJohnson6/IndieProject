@@ -8,6 +8,7 @@ import fit.app.auth.CognitoJWTParser;
 import fit.app.auth.CognitoTokenHeader;
 import fit.app.auth.Keys;
 import fit.app.auth.TokenResponse;
+import fit.app.entities.User;
 import fit.app.utilities.PropertiesLoader;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
@@ -32,6 +33,7 @@ import java.security.*;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
+import java.time.LocalDate;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Properties;
@@ -121,7 +123,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
-        String userName = null;
+        User userAccount = null;
         String url = "/settings";
 
         if (authCode == null) {
@@ -130,8 +132,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
-                userName = validate(tokenResponse);
-                req.setAttribute("userName", userName);
+                userAccount = validate(tokenResponse);
+                req.setAttribute("userAccount", userAccount);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 url = "error.jsp";
@@ -170,7 +172,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         logger.debug("Id token: " + tokenResponse.getIdToken());
 
         return tokenResponse;
-
     }
 
     /**
@@ -180,7 +181,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * @return
      * @throws IOException
      */
-    private String validate(TokenResponse tokenResponse) throws IOException {
+    private User validate(TokenResponse tokenResponse) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CognitoTokenHeader tokenHeader = mapper.readValue(CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(), CognitoTokenHeader.class);
 
@@ -212,22 +213,31 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         JWTVerifier verifier = JWT.require(algorithm)
                 .withIssuer(iss)
-                .withClaim("token_use", "id") // make sure you're verifying id token
+                .withClaim("token_use", "id")
                 .build();
 
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
-        String userName = jwt.getClaim("cognito:username").asString();
-        logger.debug("here's the username: " + userName);
         logger.debug("here are all the available claims: " + jwt.getClaims());
 
-        // NOTE: might be good to return DecodedJWT so that other claims like the user email can be displayed
-        logger.info(jwt.getClaim("auth_time").asString());
-        logger.info(jwt.getClaim("email").asString());
+        User user = new User();
+        user.setUserEmail(jwt.getClaim("email").asString());
+        user.setFirstName(jwt.getClaim("first_name").asString());
+        user.setLastName(jwt.getClaim("last_name").asString());
+        user.setGender(jwt.getClaim("gender").asString());
 
-        // for now, I'm just returning username for display back to the browser
+        String birthDate = jwt.getClaim("birth_date").asString();
+        if (birthDate != null) {
+            LocalDate localDate = LocalDate.parse(birthDate);
+            user.setAge(localDate);
+        }
 
-        return userName;
+//        user.setWeightRecords();
+//        user.setHeightRecords();
+//        user.setWaistRecords();
+//        user.setHipRecords();
+
+        return user;
     }
 
     /** Create the auth url and use it to build the request.
