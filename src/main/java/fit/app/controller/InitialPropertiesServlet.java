@@ -22,8 +22,6 @@ import java.util.Properties;
         loadOnStartup = 1
 )
 public class InitialPropertiesServlet extends HttpServlet implements PropertiesLoader {
-    private final Logger logger = LogManager.getLogger(this.getClass());
-
     /**
      * The constant PROPERTIES_FILE.
      */
@@ -40,7 +38,7 @@ public class InitialPropertiesServlet extends HttpServlet implements PropertiesL
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/settings");
         dispatcher.forward(req, resp);
     }
 }
