@@ -7,19 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-</head>
 <body>
 <div class="pageTop">
-
     <div id="logoHolder" class="pageTopFlewCol">
-        <h1>GenieFit</h1>
+        <a href="${pageContext.request.contextPath}/settings">
+            <img style="max-height: 120px" src="img/geniefit_logo1.png"  alt="Genie Fit logo with an apple exercising and formulas around it">
+        </a>
     </div>
-
     <div class="reverseRow">
         <div class="pageTopFlewCol">
             <c:choose>
                 <c:when test="${userAccount ne null}">
-                    <p class="accountMessage"><a href="${pageContext.request.contextPath}/signOut">Sign Out</a> | Hello, ${userAccount.firstName}</p>
+                    <p class="accountMessage"><a href="${pageContext.request.contextPath}/signOut">Sign Out</a>
+                        <c:if test="${userAccount.firstName ne null}">
+                            | Hello, ${userAccount.firstName}</p>
+                        </c:if>
                     <a href="${pageContext.request.contextPath}/settings"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
                 </c:when>
                 <c:otherwise>
