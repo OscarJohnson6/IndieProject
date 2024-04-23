@@ -1,17 +1,92 @@
 /*
     Main CSS Body
 */
+#type {
+    width: 9em;
+}
 
+#limitExerciseDb {
+    width: 7.5em;
+}
 
-#formSelector {
-    margin: 0 auto;
+#offsetExerciseDb {
+    width: 13em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 /*
     Classes
 */
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+.flexBoxCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 45px .5rem 0;
+    align-items: center;
+    align-content: center;
+}
+
+.exerciseForms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descriptionBox {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 70%;
+}
+
+.descriptionBox p,
+.descriptionBox h2 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.exerciseSelector {
+    justify-content: center;
+    align-items: center;
+}
+
+.exerciseSelector label {
+    font-weight: bold;
+    font-size: large;
+}
+
+/*
+    Forms
+*/
+.exerciseDBForms {
+    min-width: 472px;
+}
+
+.exerciseDBForms h3 {
+    margin: 0 0 .5rem;
+}
+
+.ninjaForms {
+    margin-left: 1rem;
+}
+
+.ninjaForms fieldset {
+    border: none;
+    padding-bottom: 0;
+}
+
+.ninjaForms input[type="number"] {
+    width: 7.75em;
+}
+
+.ninjaForms input[type="text"] {
+    width: 15.15em;
+}
+
+.flexDisplayForm {
+    display: flex;
 }
