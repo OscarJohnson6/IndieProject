@@ -12,10 +12,10 @@
 <div class="flexBoxCenter">
     <div class="exerciseForms">
         <div class="exerciseSelector">
-            <label for="formSelector">Exercise Generator Selector</label>
+            <label for="formSelector">Exercise Generator Selector</label><br>
             <select id="formSelector">
-                <option value="ExerciseDB">ExerciseDB</option>
-                <option value="API-Ninja">API-Ninja</option>
+                <option value="exerciseDBForm">ExerciseDB</option>
+                <option value="ninjaForm">API-Ninja</option>
             </select>
         </div>
         <div class="exerciseDBForms">
@@ -48,7 +48,7 @@
 
                         <label for="offset">Offset: (10 - offset = total sets)</label>
                         <input type="number" id="offset" min="0" max="10" name="offset"
-                               placeholder="Enter offset amount"><br>
+                               placeholder="Enter offset"><br>
 
                         <label for="type">Select Exercise Type:</label>
                         <select id="type" name="type">

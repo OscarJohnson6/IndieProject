@@ -1,12 +1,13 @@
-// 
+// Adds on change event listener to select tag
 const init = () => {
-    document.getElementById('formSelector').addEventListener('change', function() {
-        // Get the value of the selected option
-        let selectedValue = this.value;
-
+    document.getElementById('formSelector').addEventListener('change', event => {
+        // Get value of the selected option
+        let selectedValue = event.target.value;
+        console.log(selectedValue)
         // Show the form that matches the selected option
         let forms = document.querySelectorAll('form');
-        forms.forEach(function(form) {
+        console.log(forms)
+        forms.forEach(form => {
             if (form.id === selectedValue) {
                 form.classList.remove('hidden');
             } else {
@@ -16,5 +17,4 @@ const init = () => {
     });
 }
 
-// Ensure the window.onload does not override other onload events
 window.addEventListener('load', init);
