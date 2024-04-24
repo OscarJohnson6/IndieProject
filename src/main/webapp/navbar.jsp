@@ -9,9 +9,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 <div class="pageTop">
-    <div id="logoHolder" class="pageTopFlewCol">
+    <div class="pageTopFlewCol">
         <a href="${pageContext.request.contextPath}/settings">
-            <img style="max-height: 120px" src="img/geniefit_logo1.png"  alt="Genie Fit logo with an apple exercising and formulas around it">
+            <img src="img/geniefit_logo.png" alt="Genie Fit logo with an apple exercising and formulas around it">
         </a>
     </div>
     <div class="reverseRow">

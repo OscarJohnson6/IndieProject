@@ -15,9 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <c:if test="${styleSheet ne null}">
-        <link rel="stylesheet" href="css/${styleSheet}.css">
+        <link rel="stylesheet" href="css/${styleSheet}.css?v=1.8">
     </c:if>
     <c:if test="${scriptFile ne null}">
-        <script src="js/${scriptFile}.js" charset="UTF-8"></script>
+        <script src="js/${scriptFile}.js?v=1.4" charset="UTF-8"></script>
     </c:if>
 </head>
