@@ -55,6 +55,12 @@ public class WaistRecord implements Identity {
         this.waist = waist;
     }
 
+    public WaistRecord(User user, int waist, Date entryDate) {
+        this.user = user;
+        this.waist = waist;
+        this.entryDate = entryDate;
+    }
+
     /**
      * Instantiates a new Waist length record.
      *

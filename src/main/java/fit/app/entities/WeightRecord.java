@@ -54,6 +54,12 @@ public class WeightRecord implements Identity {
         this.weight = weight;
     }
 
+    public WeightRecord(User user, int weight, Date entryDate) {
+        this.user = user;
+        this.weight = weight;
+        this.entryDate = entryDate;
+    }
+
     /**
      * Instantiates a new Weight record.
      *

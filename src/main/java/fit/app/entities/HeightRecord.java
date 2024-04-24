@@ -67,6 +67,12 @@ public class HeightRecord implements Identity {
         this.height = height;
     }
 
+    public HeightRecord(User user, int height, Date entryDate) {
+        this.user = user;
+        this.height = height;
+        this.entryDate = entryDate;
+    }
+
     /**
      * Instantiates a new Height record.
      *

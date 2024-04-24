@@ -54,6 +54,12 @@ public class HipRecord implements Identity {
         this.hip = hip;
     }
 
+    public HipRecord(User user, int hip, Date entryDate) {
+        this.user = user;
+        this.hip = hip;
+        this.entryDate = entryDate;
+    }
+
     /**
      * Instantiates a new Neck length record.
      *
