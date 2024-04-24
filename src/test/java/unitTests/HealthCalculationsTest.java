@@ -1,15 +1,11 @@
 package unitTests;
 
-import fit.app.entities.HeightRecord;
 import fit.app.entities.User;
 import fit.app.database.GenericDao;
-import fit.app.health.formulas.HealthCalculations;
+import fit.app.formulas.HealthCalculations;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Database;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

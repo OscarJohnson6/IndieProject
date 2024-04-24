@@ -1,4 +1,4 @@
-package fit.app.health.formulas;
+package fit.app.formulas;
 
 import fit.app.entities.*;
 import org.decimal4j.util.DoubleRounder;
@@ -7,20 +7,20 @@ import java.util.List;
 
 public class HealthCalculations {
 
-    private User user;
+    private final User user;
 
-    private String gender;
+    private final String gender;
 
-    // KG
+    // KG will be 0 if user has no records
     private int weight;
 
-    // CM
+    // CM will be 0 if user has no records
     private int height;
 
-    // CM
+    // CM will be 0 if user has no records
     private int hip;
 
-    // CM
+    // CM will be 0 if user has no records
     private int waist;
 
     /**
@@ -34,22 +34,22 @@ public class HealthCalculations {
         List<WeightRecord> weightRecords = user.getWeightRecords();
         List<HeightRecord> heightRecords = user.getHeightRecords();
         List<HipRecord> hipRecords = user.getHipRecords();
-        List<WaistRecord> waistRecord = user.getWaistRecords();
+        List<WaistRecord> waistRecords = user.getWaistRecords();
 
         if (!weightRecords.isEmpty()) {
-            weight = weightRecords.get(0).getWeight();
+            weight = weightRecords.get(weightRecords.size() - 1).getWeight();
         }
 
         if (!heightRecords.isEmpty()) {
-            height = heightRecords.get(0).getHeight();
+            height = heightRecords.get(heightRecords.size() - 1).getHeight();
         }
 
         if (!hipRecords.isEmpty()) {
-            hip = hipRecords.get(0).getHip();
+            hip = hipRecords.get(hipRecords.size() - 1).getHip();
         }
 
-        if (!waistRecord.isEmpty()) {
-            waist = waistRecord.get(0).getWaist();
+        if (!waistRecords.isEmpty()) {
+            waist = waistRecords.get(waistRecords.size() - 1).getWaist();
         }
     }
 
@@ -100,19 +100,11 @@ public class HealthCalculations {
         Integer age = user.getAgeNumber();
 
         if (bmi != null && age != null) {
-            bFP = (1.20 * bmi) + (0.23 * age);
-
-            if (gender != null) {
-                switch (gender) {
-                    case "male":
-                        bFP -= 16.2;
-                        break;
-                    case "female":
-                        bFP -= 5.4;
-                        break;
-                }
-                bFP = DoubleRounder.round(bFP, 2);
-            }
+            bFP = genderCheckFormula(
+                    (1.20 * bmi) + (0.23 * age),
+                    -16.2,
+                    -5.4
+            );
         }
 
         return bFP;
@@ -127,17 +119,14 @@ public class HealthCalculations {
      */
     public Double getBMR() {
         Double bMR = null;
+        Integer userAge = user.getAgeNumber();
 
-        if (gender != null) {
-            switch (gender) {
-                case "male":
-                    bMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * user.getAgeNumber());
-                    break;
-                case "female":
-                    bMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * user.getAgeNumber());
-                    break;
-            }
-            bMR = DoubleRounder.round(bMR, 2);
+        if (height != 0 && waist != 0 && userAge != null) {
+            bMR = genderCheckFormula(
+                    0.0,
+                    88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * userAge),
+                    447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * userAge)
+            );
         }
 
         return bMR;
@@ -182,16 +171,12 @@ public class HealthCalculations {
         Double iBW = null;
         double heightInches = height * 0.393701;
 
-        if (gender != null) {
-            switch (gender) {
-                case "male":
-                    iBW = 50 + 2.3 * (heightInches - 60);
-                    break;
-                case "female":
-                    iBW = 45.5 + 2.3 * (heightInches - 60);
-                    break;
-            }
-            iBW = DoubleRounder.round(iBW, 2);
+        if (heightInches != 0) {
+            iBW = genderCheckFormula(
+                    0.0,
+                    50 + 2.3 * (heightInches - 60),
+                    45.5 + 2.3 * (heightInches - 60)
+            );
         }
 
         return iBW;
@@ -207,16 +192,12 @@ public class HealthCalculations {
     public Double getLBM() {
         Double lBM = null;
 
-        if (gender != null) {
-            switch (gender) {
-                case "male":
-                    lBM = (0.407 * weight) + (0.267 * height) - 19.2;
-                    break;
-                case "female":
-                    lBM = (0.252 * weight) + (0.473 * height) - 48.3;
-                    break;
-            }
-            lBM = DoubleRounder.round(lBM, 2);
+        if (height != 0 && waist != 0) {
+            lBM = genderCheckFormula(
+                    0.0,
+                    (0.407 * weight) + (0.267 * height) - 19.2,
+                    (0.252 * weight) + (0.473 * height) - 48.3
+            );
         }
 
         return lBM;
@@ -236,5 +217,31 @@ public class HealthCalculations {
         }
 
         return whtr;
+    }
+
+    /**
+     * Gets whtr.
+     * WHtR = waist circumference / height
+     *
+     * @return the whtr
+     */
+    private Double genderCheckFormula(Double formulaNumber, Double maleNumber, Double femaleNumber) {
+        if (gender != null) {
+            if (gender.equals("male")) {
+                formulaNumber += maleNumber;
+            } else if (gender.equals("female")){
+                formulaNumber += femaleNumber;
+            } else {
+                formulaNumber = null;
+            }
+
+            if (formulaNumber != null) {
+                formulaNumber = DoubleRounder.round(formulaNumber, 2);
+            }
+        } else {
+            formulaNumber = null;
+        }
+
+        return formulaNumber;
     }
 }
