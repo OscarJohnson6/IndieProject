@@ -3,42 +3,143 @@
 */
 
 /*
-    IDs
-*/
-#divExportForm {
-    margin-left: 20px;
-    margin-right: 20px;
-    min-width: 203px;
-}
-
-/*
     Classes
 */
-.indexAccountInfo table {
-    background-color: rgba(219, 237, 243, 0.85);
-    border-radius: 35px;
+.accountInfo table {
+    background-color: rgb(209, 243, 255);
+    border-radius: 20px;
     padding: 10px 20px;
 }
 
-.indexAccountInfo th, td {
+.accountInfo th {
     text-align: left;
 }
 
+.accountInfo td {
+    text-align: right;
+}
+
+.marginLeft {
+    margin-left: 1rem;
+}
+
+.recordsTable {
+    background-color: rgb(190, 244, 255);
+    text-decoration: #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.recordsTable td {
+    text-align: center;
+}
+
+.recordsTable td,
+.recordsTable th {
+    padding: 7px 14px;
+}
+
+.editAccountButton,
+.editAccountButton:visited {
+    background-color: rgb(255, 144, 29);
+    color: #ffffff;
+    border: none;
+    padding: 12px 26px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 15px;
+}
+
+.editAccountButton:hover {
+    background-color: rgb(255, 191, 126);
+    color: #000000;
+}
+
+.addHealthRecordButton,
+.addHealthRecordButton:visited {
+    background-color: rgb(241, 87, 18);
+    color: #e8e8e8;
+    border: none;
+    padding: 12px 26px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 15px;
+    float: right;
+}
+
+.addHealthRecordButton:hover {
+    background-color: rgb(255, 130, 121);
+    color: #000000;
+}
+
+.editIcon {
+    max-width: 1.75rem;
+}
+
+.editIcon:hover {
+    box-shadow: 0 0 8px 10px #3a3a3a;
+}
+
+.deleteX,
+.deleteX:visited {
+    color: #ce0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.deleteX:hover {
+    color: red;
+    box-shadow: 0 0 8px 10px #ff4646;
+}
+
+.noAccountError {
+    background-color: rgb(0 9 122);
+    color: white;
+    border-radius: 16px;
+    padding: 4px;
+    height: 225px;
+    text-align: center;
+}
+
+.noAccountRecords {
+    background-color: rgb(190, 244, 255);
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+
+/*
+    Main Body Flex boxes
+*/
 .flexBox {
-    margin: 45px 5vw 0;
+    margin: 45px .5rem 0;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+}
+
+.flexBoxColumn {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    background-color: rgb(0 9 122);
+    border-radius: 16px;
+    padding: 14px;
 }
 
-.flexBoxImportExport {
-    display: flex;
-    flex-direction: row;
+.boxEditAccount {
+    background-color: rgb(209, 243, 255);
+    border-radius: 20px;
+    margin: 1rem 0;
+    padding: 0 5px 20px;
 }
 
-.boxImportExport form {
+.boxExport {
     margin-bottom: 0;
-    background-color: rgba(182, 238, 255, 0.45);
-    border-radius: 35px;
-    padding: 1px 15px 15px 15px;
+    background-color: rgb(209, 243, 255);
+    border-radius: 20px;
+    padding: 0 5px 20px;
 }
