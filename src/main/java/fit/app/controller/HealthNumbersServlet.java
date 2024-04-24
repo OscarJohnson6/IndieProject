@@ -1,10 +1,7 @@
 package fit.app.controller;
 
 import fit.app.entities.User;
-import fit.app.database.GenericDao;
-import fit.app.health.formulas.HealthCalculations;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import fit.app.formulas.HealthCalculations;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,8 +23,21 @@ import java.io.IOException;
 )
 public class HealthNumbersServlet extends HttpServlet {
 
+    /**
+     * This method forwards the request to the "healthNumbers.jsp" page, setting attributes
+     * for the title and stylesheet as well as userCalculations and emptyInputMessage,
+     * to display account calculations or error messages.
+     *
+     * @param req  the http request object representing the client's request
+     * @param resp the http response object representing the servlet's response
+     * @throws ServletException if the servlet encounters difficulty while handling the request
+     * @throws IOException      if an input or output error occurs while the servlet is handling the request
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("title", "Health Numbers");
+        req.setAttribute("styleSheet", "healthNumbers");
+
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("userAccount");
         HealthCalculations calculations = null;
@@ -35,10 +45,11 @@ public class HealthNumbersServlet extends HttpServlet {
         if (user != null) {
             calculations = new HealthCalculations(user);
         }
-        session.setAttribute("userCalculations", calculations);
+        req.setAttribute("userCalculations", calculations);
 
-        req.setAttribute("title", "Health Numbers");
-        req.setAttribute("styleSheet", "healthNumbers");
+        String emptyInput = "Missing Input(s)";
+        req.setAttribute("emptyInputMessage", emptyInput);
+
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/healthNumbers.jsp");
         dispatcher.forward(req, resp);

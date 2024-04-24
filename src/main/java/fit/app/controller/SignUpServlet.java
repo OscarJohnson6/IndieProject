@@ -48,13 +48,14 @@ public class SignUpServlet extends HttpServlet implements PropertiesLoader {
     }
 
     /**
-     * Route to the aws-hosted cognito login page.
-     * @param req servlet request
-     * @param resp servlet response
-     * @throws ServletException
-     * @throws IOException
+     * This method redirects the request to the aws cognito authentication page,
+     * otherwise "error.jsp" if the properties object is null.
+     *
+     * @param req  the http request object representing the client's request
+     * @param resp the http response object representing the servlet's response
+     * @throws ServletException if the servlet encounters difficulty while handling the request
+     * @throws IOException      if an input or output error occurs while the servlet is handling the request
      */
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = "error.jsp";
 

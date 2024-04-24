@@ -4,8 +4,6 @@ import fit.app.entities.Identity;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,8 +17,6 @@ import java.util.List;
  * @param <T> the type parameter
  */
 public class GenericDao<T extends Identity> {
-
-    private final Logger logger = LogManager.getLogger(this.getClass());
 
     private final Class<T> paramClass;
 
@@ -101,9 +97,7 @@ public class GenericDao<T extends Identity> {
      * @return All users
      */
     public List<T> getAll() {
-
         Session session = sessionFactory.openSession();
-
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(paramClass);
         Root<T> root = query.from(paramClass);
@@ -124,9 +118,6 @@ public class GenericDao<T extends Identity> {
      */
     public List<T> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
-
-        logger.debug("Searching for daoClass with " + propertyName + " = " + value);
-
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(paramClass);
         Root<T> root = query.from(paramClass);
@@ -147,9 +138,6 @@ public class GenericDao<T extends Identity> {
      */
     public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
-
-        logger.debug("Searching for daoClass with {} = {}", propertyName, value);
-
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(paramClass);
         Root<T> root = query.from(paramClass);

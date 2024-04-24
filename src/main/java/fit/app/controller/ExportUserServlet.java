@@ -34,10 +34,21 @@ import java.nio.charset.StandardCharsets;
 public class ExportUserServlet extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * This method forwards the request to the "/settings" servlet,
+     * after printing a json file of the current user account to the client
+     *
+     * @param req  the http request object representing the client's request
+     * @param resp the http response object representing the servlet's response
+     * @throws ServletException if the servlet encounters difficulty while handling the request
+     * @throws IOException      if an input or output error occurs while the servlet is handling the request
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/octet-stream");
         resp.setHeader("Content-Disposition","attachment;filename=healthInfo.json");
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -57,7 +68,6 @@ public class ExportUserServlet extends HttpServlet {
             in.close();
             out.flush();
             out.close();
-
         } catch (JsonProcessingException jsonProcessingException) {
             logger.error("Error downloading/making json file", jsonProcessingException);
         } catch (IOException ioException) {
