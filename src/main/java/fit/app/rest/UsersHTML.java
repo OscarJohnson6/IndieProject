@@ -47,7 +47,7 @@ public class UsersHTML {
             html.append("<td>").append(user.getGender()).append("</td>");
             html.append("<td>").append(user.getAge()).append("</td>");
             html.append("<td>").append(user.getActivityLevel()).append("</td>");
-            html.append("<td>").append(user.getEntry_date()).append("</td>");
+            html.append("<td>").append(user.getEntryDate()).append("</td>");
 
             html.append("<td>");
             for (WeightRecord weightRecord : user.getWeightRecords()) {

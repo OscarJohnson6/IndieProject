@@ -42,7 +42,7 @@ public class User implements Identity {
     private String activityLevel;
 
     @Column(name = "entry_date")
-    private String entry_date;
+    private Date entryDate;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -243,8 +243,8 @@ public class User implements Identity {
      *
      * @return the entry date
      */
-    public String getEntry_date() {
-        return entry_date;
+    public Date getEntryDate() {
+        return entryDate;
     }
 
     /**
@@ -252,8 +252,8 @@ public class User implements Identity {
      *
      * @param entry_date the entry date
      */
-    public void setEntry_date(String entry_date) {
-        this.entry_date = entry_date;
+    public void setEntryDate(Date entry_date) {
+        this.entryDate = entry_date;
     }
 
     /**
@@ -328,7 +328,7 @@ public class User implements Identity {
         this.waistRecord = waistRecord;
     }
 
-    public Integer  getAgeNumber() {
+    public Integer getAgeNumber() {
         if (age != null) {
             return (int) ChronoUnit.YEARS.between(age, LocalDate.now());
         } else {
@@ -346,7 +346,7 @@ public class User implements Identity {
                 ", gender='" + gender + '\'' +
                 ", age=" + age +
                 ", activityLevel='" + activityLevel + '\'' +
-                ", entry_date='" + entry_date + '\'' +
+                ", entry_date='" + entryDate + '\'' +
                 ", weightRecords=" + weightRecords +
                 ", heightRecord=" + heightRecord +
                 ", hipRecord=" + hipRecord +
