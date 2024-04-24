@@ -49,7 +49,7 @@ public class ApiNinjas implements PropertiesLoader {
                                             String type,
                                             String muscle,
                                             String difficulty,
-                                            int offset) {
+                                            String offset) {
         String url = properties.getProperty("api.ninjas.url");
 
         if (!name.isEmpty()) {
@@ -64,8 +64,8 @@ public class ApiNinjas implements PropertiesLoader {
         if (!difficulty.equals("empty")) {
             url += "&difficulty=" + difficulty;
         }
-        if (offset != 0) {
-            url += "&offset=" + offset;
+        if (!offset.isEmpty()) {
+            url += "&offset=" + Integer.parseInt(offset);
         }
 
         return generateResponse(url);

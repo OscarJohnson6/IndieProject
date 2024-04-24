@@ -35,7 +35,7 @@ public class ApiResultsTest {
                 "",
                 "",
                 "",
-                5);
+                "5");
 
         assertNotNull(results);
         assertFalse(results.isEmpty());

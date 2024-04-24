@@ -41,7 +41,7 @@ public class ApiNinjasServlet extends HttpServlet {
                                                 req.getParameter("type"),
                                                 req.getParameter("muscle"),
                                                 req.getParameter("difficulty"),
-                                                Integer.parseInt(req.getParameter("offset"))));
+                                                req.getParameter("offset")));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/apiNinjaResults.jsp");
         dispatcher.forward(req, resp);
