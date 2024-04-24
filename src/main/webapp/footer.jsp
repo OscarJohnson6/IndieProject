@@ -11,10 +11,12 @@
         <div class="footerLinks">
             <div class="columDisplay">
                 <a class="flexBoxRow" href="https://github.com/OscarJohnson6/IndieProject">
-                    <img src="img/github.png" alt="" class="iconPicture"><small>GitHub</small></a>
+                    <img src="img/github.png" alt="" class="iconPicture">
+                </a>
                 <br>
                 <a class="flexBoxRow" href="mailto:ojohnson6@madisoncollege.edu">
-                    <img src="img/mail.png" alt="" class="iconPicture"><small>Email Contact</small></a>
+                    <img src="img/mail.png" alt="" class="iconPicture">
+                </a>
             </div>
         </div>
     </footer>
