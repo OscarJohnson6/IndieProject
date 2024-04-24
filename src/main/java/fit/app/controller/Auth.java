@@ -117,10 +117,11 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
     /**
      * Gets the auth code from the request and exchanges it for a token containing user info.
-     * @param req servlet request
-     * @param resp servlet response
-     * @throws ServletException
-     * @throws IOException
+     *
+     * @param req  the http request object representing the client's request
+     * @param resp the http response object representing the servlet's response
+     * @throws ServletException if the servlet encounters difficulty while handling the request
+     * @throws IOException      if an input or output error occurs while the servlet is handling the request
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -129,7 +130,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         String url = "/settings";
 
         if (authCode == null) {
-            url = "error.jsp";
+            url = "/errorPage";
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
@@ -138,13 +139,13 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 req.getSession().setAttribute("userAccount", userAccount);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
-                url = "error.jsp";
+                url = "/errorPage";
             } catch (InterruptedException e) {
                 logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
-                url = "error.jsp";
+                url = "/errorPage";
             } catch (ValidationException validationException) {
                 logger.error("There was a validation error  " + validationException.getMessage(), validationException);
-                url = "error.jsp";
+                url = "/errorPage";
             }
         }
 
@@ -165,15 +166,9 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         response = client.send(authRequest, HttpResponse.BodyHandlers.ofString());
 
-
-        logger.debug("Response headers: " + response.headers().toString());
-        logger.debug("Response body: " + response.body().toString());
-
         ObjectMapper mapper = new ObjectMapper();
-        TokenResponse tokenResponse = mapper.readValue(response.body().toString(), TokenResponse.class);
-        logger.debug("Id token: " + tokenResponse.getIdToken());
 
-        return tokenResponse;
+        return mapper.readValue(response.body().toString(), TokenResponse.class);
     }
 
     /**
@@ -220,7 +215,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
-        logger.debug("here are all the available claims: " + jwt.getClaims());
 
         String userEmail = jwt.getClaim("email").asString();
         GenericDao<User> genericDao = new GenericDao<>(User.class);
@@ -233,7 +227,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         } else {
             user = userList.get(0);
         }
-
+        
         return user;
     }
 
@@ -283,7 +277,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             File jwksFile = new File("jwks.json");
             FileUtils.copyURLToFile(jwksURL, jwksFile);
             jwks = mapper.readValue(jwksFile, Keys.class);
-            logger.debug("Keys are loaded. Here's e: " + jwks.getKeys().get(0).getE());
         } catch (IOException ioException) {
             logger.error("Cannot load json..." + ioException.getMessage(), ioException);
         } catch (Exception e) {
