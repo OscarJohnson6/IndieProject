@@ -18,8 +18,7 @@ like doing just upper body or arms.
 | Category          | Type         | Version     |
 |-------------------|--------------|-------------|
 | Database          | MySql        | 8.3.0       |
-| Server            | Apache       | 8.5.98      |    
-| Development       | JDK          | 8.0         |
+| Server            | Apache       | 8.5.98      | 
 | API Http Client   | OkHttpClient | 4.12.0      |
 | Logging           | Log4j        | 2.17.1      |
 | Unit Testing      | jUnit        | 4.12        |
@@ -35,5 +34,5 @@ like doing just upper body or arms.
 ### Links
 - [Journal](journal.md)
 - [Project Plan](Mockups/plan.md)
-- [Screen Design](Mockups/FitApp-Screen-Design.png)
+- [Screen Design](Mockups/SQL Design/mysqlDesign.png)
 - [User Stories](Mockups/UserStories.md)
