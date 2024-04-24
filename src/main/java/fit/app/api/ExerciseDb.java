@@ -1,13 +1,9 @@
 package fit.app.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import fit.app.pojo.ExerciseDbJson;
 import fit.app.utilities.PropertiesLoader;
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class ExerciseDb implements PropertiesLoader {
+public class ExerciseDb implements PropertiesLoader, FetchApiResponse {
     /**
      * The Logger.
      */
@@ -42,37 +38,20 @@ public class ExerciseDb implements PropertiesLoader {
             url += "&offset=" + offset;
         }
 
-        return generateResponse(url);
-    }
-
-    /**
-     * Generate response object with ExerciseDbJson.
-     *
-     * @param url the url
-     */
-    private ArrayList<ExerciseDbJson> generateResponse(String url) {
-        OkHttpClient client = new OkHttpClient();
-        ArrayList<ExerciseDbJson> list = null;
-
         Request request = new Request.Builder()
                 .url(url)
                 .get()
                 .addHeader("X-RapidAPI-Key", properties.getProperty("exercise.db.key"))
                 .addHeader("X-RapidAPI-Host", properties.getProperty("exercise.db.host"))
                 .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.body() != null) {
-                String stringResponse = response.body().string();
-                ObjectMapper mapper = new ObjectMapper();
-                list = mapper.readValue(stringResponse, new TypeReference<>() {});
-            }
-        } catch (JsonProcessingException processingException) {
-            logger.error("Problem parsing JSON in generateResponse() ", processingException);
-        } catch (IOException ioException) {
-            logger.error("Problem reading JSON in generateResponse() ", ioException);
+        try {
+            return generateApiResponse(ExerciseDbJson.class, request);
+        } catch (JsonProcessingException e) {
+            logger.error("Problem parsing exerciseDb JSON", e);
+        } catch (IOException e) {
+            logger.error("Problem reading exerciseDb JSON", e);
         }
 
-        return list;
+        return null;
     }
 }

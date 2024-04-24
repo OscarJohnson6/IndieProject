@@ -1,6 +1,7 @@
 package fit.app.controller;
 
 import fit.app.api.ApiNinjas;
+import fit.app.pojo.ApiNinjaResult;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -34,16 +36,23 @@ public class ApiNinjasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("title", "API-Ninja Exercises");
         req.setAttribute("styleSheet", "apiNinjasResults");
+        String url = "/errorPage";
         ApiNinjas exercise = new ApiNinjas();
 
-        req.setAttribute("results", exercise.createApiResponse(
-                                                req.getParameter("exerciseName"),
-                                                req.getParameter("type"),
-                                                req.getParameter("muscle"),
-                                                req.getParameter("difficulty"),
-                                                req.getParameter("offset")));
+        ArrayList<ApiNinjaResult> exercises = exercise.createApiResponse(
+                req.getParameter("exerciseName"),
+                req.getParameter("type"),
+                req.getParameter("muscle"),
+                req.getParameter("difficulty"),
+                req.getParameter("offset"));
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/apiNinjaResults.jsp");
+        if (exercises != null) {
+            url = "/apiNinjaResults.jsp";
+        }
+
+        req.setAttribute("results", exercises);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
         dispatcher.forward(req, resp);
     }
 }

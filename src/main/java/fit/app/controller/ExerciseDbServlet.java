@@ -1,6 +1,8 @@
 package fit.app.controller;
 
 import fit.app.api.ExerciseDb;
+import fit.app.pojo.ApiNinjaResult;
+import fit.app.pojo.ExerciseDbJson;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -36,13 +39,19 @@ public class ExerciseDbServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("title", "ExerciseDB Exercises");
         req.setAttribute("styleSheet", "exerciseDbResults");
+        String url = "/errorPage";
         ExerciseDb exercise = new ExerciseDb();
-
-        req.setAttribute("exerciseDbJson", exercise.createApiResponse(
+        ArrayList<ExerciseDbJson> exercises = exercise.createApiResponse(
                 req.getParameter("limitExerciseDb"),
-                req.getParameter("offsetExerciseDb")));
+                req.getParameter("offsetExerciseDb"));
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/exerciseDbResults.jsp");
+        if (exercises != null) {
+            url = "/exerciseDbResults.jsp";
+        }
+
+        req.setAttribute("exerciseDbJson", exercises);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
         dispatcher.forward(req, resp);
     }
 }

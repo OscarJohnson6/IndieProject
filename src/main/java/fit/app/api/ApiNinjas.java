@@ -1,21 +1,13 @@
 package fit.app.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.reflect.TypeToken;
 import fit.app.pojo.ApiNinjaResult;
-import fit.app.pojo.ExerciseDbJson;
 import fit.app.utilities.PropertiesLoader;
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.*;
 
 /**
@@ -23,7 +15,7 @@ import java.util.*;
  *
  * @author OscarJohnson6
  */
-public class ApiNinjas implements PropertiesLoader {
+public class ApiNinjas implements PropertiesLoader, FetchApiResponse {
 
     /**
      * The Logger.
@@ -68,38 +60,20 @@ public class ApiNinjas implements PropertiesLoader {
             url += "&offset=" + Integer.parseInt(offset);
         }
 
-        return generateResponse(url);
-    }
-
-    /**
-     * Generate response map.
-     *
-     * @param url the api request url
-     * @return the result object to ApiNinjaResult
-     */
-    private ArrayList<ApiNinjaResult> generateResponse(String url) {
-        OkHttpClient client = new OkHttpClient();
-        ArrayList<ApiNinjaResult> list = null;
-
         Request request = new Request.Builder()
                 .url(url)
                 .get()
                 .addHeader("X-RapidAPI-Key", properties.getProperty("api.ninjas.key"))
                 .addHeader("X-RapidAPI-Host", properties.getProperty("api.ninjas.host"))
                 .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.body() != null) {
-                String stringResponse = response.body().string();
-                ObjectMapper mapper = new ObjectMapper();
-                list = mapper.readValue(stringResponse, new TypeReference<>() {});
-            }
-        } catch (JsonProcessingException processingException) {
-            logger.error("Problem parsing JSON in generateResponse() ", processingException);
-        } catch (IOException ioException) {
-            logger.error("Problem reading JSON in generateResponse() ", ioException);
+        try {
+            return generateApiResponse(ApiNinjaResult.class, request);
+        } catch (JsonProcessingException e) {
+            logger.error("Problem parsing api ninja JSON", e);
+        } catch (IOException e) {
+            logger.error("Problem reading api ninja JSON", e);
         }
 
-        return list;
+        return null;
     }
 }
