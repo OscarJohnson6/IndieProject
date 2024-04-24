@@ -24,10 +24,6 @@ a:visited {
     color: #1790ff;
 }
 
-#logoHolder {
-    max-height: 99px;
-}
-
 /*
     Classes
 */
@@ -78,7 +74,7 @@ a:visited {
     color: mintcream;
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-top: 10vh;
+    margin: 10vh 0 0;
 }
 
 .footerLinks {
@@ -89,8 +85,6 @@ a:visited {
 
 .columDisplay {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .flexBoxRow {
