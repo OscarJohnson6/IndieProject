@@ -18,7 +18,7 @@
 ### Week 3
 - [x] Add other java dao's needed
 - [x] Create classes for APIs
-- [ ] Create Servlets for JSPs
+- [x] Create Servlets for JSPs
 - [x] Update user stories to be more specific
 - [x] Update code from project checkpoint feedback
 - [x] Add variables for a users gender for API calculations
@@ -53,7 +53,7 @@
 - [x] Improve CSS on API forms
 - [x] Improve CSS on index page
 - [x] Review/improve API ninja method
-- [ ] Select option between exercise forms
+- [x] Select option between exercise forms
 - [x] Update journal 9
 
 ### Week 9
@@ -63,21 +63,25 @@
 - [x] Update journal 10
 
 ### Week 10
-- [ ] Finish incomplete tasks
+- [x] Finish incomplete tasks
 - [x] Create a logo
 - [ ] Allow kg or lb input for weight
 - [ ] Allow ft or cm input for height, waist, hip
-- [ ] Update journal 11
+- [x] Update journal 11
 
 ### Week 11
 - [ ] Add nutrition calculations like recommended grams of protein, fat, or sugar, also water, or calories.
-- [ ] Create a display for all weights, heights, waist, hip amounts
-- [ ] Update journal 12
+- [x] Create a display for all weights, heights, waist, hip amounts
+- [x] Update journal 12
 
 ### Week 12
-- [ ] Allow users to edit all weights, heights, waist, hip amounts
-- [ ] Allow users to delete all weights, heights, waist, hip amounts
-- [ ] Allow users to edit their account information like name, gender, or date of birth
-- [ ] Allow users to delete their account information
-- [ ] Allow users to add additional weight, height, waist, hip amounts
-- [ ] Update journal 13
+- [x] Allow users to edit all weights, heights, waist, hip amounts
+- [x] Allow users to delete all weights, heights, waist, hip amounts
+- [x] Allow users to edit their account information like name, gender, or date of birth
+- [x] Allow users to delete their account information
+- [x] Allow users to add additional weight, height, waist, hip amounts
+- [x] Update journal 13
+
+### Week 13
+- [ ] Finish incomplete tasks
+- [ ] Update journal 14

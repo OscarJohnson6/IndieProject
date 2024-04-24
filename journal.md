@@ -95,15 +95,26 @@ I generated logo for GenieFit using Copilot.
 I didn't get as much done this week because I was having a few problems with AWS.
     <br><br>
 ### Journal 11, 4/1-7/2024
-pending...
+This week I mostly focused on improving a lot of my css. 
+
+I also created the SignOutServlet to allow a user to sign out.
     <br><br>
 
 ### Journal 12, 4/8-14/2024
-pending...
+I created jsp pages and servlets linking to them for editing a users account and record input, 
+deleting a record, or adding a new record. So I made four jsps and servlets. 
+As well as classes to process a delete record, add record, or update account operations on the database.
     <br><br>
 
 ### Journal 13, 4/15-21/2024
-pending...
+I refactored and reviewed a lot of the code I had to see where I could remove code duplication.
+
+Some areas where I refactored was in the IndexServlet and UpdateUserAccount by having them 
+implement the RecentRecordLoader interface to call loadRecentRecords() for the most recent records.
+I also created generic method in DeleteRecord and AccountInsertUpdate where the generic 
+type is the record classes, the method is also what triggers the operation in the database.
+
+I also added an interface for my API classes to use to generate a response.
     <br><br>
 
 ### Journal 14, 4/22-29/2024
