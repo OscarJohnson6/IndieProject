@@ -12,35 +12,41 @@
     <h4><a href="${pageContext.request.contextPath}/createExercisesServlet" class="goBackLink">&lt; Go Back</a></h4>
 <c:choose>
     <c:when test="${results ne null and not empty results}">
-        <div class="tableResults">
+        <div class="boxedResults">
             <c:forEach var="apiNinjaResult" varStatus="loop" items="${results}">
-                <h3>Exercise ${loop.index + 1}</h3>
-                <table class="ninjaResults">
-                    <tr>
-                        <th class="leftFloat">Difficulty</th>
-                        <td>${apiNinjaResult.difficulty}</td>
-                    </tr>
-                    <tr>
-                        <th class="leftFloat">Instructions</th>
-                        <td>${apiNinjaResult.instructions}</td>
-                    </tr>
-                    <tr>
-                        <th class="leftFloat">Muscle</th>
-                        <td>${apiNinjaResult.muscle}</td>
-                    </tr>
-                    <tr>
-                        <th class="leftFloat">Name</th>
-                        <td>${apiNinjaResult.name}</td>
-                    </tr>
-                    <tr>
-                        <th class="leftFloat">Equipment</th>
-                        <td>${apiNinjaResult.equipment}</td>
-                    </tr>
-                    <tr>
-                        <th class="leftFloat">Type</th>
-                        <td>${apiNinjaResult.type}</td>
-                    </tr>
-                </table><br><br>
+                <div class="coloredBox">
+                    <h3>Exercise ${loop.index + 1}</h3>
+                    <div class="flexBoxStart">
+                        <div class="instructionsLeft">
+                            <h4>Instructions</h4>
+                            <p>${apiNinjaResult.instructions}</p>
+                        </div>
+                        <div class="exerciseInfoRight">
+                            <table class="ninjaResults">
+                                <tr>
+                                    <th class="leftFloat">Difficulty</th>
+                                    <td>${apiNinjaResult.difficulty}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftFloat">Muscle</th>
+                                    <td>${apiNinjaResult.muscle}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftFloat">Name</th>
+                                    <td>${apiNinjaResult.name}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftFloat">Equipment</th>
+                                    <td>${apiNinjaResult.equipment}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftFloat">Type</th>
+                                    <td>${apiNinjaResult.type}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </c:forEach>
         </div>
     </c:when>
