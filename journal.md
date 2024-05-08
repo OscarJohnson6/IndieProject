@@ -111,12 +111,19 @@ I refactored and reviewed a lot of the code I had to see where I could remove co
 
 Some areas where I refactored was in the IndexServlet and UpdateUserAccount by having them 
 implement the RecentRecordLoader interface to call loadRecentRecords() for the most recent records.
-I also created generic method in DeleteRecord and AccountInsertUpdate where the generic 
+    <br><br>
+
+### Journal 14, 4/22-28/2024
+I created generic method in DeleteRecord and AccountInsertUpdate where the generic
 type is the record classes, the method is also what triggers the operation in the database.
 
 I also added an interface for my API classes to use to generate a response.
     <br><br>
 
-### Journal 14, 4/22-29/2024
-pending...
+### Journal 15, 4/29 - 5/5 2024
+I updated a lot of the CSS styles and the way the jsp were display.
+    <br><br>
+
+### Journal 16, 5/7/2024
+I recorded the video for the project.
     <br><br>
