@@ -84,44 +84,45 @@ public class AccountInsertUpdate extends HttpServlet {
         String waistIdString = req.getParameter("waistId");
 
         if (weight != null && !weight.isEmpty()) {
-            GenericDao<WeightRecord> weightDao = new GenericDao<>(WeightRecord.class);
             WeightRecord weightRecord = new WeightRecord(user, Integer.parseInt(weight));
-            insertOrUpdate(weightIdString, weightRecord, weightDao);
+            insertOrUpdate(weightIdString, weightRecord, WeightRecord.class);
         }
 
         if (height != null && !height.isEmpty()) {
-            GenericDao<HeightRecord> heightDao = new GenericDao<>(HeightRecord.class);
             HeightRecord heightRecord = new HeightRecord(user, Integer.parseInt(height));
-            insertOrUpdate(heightIdString, heightRecord, heightDao);
+            insertOrUpdate(heightIdString, heightRecord, HeightRecord.class);
         }
 
         if (hip != null && !hip.isEmpty()) {
-            GenericDao<HipRecord> hipDao = new GenericDao<>(HipRecord.class);
             HipRecord hipRecord = new HipRecord(user, Integer.parseInt(hip));
-            insertOrUpdate(hipIdString, hipRecord, hipDao);
+            insertOrUpdate(hipIdString, hipRecord, HipRecord.class);
         }
 
         if (waist != null && !waist.isEmpty()) {
-            GenericDao<WaistRecord> waistDao = new GenericDao<>(WaistRecord.class);
             WaistRecord waistRecord = new WaistRecord(user, Integer.parseInt(waist));
-            insertOrUpdate(waistIdString, waistRecord, waistDao);
+            insertOrUpdate(waistIdString, waistRecord, WaistRecord.class);
         }
 
         return user.getId();
     }
 
+
     /**
      * Insert or update.
      *
-     * @param <T>      the type parameter
-     * @param idString the id string
-     * @param record   the record
-     * @param dao      the dao
+     * @param <T>           the type parameter
+     * @param idString      the id string
+     * @param record        the record
+     * @param daoClassParam the dao class param
      */
-    private <T extends Identity> void insertOrUpdate(String idString, T record, GenericDao<T> dao) {
+    private <T extends Identity> void insertOrUpdate(String idString, T record, Class<T> daoClassParam) {
+        GenericDao<T> dao = new GenericDao<>(daoClassParam);
         if (idString != null && !idString.isEmpty()) {
             int id = Integer.parseInt(idString);
             record.setId(id);
+            T recordForPrevDate = dao.getById(id);
+            // New object had null date, which was updating the previous date it had
+            record.setEntryDate(recordForPrevDate.getEntryDate());
             dao.update(record);
         } else {
             record.setEntryDate(new Date());
