@@ -16,94 +16,72 @@
         <input type="hidden" name="hipId" value="${userHipId}">
         <input type="hidden" name="waistId" value="${userWaistId}">
 
-        <div class="flexRowDiv">
-            <div>
-                <div class="groupDiv1">
-                    <label for="firstName" >Enter First Name:</label><br>
-                    <input type="text" id="firstName" name="firstName"
-                           placeholder="Enter your first name" value=${userAccount.firstName}>
-                    <br><br>
+        <div class="groupDiv1">
+            <label for="firstName" >Enter First Name:</label><br>
+            <input type="text" id="firstName" name="firstName"
+                   placeholder="Enter your first name" value=${userAccount.firstName}>
+            <br><br>
 
-                    <label for="lastName" >Enter Last Name:</label><br>
-                    <input type="text" id="lastName" name="lastName"
-                           placeholder="Enter your last name" value=${userAccount.lastName}>
-                    <br><br>
-                </div>
-                <div class="groupDiv2">
-                    <label for="age" >Enter Age:</label><br>
-                    <input type="date" id="age" name="age" max="${currentDate}"
-                           placeholder="Enter your age" value=${userAccount.age}>
-                    <br><br>
+            <label for="lastName" >Enter Last Name:</label><br>
+            <input type="text" id="lastName" name="lastName"
+                   placeholder="Enter your last name" value=${userAccount.lastName}>
+            <br><br>
+        </div>
+        <div class="groupDiv2">
+            <label for="age" >Enter Birthdate:</label><br>
+            <input type="date" id="age" name="age" max="${currentDate}"
+                   placeholder="Enter your age" value=${userAccount.age}>
+            <br><br>
 
-                    <fieldset>
-                        <legend>Select Your Gender</legend>
-                        <input type="radio" id="male" name="gender" value="male"
-                               <c:if test="${userAccount.gender eq 'male'}">checked</c:if>>
-                        <label for="male">Male</label><br>
+            <fieldset>
+                <legend>Select Your Gender</legend>
+                <input type="radio" id="male" name="gender" value="male"
+                       <c:if test="${userAccount.gender eq 'male'}">checked</c:if>>
+                <label for="male">Male</label><br>
 
-                        <input type="radio" id="female" name="gender" value="female"
-                               <c:if test="${userAccount.gender eq 'female'}">checked</c:if>>
-                        <label for="female">Female</label><br>
-                    </fieldset><br>
+                <input type="radio" id="female" name="gender" value="female"
+                       <c:if test="${userAccount.gender eq 'female'}">checked</c:if>>
+                <label for="female">Female</label><br>
+            </fieldset><br>
 
-                    <fieldset>
-                        <legend>Select How Active You Are</legend>
-                        <input type="radio" id="high" name="activity_level" value="high"
-                               <c:if test="${userAccount.activityLevel eq 'high'}">checked</c:if>>
-                        <label for="high">High</label><br>
+            <fieldset>
+                <legend>Select How Active You Are</legend>
+                <input type="radio" id="high" name="activity_level" value="high"
+                       <c:if test="${userAccount.activityLevel eq 'high'}">checked</c:if>>
+                <label for="high">High</label><br>
 
-                        <input type="radio" id="medium" name="activity_level" value="medium"
-                               <c:if test="${userAccount.activityLevel eq 'medium'}">checked</c:if>>
-                        <label for="medium">Medium</label><br>
+                <input type="radio" id="medium" name="activity_level" value="medium"
+                       <c:if test="${userAccount.activityLevel eq 'medium'}">checked</c:if>>
+                <label for="medium">Medium</label><br>
 
-                        <input type="radio" id="low" name="activity_level" value="low"
-                               <c:if test="${userAccount.activityLevel eq 'low'}">checked</c:if>>
-                        <label for="low">Low</label><br>
-                    </fieldset><br>
-                </div>
-            </div>
-            <div>
-                <div class="groupDiv3">
-                    <fieldset>
-                        <legend>Pounds or Kilograms</legend>
-                        <input type="radio" id="pounds" name="weightType" value="pounds" checked>
-                        <label for="pounds">Pounds (lbs)</label><br>
+                <input type="radio" id="low" name="activity_level" value="low"
+                       <c:if test="${userAccount.activityLevel eq 'low'}">checked</c:if>>
+                <label for="low">Low</label><br>
+            </fieldset><br>
+        </div>
+        <div class="groupDiv3">
+            <label for="weight" >Enter Weight (kg):</label><br>
+            <input type="number" id="weight" name="weight" min="1" max="10000000"
+                   placeholder="Enter your weight" value=${userWeight}>
+            <br><br>
+        </div>
+        <div class="groupDiv4">
+            <label for="height" >Enter Height (cm):</label><br>
+            <input type="number" id="height" name="height" min="1" max="10000000"
+                   placeholder="Enter your height" value=${userHeight}>
+            <br><br>
 
-                        <input type="radio" id="kilograms" name="weightType" value="kilograms">
-                        <label for="kilograms">Kilograms (kg)</label><br>
-                    </fieldset><br>
-                    <label for="weight" >Enter Weight:</label><br>
-                    <input type="number" id="weight" name="weight" min="1"
-                           placeholder="Enter your weight" value=${userWeight}>
-                    <br><br>
-                </div>
-                <div class="groupDiv4">
-                    <fieldset>
-                        <legend>Inches or Cm</legend>
-                        <input type="radio" id="inches" name="measurementType" value="inches" checked>
-                        <label for="inches">Inches (in)</label><br>
+            <label for="waist" >Enter Waist (cm):</label><br>
+            <input type="number" id="waist" name="waist" min="1" max="10000000"
+                   placeholder="Enter your waist" value=${userWaist}>
+            <br><br>
 
-                        <input type="radio" id="centimeters" name="measurementType" value="centimeters">
-                        <label for="centimeters">Centimeters (cm)</label><br>
-                    </fieldset><br>
-                    <label for="height" >Enter Height:</label><br>
-                    <input type="number" id="height" name="height" min="1"
-                           placeholder="Enter your height" value=${userHeight}>
-                    <br><br>
+            <label for="hip" >Enter Hip (cm):</label><br>
+            <input type="number" id="hip" name="hip" min="1" max="10000000"
+                   placeholder="Enter your hip" value=${userHip}>
+            <br><br>
 
-                    <label for="waist" >Enter Waist:</label><br>
-                    <input type="number" id="waist" name="waist" min="1"
-                           placeholder="Enter your waist" value=${userWaist}>
-                    <br><br>
-
-                    <label for="hip" >Enter Hip:</label><br>
-                    <input type="number" id="hip" name="hip" min="1"
-                           placeholder="Enter your hip" value=${userHip}>
-                    <br><br>
-
-                    <button type="submit" name="update_account_submit_button">Update Account</button>
-                </div>
-            </div>
+            <button type="submit" name="update_account_submit_button">Update Account</button>
         </div>
     </form>
 </div>
