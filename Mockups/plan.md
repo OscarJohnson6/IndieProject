@@ -84,4 +84,13 @@
 
 ### Week 13
 - [ ] Finish incomplete tasks
-- [ ] Update journal 14
+- [x] Update journal 14
+
+
+### Week 14
+- [x] Update CSS
+- [x] Update journal 15
+
+### Week 15
+- [x] Record video
+- [x] Update journal 16
