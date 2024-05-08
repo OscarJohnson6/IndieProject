@@ -13,11 +13,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.1">
     <c:if test="${styleSheet ne null}">
-        <link rel="stylesheet" href="css/${styleSheet}.css?v=1.8">
+        <link rel="stylesheet" href="css/${styleSheet}.css?v=1.1">
+    </c:if>
+    <c:if test="${styleSheet2 ne null}">
+        <link rel="stylesheet" href="css/${styleSheet2}.css?v=1.1">
     </c:if>
     <c:if test="${scriptFile ne null}">
-        <script src="js/${scriptFile}.js?v=1.4" charset="UTF-8"></script>
+        <script src="js/${scriptFile}.js?v=1.0" charset="UTF-8"></script>
     </c:if>
 </head>
