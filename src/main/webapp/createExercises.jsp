@@ -15,12 +15,12 @@
             <label for="formSelector">Exercise Generator Selector</label><br>
             <select id="formSelector">
                 <option value="exerciseDBForm">ExerciseDB</option>
-                <option value="ninjaForm">API-Ninja</option>
+                <option value="ninjaForm" selected>API-Ninja</option>
             </select>
         </div>
         <div class="exerciseDBForms">
             <form action="${pageContext.request.contextPath}/ExerciseDB"
-                  method="GET" id="exerciseDBForm">
+                  method="GET" id="exerciseDBForm" class="hidden">
                 <h3>ExerciseDB Exercises</h3>
 
                 <label for="limitExerciseDb">Limit (10 default)</label>
@@ -32,6 +32,7 @@
                        name="offsetExerciseDb" placeholder="Enter offset amount"><br>
 
                 <input type="submit" value="Submit" id="exerciseDbFormSubmit">
+                <input type="reset" value="Clear" id="exerciseDbFormReset">
             </form><br>
         </div>
 
