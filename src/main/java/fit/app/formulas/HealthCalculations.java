@@ -5,6 +5,9 @@ import org.decimal4j.util.DoubleRounder;
 
 import java.util.List;
 
+/**
+ * The type Health calculations.
+ */
 public class HealthCalculations {
 
     private final User user;
@@ -141,20 +144,21 @@ public class HealthCalculations {
     public Double getTDEE() {
         Double effort = null;
         String activityLevel = user.getActivityLevel();
+        Double bmr = getBMR();
 
-        if (activityLevel != null) {
+        if (activityLevel != null && bmr != null) {
             switch (activityLevel) {
                 case "low":
-                    effort = .5;
+                    effort = .75;
                     break;
                 case "medium":
-                    effort = 1.0;
+                    effort = 1.15;
                     break;
                 case "high":
-                    effort = 1.5;
+                    effort = 1.45;
                     break;
             }
-            effort = DoubleRounder.round(getBMR() * effort, 2);
+            effort = DoubleRounder.round(bmr * effort, 2);
         }
 
         return effort;
@@ -220,12 +224,14 @@ public class HealthCalculations {
     }
 
     /**
-     * Gets whtr.
-     * WHtR = waist circumference / height
+     * Gender check formula double.
      *
-     * @return the whtr
+     * @param formulaNumber the formula number
+     * @param maleNumber    the male number
+     * @param femaleNumber  the female number
+     * @return the double
      */
-    private Double genderCheckFormula(Double formulaNumber, Double maleNumber, Double femaleNumber) {
+    public Double genderCheckFormula(Double formulaNumber, Double maleNumber, Double femaleNumber) {
         if (gender != null) {
             if (gender.equals("male")) {
                 formulaNumber += maleNumber;

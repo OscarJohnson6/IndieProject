@@ -16,23 +16,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * A simple servlet.
+ * Has a method to get record ids from params to then set attributes
+ * for editHealthRecord jsp. Cannot implement recent records because
+ * it's going to edit a specific record instead of recent ones.
  *
  * @author OscarJohnson6
  */
 @WebServlet(
         urlPatterns = {"/editRecord"}
 )
-public class EditHealthRecordServlet extends HttpServlet implements RecentRecordLoader {
+public class EditHealthRecordServlet extends HttpServlet {
 
     /**
      * This method forwards the request to the "addHealthRecord.jsp" page, setting attributes
-     * for the title and stylesheet.
+     * for the title and stylesheet, also gets different record ids from http params to get
+     * each record value, so they can both be attributes.
      *
      * @param req  the http request object representing the client's request
      * @param resp the http response object representing the servlet's response
-     * @throws ServletException if the servlet encounters difficulty while handling the request
-     * @throws IOException      if an input or output error occurs while the servlet is handling the request
+     * @throws ServletException if the servlet encounters difficulty while
+     *                          handling the request
+     * @throws IOException      if an input or output error occurs while
+     *                          the servlet is handling the request
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

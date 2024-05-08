@@ -50,5 +50,4 @@ public interface RecentRecordLoader {
             req.setAttribute("userWaistId", waist.getId());
         }
     }
-
 }

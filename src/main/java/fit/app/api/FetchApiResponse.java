@@ -10,19 +10,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * The interface Fetch api response.
+ * The superclass for fetching API responses.
  */
-public interface FetchApiResponse {
+public class FetchApiResponse {
     /**
-     * Generate api response array list.
+     * Generate API response array list.
      *
      * @param <T>      the type parameter
-     * @param apiClass the api class
      * @param request  the request
      * @return the array list
-     * @throws IOException the io exception
+     * @throws IOException the IO exception
      */
-    default <T> ArrayList<T> generateApiResponse(Class<T> apiClass, Request request) throws IOException {
+    public <T> ArrayList<T> generateApiResponse(Request request) throws IOException {
         OkHttpClient client = new OkHttpClient();
         ArrayList<T> list = null;
 
