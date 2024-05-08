@@ -15,7 +15,7 @@ import java.util.*;
  *
  * @author OscarJohnson6
  */
-public class ApiNinjas implements PropertiesLoader, FetchApiResponse {
+public class ApiNinjas extends FetchApiResponse implements PropertiesLoader {
 
     /**
      * The Logger.
@@ -67,7 +67,7 @@ public class ApiNinjas implements PropertiesLoader, FetchApiResponse {
                 .addHeader("X-RapidAPI-Host", properties.getProperty("api.ninjas.host"))
                 .build();
         try {
-            return generateApiResponse(ApiNinjaResult.class, request);
+            return generateApiResponse(request);
         } catch (JsonProcessingException e) {
             logger.error("Problem parsing api ninja JSON", e);
         } catch (IOException e) {

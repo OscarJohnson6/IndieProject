@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class ExerciseDb implements PropertiesLoader, FetchApiResponse {
+public class ExerciseDb extends FetchApiResponse implements PropertiesLoader {
     /**
      * The Logger.
      */
@@ -45,7 +45,7 @@ public class ExerciseDb implements PropertiesLoader, FetchApiResponse {
                 .addHeader("X-RapidAPI-Host", properties.getProperty("exercise.db.host"))
                 .build();
         try {
-            return generateApiResponse(ExerciseDbJson.class, request);
+            return generateApiResponse(request);
         } catch (JsonProcessingException e) {
             logger.error("Problem parsing exerciseDb JSON", e);
         } catch (IOException e) {
