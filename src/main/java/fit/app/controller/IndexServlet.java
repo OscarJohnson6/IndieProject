@@ -70,6 +70,13 @@ public class IndexServlet extends HttpServlet implements RecentRecordLoader {
         return reversedDates;
     }
 
+    /**
+     * Loop through dates.
+     *
+     * @param <T>         the type parameter
+     * @param recordDates the record dates
+     * @param recordList  the record list
+     */
     private <T extends Identity> void loopThroughDates(Set<Date> recordDates, List<T> recordList) {
         for (T record : recordList) {
             if (record.getEntryDate() != null) {
