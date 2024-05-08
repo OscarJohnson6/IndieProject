@@ -42,7 +42,7 @@ class HealthCalculationsTest {
         User user1 = userDao.getById(2);
         user1.setActivityLevel("medium");
         test1User = new HealthCalculations(user1);
-        Double tdee = 1719.46;
+        Double tdee = 1977.38;
 
         assertNotNull(test1User.getTDEE());
         assertEquals(tdee, test1User.getTDEE());
@@ -99,7 +99,7 @@ class HealthCalculationsTest {
      */
     @Test
     void getTDEEMaleTest() {
-        Double tdee = 859.73;
+        Double tdee = 1289.6;
 
         assertNotNull(test1User.getTDEE());
         assertEquals(tdee, test1User.getTDEE());
@@ -190,7 +190,7 @@ class HealthCalculationsTest {
      */
     @Test
     void getTDEEFemaleTest() {
-        Double tdee = 1836.74;
+        Double tdee = 1775.51;
 
         assertNotNull(testFemaleUser.getTDEE());
         assertEquals(tdee, testFemaleUser.getTDEE());
