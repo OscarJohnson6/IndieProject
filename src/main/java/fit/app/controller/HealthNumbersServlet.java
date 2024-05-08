@@ -79,8 +79,10 @@ public class HealthNumbersServlet extends HttpServlet {
     private void createTestCalculationAttribute(HttpServletRequest req) {
         User userName = (User) req.getSession().getAttribute("userAccount");
         User user = new User();
-        user.setFirstName(userName.getFirstName());
-        user.setLastName(userName.getLastName());
+        if (userName != null) {
+            user.setFirstName(userName.getFirstName());
+            user.setLastName(userName.getLastName());
+        }
         String age = req.getParameter("age");
         String gender = req.getParameter("gender");
         String activityLevel = req.getParameter("activity_level");
