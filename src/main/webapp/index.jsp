@@ -13,48 +13,50 @@
     <c:choose>
         <c:when test="${userAccount ne null}">
             <div class="flexBoxColumn">
-                <div class="accountInfo">
-                    <table>
-                        <c:if test="${not empty userAccount.firstName and not empty userAccount.lastName}">
-                            <h3>${userAccount.firstName} ${userAccount.lastName}</h3>
-                        </c:if>
-                        <tr>
-                            <th>Weight</th>
-                            <td><c:if test="${not empty userWeight}">${userWeight} kg</c:if></td>
-                        </tr>
-                        <tr>
-                            <th>Height</th>
-                            <td><c:if test="${not empty userHeight}">${userHeight} cm</c:if></td>
-                        </tr>
-                        <tr>
-                            <th>Waist</th>
-                            <td><c:if test="${not empty userWaist}">${userWaist} cm</c:if></td>
-                        </tr>
-                        <tr>
-                            <th>Hip</th>
-                            <td><c:if test="${not empty userHip}">${userHip} cm</c:if></td>
-                        </tr>
-                        <tr>
-                            <th>Age</th>
-                            <td>${userAccount.ageNumber}</td>
-                        </tr>
-                        <tr>
-                            <th>Gender</th>
-                            <td>${userAccount.gender}</td>
-                        </tr>
-                        <tr>
-                            <th>Activity</th>
-                            <td>${userAccount.activityLevel}</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="boxEditAccount">
-                    <h4>Edit Your Account</h4>
-                    <a href="${pageContext.request.contextPath}/updateAccount" class="editAccountButton" id="updateAccountButton">Edit Account</a>
-                </div>
-                <div class="boxExport">
-                    <h4>Export Health Info</h4>
-                    <a href="${pageContext.request.contextPath}/infoExport" class="editAccountButton">Export Records</a>
+                <div class="boxColor">
+                    <div class="accountInfo">
+                        <table>
+                            <c:if test="${not empty userAccount.firstName and not empty userAccount.lastName}">
+                                <h3 class="whiteUserName">${userAccount.firstName} ${userAccount.lastName}</h3>
+                            </c:if>
+                            <tr>
+                                <th>Weight</th>
+                                <td><c:if test="${not empty userWeight}">${userWeight} kg</c:if></td>
+                            </tr>
+                            <tr>
+                                <th>Height</th>
+                                <td><c:if test="${not empty userHeight}">${userHeight} cm</c:if></td>
+                            </tr>
+                            <tr>
+                                <th>Waist</th>
+                                <td><c:if test="${not empty userWaist}">${userWaist} cm</c:if></td>
+                            </tr>
+                            <tr>
+                                <th>Hip</th>
+                                <td><c:if test="${not empty userHip}">${userHip} cm</c:if></td>
+                            </tr>
+                            <tr>
+                                <th>Age</th>
+                                <td>${userAccount.ageNumber}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>${userAccount.gender}</td>
+                            </tr>
+                            <tr>
+                                <th>Activity</th>
+                                <td>${userAccount.activityLevel}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="boxEditAndExport">
+                        <h4 class="indexBoxHeader">Edit Your Account</h4>
+                        <a href="${pageContext.request.contextPath}/updateAccount" class="editAccountButton" id="updateAccountButton">Edit Account</a>
+                    </div>
+                    <div class="boxEditAndExport">
+                        <h4 class="indexBoxHeader">Export Health Info</h4>
+                        <a href="${pageContext.request.contextPath}/infoExport" class="editAccountButton">Export Records</a>
+                    </div>
                 </div>
             </div>
         </c:when>
@@ -81,6 +83,10 @@
                     <c:forEach var="date" items="${dateList}">
                         <tr>
                             <td>${date}</td>
+                            <c:set var="weightIdUrl" value="" />
+                            <c:set var="heightIdUrl" value="" />
+                            <c:set var="hipIdUrl" value="" />
+                            <c:set var="waistIdUrl" value="" />
                             <td>
                                 <c:forEach var="weightRecord" items="${userAccount.weightRecords}">
                                     <c:if test="${weightRecord.entryDate eq date}">
@@ -136,7 +142,7 @@
         </c:when>
         <c:otherwise>
             <div class="noAccountRecords">
-                <h3>Create an account to keep health records.</h3>
+                <h4>Create an account to keep health records.</h4>
             </div>
         </c:otherwise>
     </c:choose>

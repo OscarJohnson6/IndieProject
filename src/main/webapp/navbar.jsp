@@ -15,27 +15,38 @@
         </a>
     </div>
     <div class="reverseRow">
+        <div></div>
         <div class="pageTopFlewCol">
             <c:choose>
                 <c:when test="${userAccount ne null}">
-                    <p class="accountMessage"><a href="${pageContext.request.contextPath}/signOut">Sign Out</a>
+                    <p class="accountMessage">
+                        <a class="marginRight" href="${pageContext.request.contextPath}/signOut">Sign Out</a>
                         <c:if test="${userAccount.firstName ne null}">
-                            | Hello, ${userAccount.firstName}</p>
+                            | Hello, ${userAccount.firstName}
                         </c:if>
-                    <a href="${pageContext.request.contextPath}/settings"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
+                    </p>
+                    <a href="${pageContext.request.contextPath}/settings">
+                        <img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture">
+                    </a>
                 </c:when>
                 <c:otherwise>
-                    <p class="accountMessage"><a href="${pageContext.request.contextPath}/signUp">Sign Up</a> | <a href="${pageContext.request.contextPath}/logIn">Login</a></p>
-                    <a href="${pageContext.request.contextPath}/logIn"><img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture"></a>
+                    <p class="accountMessage">
+                        <a class="marginRight" href="${pageContext.request.contextPath}/signUp">Sign Up</a>
+                        |
+                        <a class="marginLeftFourEm" href="${pageContext.request.contextPath}/logIn">Login</a>
+                    </p>
+                    <a href="${pageContext.request.contextPath}/logIn">
+                        <img src="img/profile_picture.png" alt="Blank grey profile picture" class="profilePicture">
+                    </a>
                 </c:otherwise>
             </c:choose>
         </div>
+        <div class="navBar">
+            <a href="healthNumbers">Health Calculations</a>
+            <a href="settings">Settings</a>
+            <a href="createExercisesServlet">Exercise Creation</a>
+        </div>
     </div>
-</div>
-<div class="navBar">
-    <a href="healthNumbers">Health Calculations</a>
-    <a href="settings">Settings</a>
-    <a href="createExercisesServlet">Exercise Creation</a>
 </div>
 <div class="page-container">
     <div class="content-wrap">
