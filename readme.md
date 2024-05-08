@@ -34,5 +34,5 @@ like doing just upper body or arms.
 ### Links
 - [Journal](journal.md)
 - [Project Plan](Mockups/plan.md)
-- [Screen Design](Mockups/SQL Design/mysqlDesign.png)
+- [Screen Design](Mockups/SQL%20Design/mysqlDesign.png)
 - [User Stories](Mockups/UserStories.md)
