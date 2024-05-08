@@ -6,7 +6,7 @@
 }
 
 #muscle {
-    width: 13em;
+    width: 12.9em;
 }
 
 #limitExerciseDb {
@@ -80,10 +80,6 @@
 /*
     Forms
 */
-.exerciseDBForms {
-    min-width: 472px;
-}
-
 .exerciseDBForms h3 {
     margin: 0 0 .5rem;
 }

@@ -30,8 +30,13 @@
 }
 
 .card {
-    background-color: rgba(187, 212, 245, 0.8);
+    background-color: rgb(0 9 122);
     padding:0 1.3em 0 1em;
     border-radius: 45px;
     margin: 1em;
+    color: white;
+}
+
+.card p {
+    color: #dedede;
 }
